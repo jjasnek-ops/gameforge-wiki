@@ -3,10 +3,12 @@ import path from 'node:path';
 import { z } from 'astro/zod';
 import { parse } from 'yaml';
 import { walkFiles } from './walk';
+import { assertPublicData, readPublicJson } from './security';
+import { sourceUrlIssue } from './source-links';
 
 const text = z.string().trim().min(1).refine(v => !/[\x00-\x1f]/.test(v), 'Control characters are not allowed');
 const key = text.regex(/^[a-z][a-z0-9-]*$/);
-const url = z.url().refine(v => new URL(v).protocol === 'https:', 'HTTPS required');
+const url = z.url().refine(v => sourceUrlIssue(v) === null, 'Public HTTPS URL required; credentials and private endpoints are forbidden');
 const date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(v => {
   const d = new Date(v);
   return !Number.isNaN(+d) && d.toISOString().slice(0, 10) === v && v <= new Date().toISOString().slice(0, 10);
@@ -33,7 +35,7 @@ export const gameSchema = z.object({
     affiliates: z.boolean().default(false), advancedVideo: z.boolean().default(false),
     multilingual: z.boolean().default(false), analytics: z.boolean().default(false),
   }).strict().prefault({}),
-  analytics: z.object({ ga4: z.string().regex(/^G-[A-Z0-9]+$/).optional(), cloudflareToken: text.optional(), gscVerification: text.optional() }).strict().prefault({}),
+  analytics: z.object({ ga4: z.string().regex(/^G-[A-Z0-9]+$/).optional(), cloudflareBeaconToken: z.string().regex(/^(?:[a-f0-9]{32}|[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12})$/i, 'Use only the public Web Analytics beacon ID, never an API token').optional(), gscVerification: text.optional() }).strict().prefault({}),
   advertising: z.object({
     adsenseClient: z.string().regex(/^ca-pub-\d+$/).optional(),
     adsenseSlots: z.object({ sticky: text.optional(), sidebar: text.optional(), incontent: text.optional() }).strict().prefault({}),
@@ -74,6 +76,7 @@ export const keywordSchema = z.object({
 }).strict();
 export type Keyword = z.infer<typeof keywordSchema>;
 export function planKeywords(input: unknown, game: GameConfig) {
+  assertPublicData(input, 'keywords.json');
   const rows = z.array(keywordSchema).parse(input).filter(k => k.relevant).sort((a, b) => a.priority - b.priority);
   const seenIntent = new Map<string, Keyword>();
   const seenPath = new Set<string>();
@@ -101,10 +104,15 @@ export function loadGame(root = process.cwd()): GameConfig | null {
   if (!fs.existsSync(file) && ['site.json', 'ui-base.json'].some(name => fs.existsSync(path.join(root, '.gameforge', name)))) {
     throw new Error('Generated site is missing game.config.json; refusing the upstream fixture exemption');
   }
-  return fs.existsSync(file) ? gameSchema.parse(JSON.parse(fs.readFileSync(file, 'utf8'))) : null;
+  if (!fs.existsSync(file)) return null;
+  const raw = readPublicJson(file, 'game.config.json');
+  assertPublicData(raw, 'game.config.json');
+  return gameSchema.parse(raw);
 }
 export function loadFacts(root: string): FactSource[] {
-  const facts = z.array(sourceSchema).parse(JSON.parse(fs.readFileSync(path.join(root, 'facts.json'), 'utf8')));
+  const raw = readPublicJson(path.join(root, 'facts.json'), 'facts.json');
+  assertPublicData(raw, 'facts.json');
+  const facts = z.array(sourceSchema).parse(raw);
   if (new Set(facts.map(f => f.id)).size !== facts.length) throw new Error('Duplicate fact source ID');
   return facts;
 }
@@ -130,6 +138,12 @@ export function evidenceErrors(data: Record<string, any>, facts: FactSource[]): 
   if (!sources.some(s => s?.verified && s.kind !== 'community')) errors.push('Community claims need corroboration');
   if (sources.some(s => s && s.version !== data.gameVersion)) errors.push('Source version differs from gameVersion');
   if (sources.some(s => s && s.verifiedAt > data.reviewedAt)) errors.push('Review must follow source verification');
+  const claims = z.array(z.object({ id: key, statement: text, sourceIds: z.array(key).min(1) }).strict()).safeParse(data.claims ?? []);
+  if (!claims.success) errors.push('claims require id, statement and sourceIds');
+  else {
+    if (new Set(claims.data.map(c => c.id)).size !== claims.data.length) errors.push('Duplicate claim ID');
+    for (const claim of claims.data) if (claim.sourceIds.some(id => !ids.data.includes(id))) errors.push(`Claim ${claim.id} must cite the article sources`);
+  }
   return errors;
 }
 export function validateEvidence(root: string, game = loadGame(root)) {

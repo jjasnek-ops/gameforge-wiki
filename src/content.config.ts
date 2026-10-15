@@ -49,6 +49,7 @@ const wiki = defineCollection({
       searchIntent: z.string().optional(),
       evidenceStatus: z.enum(['pending', 'verified', 'disputed']).optional(),
       sourceIds: z.array(z.string()).default([]),
+      claims: z.array(z.object({ id: z.string(), statement: z.string(), sourceIds: z.array(z.string()).min(1) }).strict()).default([]),
       reviewedBy: z.string().optional(),
       reviewedAt: z.coerce.date().transform(date => date.toISOString().slice(0, 10)).optional(),
       relatedCandidates: z.array(z.string()).default([]),

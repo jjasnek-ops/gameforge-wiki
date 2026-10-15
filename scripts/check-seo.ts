@@ -3,6 +3,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { articles, loadGame, validateEvidence } from './lib/gameforge';
 import { walkFiles } from './lib/walk';
+import { attr, routeKey, decodeXml, noindexDirective, headerNoindex, indexPolicy, auditIndexSets } from './lib/seo-audit';
 import { DEMO_GAME_NAMES, DEMO_DOMAINS, DEMO_VAR_VALUES } from './lib/apply-rewrites';
 
 const root = process.cwd(), game = loadGame(root);
@@ -15,7 +16,6 @@ const dist = path.join(root, 'dist');
 if (!fs.existsSync(dist)) throw new Error('Build first: dist is missing');
 const origin = `https://${game.domain}`;
 const errors: string[] = [], titles = new Map<string, string>(), descriptions = new Map<string, string>(), bodies = new Map<string, string>();
-const attr = (tag: string, name: string) => tag.match(new RegExp(`(?:^|\\s)${name}=["']([^"']*)["']`, 'i'))?.[1];
 const meta = (html: string, name: string) => {
   const tag = [...html.matchAll(/<meta\s[^>]*>/gi)].map(m => m[0]).find(t => attr(t, 'name') === name || attr(t, 'property') === name);
   return tag ? attr(tag, 'content') : undefined;
@@ -23,16 +23,14 @@ const meta = (html: string, name: string) => {
 const tags = (html: string, name: string) => [...html.matchAll(new RegExp(`<${name}\\s[^>]*>`, 'gi'))].map(m => m[0]);
 const htmlFiles = walkFiles(dist, { exts: ['.html'] }).filter(f => !path.relative(dist, f).replace(/\\/g, '/').startsWith('ads/'));
 const byRoute = new Map<string, { html: string; indexed: boolean }>();
-// Astro writes Unicode directory names while URL() percent-encodes links.
-// Decode once for disk-route lookups, retaining malformed percent literals.
-const routeKey = (pathname: string) => {
-  try { return decodeURIComponent(pathname); } catch { return pathname; }
-};
+const headerFile = path.join(dist, '_headers');
+const headers = fs.existsSync(headerFile) ? fs.readFileSync(headerFile, 'utf8') : '';
 for (const file of htmlFiles) {
   const rel = path.relative(dist, file).replace(/\\/g, '/');
   const route = rel === 'index.html' ? '/' : rel.endsWith('/index.html') ? `/${rel.slice(0, -10)}` : `/${rel}`;
   const html = fs.readFileSync(file, 'utf8');
-  const indexed = !/noindex/.test(meta(html, 'robots') ?? '');
+  const directives = tags(html, 'meta').filter(tag => ['robots', 'googlebot', 'bingbot'].includes((attr(tag, 'name') ?? '').toLowerCase())).map(tag => attr(tag, 'content') ?? '').join(',');
+  const indexed = !noindexDirective(directives) && !headerNoindex(headers, route);
   byRoute.set(route, { html, indexed });
   const err = (message: string) => errors.push(`${route}: ${message}`);
   const title = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1];
@@ -43,6 +41,8 @@ for (const file of htmlFiles) {
   const canonical = tags(html, 'link').filter(t => attr(t, 'rel') === 'canonical');
   if (canonical.length !== 1 || routeKey(attr(canonical[0], 'href') ?? '') !== origin + route) err('Canonical does not match the actual URL');
   if (!meta(html, 'robots')) err('Missing robots directive');
+  if (noindexDirective(directives) && /(?:^|[\s,])index(?=$|[\s,])/i.test(directives)) err('Conflicting index/noindex directives');
+  if (meta(html, 'og:url') && routeKey(meta(html, 'og:url')!) !== origin + route) err('og:url differs from canonical URL');
   for (const name of ['og:title', 'og:description', 'og:image', 'og:url', 'twitter:card', 'twitter:image']) if (!meta(html, name)) err(`Missing ${name}`);
   for (const name of ['og:image', 'twitter:image']) {
     const image = meta(html, name);
@@ -67,27 +67,25 @@ for (const file of htmlFiles) {
     if (description) descriptions.set(description, route);
   }
 }
-for (const [route, { html }] of byRoute) for (const link of tags(html, 'link').filter(t => attr(t, 'rel') === 'alternate' && attr(t, 'hreflang'))) {
-  const href = attr(link, 'href');
-  if (!href?.startsWith(origin + '/')) errors.push(`${route}: hreflang has a foreign origin`);
-  else {
-    const destination = byRoute.get(routeKey(new URL(href).pathname));
-    if (!destination?.indexed) errors.push(`${route}: hreflang points at missing/noindex page ${href}`);
-  }
-}
 const sitemapFiles = walkFiles(dist, { exts: ['.xml'] }).filter(f => /sitemap-\d+\.xml$/.test(f));
 if (!sitemapFiles.length) errors.push('Missing sitemap pages');
-const submitted = new Set<string>();
-for (const file of sitemapFiles) for (const m of fs.readFileSync(file, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)) {
-  const value = m[1];
-  if (submitted.has(value)) errors.push(`Duplicate sitemap URL ${value}`);
-  submitted.add(value);
-  if (!value.startsWith(origin + '/')) errors.push(`Foreign sitemap URL ${value}`);
-  const page = byRoute.get(routeKey(new URL(value).pathname));
-  if (!page?.indexed) errors.push(`Sitemap points at missing/noindex page ${value}`);
-}
+const robotsFile = path.join(dist, 'robots.txt');
+const robots = fs.existsSync(robotsFile) ? fs.readFileSync(robotsFile, 'utf8') : '';
+const faqLocales = new Set(game.supportedLanguages.filter(l => {
+  const file = path.join(root, `src/locales/${l}.json`);
+  return fs.existsSync(file) && JSON.parse(fs.readFileSync(file, 'utf8')).home?.faq?.items?.length > 0;
+}));
+const policy = indexPolicy(root, game, articles(root), faqLocales);
+const audit = auditIndexSets({ origin, pages: byRoute, sitemaps: sitemapFiles.map(f => fs.readFileSync(f, 'utf8')), robots, testOnly: game.testOnly, expected: policy.expected, required: policy.required, localeFor: route => policy.split(route).locale });
+errors.push(...audit.errors);
+const submitted = audit.submitted;
+const indexFile = path.join(dist, 'sitemap-index.xml');
+const indexUrls = fs.existsSync(indexFile) ? [...fs.readFileSync(indexFile, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => decodeXml(m[1])) : [];
+const expectedSitemaps = new Set(sitemapFiles.map(f => `${origin}/${path.relative(dist, f).replace(/\\/g, '/')}`));
+if (new Set(indexUrls).size !== indexUrls.length || indexUrls.length !== expectedSitemaps.size || indexUrls.some(url => !expectedSitemaps.has(url))) errors.push('Sitemap index does not exactly match the emitted sitemap files');
+const robotsSitemaps = [...robots.matchAll(/^Sitemap:\s*(\S+)\s*$/gmi)].map(m => m[1]);
+if (robotsSitemaps.length !== 1 || robotsSitemaps[0] !== `${origin}/sitemap-index.xml`) errors.push('robots sitemap origin/index mismatch');
 if (!fs.existsSync(path.join(dist, '404.html'))) errors.push('404.html missing');
-if (!fs.readFileSync(path.join(dist, 'robots.txt'), 'utf8').includes(`${origin}/sitemap-index.xml`)) errors.push('robots sitemap origin mismatch');
 const retiredFile = path.join(root, '.gameforge/retired-identities.json');
 const retired: string[] = fs.existsSync(retiredFile) ? JSON.parse(fs.readFileSync(retiredFile, 'utf8')) : [];
 const forbidden = [...DEMO_GAME_NAMES, ...DEMO_DOMAINS, ...DEMO_VAR_VALUES.filter(v => v.length >= 12), ...game.forbiddenTerms, ...retired];

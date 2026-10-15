@@ -1,5 +1,6 @@
+import { parse as parseYaml } from 'yaml';
 import { indexableLocalePage } from './src/lib/gameforge-indexing';
-import { gameSchema, validateEvidence } from './scripts/lib/gameforge';
+import { loadGame, validateEvidence } from './scripts/lib/gameforge';
 import { integrationVars } from './scripts/lib/configure-game';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
@@ -64,6 +65,7 @@ function buildLastmodMap(
   coverage: Map<string, Set<string>>,
   detailCoverage: Map<string, Set<string>>,
   categoryCoverage: Map<string, Set<string>>,
+  tagCoverage: Set<string>,
 ): Map<string, string> {
   const map = new Map<string, string>();
   const base = path.resolve('./src/content/wiki');
@@ -100,6 +102,8 @@ function buildLastmodMap(
       const rel = path.relative(base, p).replace(/\.mdx$/, '');
       const [loc, cat, ...rest] = rel.split(path.sep);
       const slugPath = rest.join('/');
+      const metadata = parseYaml(fm);
+      if (Array.isArray(metadata?.tags) && metadata.tags.some((t: unknown) => typeof t === 'string' && t.trim())) tagCoverage.add(loc);
       const articlePath = loc === defaultLocale ? `/${cat}/${slugPath}` : `/${loc}/${cat}/${slugPath}`;
       // Same true-spelling rule as the draft check above (inline comments
       // included): a `noindex: True` page must not ship in the sitemap it
@@ -198,8 +202,7 @@ function buildLastmodMap(
   return map;
 }
 
-const gameforgeFile = path.resolve('game.config.json');
-const gameforge = fs.existsSync(gameforgeFile) ? gameSchema.parse(JSON.parse(fs.readFileSync(gameforgeFile, 'utf8'))) : null;
+const gameforge = loadGame(process.cwd());
 validateEvidence(process.cwd());
 // Public integration IDs come from the same config in local and Pages builds.
 // This runs before Vite resolves PUBLIC_ env replacements; no secret is read.
@@ -239,12 +242,14 @@ const noindexPaths = new Set<string>();
 const localeCoverage = new Map<string, Set<string>>();
 const detailCoverage = new Map<string, Set<string>>();
 const categoryCoverage = new Map<string, Set<string>>();
-const lastmodMap = buildLastmodMap(noindexPaths, localeCoverage, detailCoverage, categoryCoverage);
+const tagCoverage = new Set<string>();
+const lastmodMap = buildLastmodMap(noindexPaths, localeCoverage, detailCoverage, categoryCoverage, tagCoverage);
 // Recent/tags pages already render noindex when empty. The sitemap must
 // reflect that state, including the all-draft first build of a fresh site.
 for (const l of locales) {
+  if (!tagCoverage.has(l)) noindexPaths.add(l === defaultLocale ? '/tags' : `/${l}/tags`);
   if (![...categoryCoverage.values()].some(coverage => coverage.has(l))) {
-    for (const suffix of ['recent', 'tags']) noindexPaths.add(l === defaultLocale ? `/${suffix}` : `/${l}/${suffix}`);
+    for (const suffix of ['recent']) noindexPaths.add(l === defaultLocale ? `/${suffix}` : `/${l}/${suffix}`);
   }
 }
 if (gameforge) for (const l of locales) {
@@ -261,7 +266,7 @@ if (gameforge) for (const l of locales) {
  */
 function alternatesFor(pagePath: string): Array<{ lang: string; url: string }> | undefined {
   // Article: /<cat>/<slug…> or /<locale>/<cat>/<slug…>
-  const art = pagePath.match(/^\/(?:([a-z]{2,3})\/)?([a-z-]+)\/(.+)$/);
+  const art = pagePath.match(/^\/(?:([a-z]{2,3}(?:-[a-z0-9]{2,8})*)\/)?([a-z][a-z0-9-]*)\/(.+)$/);
   if (art && (locales as readonly string[]).includes(art[1] ?? defaultLocale)) {
     // detailCoverage, not localeCoverage: frontmatter-noindex versions are
     // excluded from the sitemap and render noindex — they must not be
@@ -280,7 +285,7 @@ function alternatesFor(pagePath: string): Array<{ lang: string; url: string }> |
   // Category list: only locales that actually have an article in the
   // category (empty-state lists are noindex and excluded from the sitemap —
   // advertising them as alternates would invite crawling thin content).
-  const list = pagePath.match(/^\/(?:([a-z]{2,3})\/)?([a-z-]+)$/);
+  const list = pagePath.match(/^\/(?:([a-z]{2,3}(?:-[a-z0-9]{2,8})*)\/)?([a-z][a-z0-9-]*)$/);
   if (
     list &&
     (locales as readonly string[]).includes(list[1] ?? defaultLocale) &&

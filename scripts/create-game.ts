@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { assertPublicData, readPublicJson, productionFiles, secretFindings } from './lib/security';
 import { gameSchema, loadFacts, planKeywords, validateEvidence } from './lib/gameforge';
 import { configureGame } from './lib/configure-game';
 import { runScript, runPnpm } from './lib/run';
@@ -14,24 +14,28 @@ function arg(name: string) {
 }
 const root = fs.realpathSync(process.cwd());
 const config = arg('config'), keywordsFile = arg('keywords'), factsFile = arg('facts'), output = arg('out');
-const game = gameSchema.parse(JSON.parse(fs.readFileSync(config, 'utf8')));
-planKeywords(JSON.parse(fs.readFileSync(keywordsFile, 'utf8')), game);
+const configData = readPublicJson(config, 'game.config.json');
+assertPublicData(configData, 'game.config.json');
+const game = gameSchema.parse(configData);
+const keywordData = readPublicJson(keywordsFile, 'keywords.json');
+assertPublicData(keywordData, 'keywords.json');
+planKeywords(keywordData, game);
 // Validate inputs before creating a directory. The output may not overwrite
 // anything or sit under the template; resolve the existing parent against links.
 const parent = fs.realpathSync(path.dirname(output));
 const target = path.join(parent, path.basename(output));
 if (fs.existsSync(target)) throw new Error('Output already exists; refusing to overwrite');
 if (target === root || target.startsWith(root + path.sep) || root.startsWith(target + path.sep)) throw new Error('New site must be outside the template directory');
-const factsRaw = fs.readFileSync(factsFile, 'utf8');
+const factsData = readPublicJson(factsFile, 'facts.json');
+const factsRaw = JSON.stringify(factsData, null, 2) + '\n';
 const { z } = await import('astro/zod');
 const { sourceSchema } = await import('./lib/gameforge');
+assertPublicData(JSON.parse(factsRaw), 'facts.json');
 z.array(sourceSchema).parse(JSON.parse(factsRaw));
 const contentInput = args.includes('--content') ? fs.realpathSync(arg('content')) : null;
-const files = execFileSync('git', ['ls-files', '-z', '--cached', '--others', '--exclude-standard'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean);
-const excluded = /^(?:\.git(?:\/|$)|node_modules\/|dist\/|\.astro\/|\.env(?:\.|$)|\.indexnow-key$|game\.config\.json$|facts\.json$|keywords\.json$|\.gameforge\/|\.zcode\/)/;
+const files = productionFiles(root);
 fs.mkdirSync(target);
 for (const rel of files) {
-  if (excluded.test(rel) || !fs.existsSync(path.join(root, rel))) continue;
   const from = path.join(root, rel);
   if (!fs.lstatSync(from).isFile()) throw new Error(`Copy source must be a regular file: ${rel}`);
   const to = path.join(target, rel);
@@ -70,6 +74,7 @@ if (!content.startsWith(target + path.sep)) throw new Error('Unsafe content targ
 fs.rmSync(content, { recursive: true, force: true }); fs.mkdirSync(content, { recursive: true });
 if (contentInput) for (const from of walkFiles(contentInput, { exts: ['.mdx'] })) {
   if (!fs.lstatSync(from).isFile()) throw new Error('Content inputs must be regular files');
+  if (secretFindings(fs.readFileSync(from, 'utf8')).length) throw new Error('Content input contains sensitive data (value redacted)');
   const to = path.join(content, path.relative(contentInput, from));
   fs.mkdirSync(path.dirname(to), { recursive: true }); fs.copyFileSync(from, to);
 }
@@ -85,15 +90,16 @@ validateEvidence(target);
 const pkg = JSON.parse(fs.readFileSync(path.join(target, 'package.json'), 'utf8'));
 pkg.name = game.domain.replace(/\./g, '-'); pkg.homepage = `https://${game.domain}`;
 delete pkg.repository; delete pkg.bugs;
-pkg.scripts.test = 'vitest run tests/gameforge-site.test.ts';
+pkg.scripts.test = 'vitest run tests/gameforge-site.test.ts tests/hardening.test.ts';
 delete pkg.scripts['test:e2e']; delete pkg.scripts['test:games'];
 fs.writeFileSync(path.join(target, 'package.json'), JSON.stringify(pkg, null, 2) + '\n');
 const tsconfigFile = path.join(target, 'tsconfig.json');
 const tsconfig = JSON.parse(fs.readFileSync(tsconfigFile, 'utf8'));
-tsconfig.include = ['.astro/types.d.ts', 'src/**/*', 'scripts/**/*', 'tests/gameforge-site.test.ts', '*.config.ts'];
+tsconfig.include = ['.astro/types.d.ts', 'src/**/*', 'scripts/**/*', 'tests/gameforge-site.test.ts', 'tests/hardening.test.ts', '*.config.ts'];
 fs.writeFileSync(tsconfigFile, JSON.stringify(tsconfig, null, 2) + '\n');
 // No upstream scheduled operations or automatic submissions in new sites.
 const workflows = path.join(target, '.github/workflows');
+fs.mkdirSync(workflows, { recursive: true });
 for (const file of fs.readdirSync(workflows)) fs.unlinkSync(path.join(workflows, file));
 fs.writeFileSync(path.join(workflows, 'ci.yml'), `name: Game site checks\non: [push, pull_request]\npermissions:\n  contents: read\njobs:\n  check:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09\n      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38\n        with:\n          node-version: '22'\n      - run: corepack enable\n      - run: pnpm install --frozen-lockfile\n      - run: pnpm verify-game\n`);
 // Use generated neutral artwork; never carry the upstream game's hero.

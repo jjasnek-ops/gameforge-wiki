@@ -17,7 +17,7 @@ game.config.json 是独立站配置真相源。scripts/lib/gameforge.ts 的严�
 | translatedLanguages | 默认语言以外拥有真实首页/FAQ 译文的语言 |
 | navigation | 1–8 项 {key,label,icon}，与目录一致，icon 使用 lucide，不能占保留路由 |
 | featureFlags | comments/adsense/adsterra/affiliates/advancedVideo/multilingual/analytics，全部默认 false |
-| analytics | ga4 / cloudflareToken / gscVerification，仅公共标识，不放秘密 |
+| analytics | ga4 / cloudflareBeaconToken / gscVerification，仅公共标识，不放秘密 |
 | advertising | adsenseClient、adsenseSlots {sticky,sidebar,incontent}、adsterraSlots、adsTxt 数组 |
 | comments | 开评论必填 repo/repoId/category/categoryId，公共 Giscus ID |
 | homepage | intro、可选 heroImage/heroAlt、facts、faq、modules |
@@ -35,3 +35,11 @@ facts 为 {label,value,sourceId}，faq 为 {question,answer,sourceIds}，来源�
 法律页正文沿用上游英文实现；非英语 URL 始终 noindex，不因首页已翻译而提交索引。已有 en/ja 通用 UI 译文保留；其他语言需要在 locale JSON 中补齐真实文案。
 
 Adsterra 启用后仍需按 docs/ads.md 提供自己的 public/ads/<slot>.html 广告代码；配置公共单元 ID 不会伪造或代替广告平台代码。
+
+## 公共 ID 与凭据
+
+`analytics.cloudflareToken` 已移除，避免把 Cloudflare API Token 当成公开 beacon ID。原来使用 Web Analytics 公共 ID 的站点将字段改为 `cloudflareBeaconToken`（32 位十六进制 ID 或 UUID）；GA4 Measurement ID 仍用 `ga4`。配置、facts、文章、wrangler [vars] 和 PUBLIC_ 变量里都不得放 API 凭据。
+
+Cloudflare API Token、API Key、GitHub token、服务账号私钥等仅由实际部署环境的 Secrets 或私密环境变量注入，例如 `CLOUDFLARE_API_TOKEN`；静态站生成不需要这些凭据，也不会把它们映射到 PUBLIC_。本次加固不创建或修改任何外部 Secrets/账户。不要把私密 `.env*`、`.dev.vars*`、凭据 JSON、证书或私钥加入 Git。
+
+`pnpm check-secrets` 检查跟踪文件与独立站输入；`pnpm check-secrets --staged` 直接检查 Git 暂存 blob，工作区清理不能掩盖已暂存凭据。安装依赖时 prepare 安装 `.githooks/pre-commit`；已有自定义 hooksPath 会保留，须把暂存检查接入现有 hook。新站 git init 后先运行 `pnpm security:install-hook`。CI/build/verify-game 也执行扫描，postbuild 通过 `check-secrets --dist` 再检查实际静态产物。扫描仅输出位置/规则，不能证明不存在未知格式或人为绕过的秘密。

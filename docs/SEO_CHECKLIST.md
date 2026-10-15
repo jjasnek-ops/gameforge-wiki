@@ -14,3 +14,8 @@
 - 授权部署后实际检查 HTTPS、robots、Sitemap、状态码和 GSC 所有权。
 
 自动审计覆盖元信息、Canonical、Robots、JSON-LD、Breadcrumb、OG/Twitter、ALT、标题层级、重复标题/描述/正文、hreflang 与 Sitemap。广告 iframe 文件不作为 SEO 落地页。死链由原 check-links 门禁承担。
+
+
+加固审计同时比较：所有实际 indexable HTML ↔ Sitemap URL（双向差集）；实际来源决定的应索引文章/首页/分类等也不得缺失。检查 HTML 和 Sitemap 的 hreflang 目标存在、可索引、与实际语言相符，英文 fallback 和空分类不得被提交。canonical 与实际路径、og:url 一致，robots meta/Cloudflare X-Robots-Tag、robots.txt 与 Sitemap 不得矛盾；Sitemap index 必须完整引用全部子 Sitemap。
+
+`testOnly: true` 的虚构夹具仍故意 Disallow: /，这是测试数据隔离的明确例外，双向页面集合与翻译门禁仍全部执行。正式站没有该例外。

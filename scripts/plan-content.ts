@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { stringify } from 'yaml';
+import { readPublicJson } from './lib/security';
 import { articles, loadGame, loadFacts, planKeywords, readArticle } from './lib/gameforge';
 import { runScript } from './lib/run';
 
@@ -8,7 +9,7 @@ const root = process.cwd();
 const game = loadGame(root);
 if (!game) throw new Error('Run in a generated game site (game.config.json required).');
 const input = process.argv[2] ?? 'keywords.json';
-const plan = planKeywords(JSON.parse(fs.readFileSync(path.resolve(root, input), 'utf8')), game);
+const plan = planKeywords(readPublicJson(path.resolve(root, input), 'keywords.json'), game);
 const facts = loadFacts(root);
 for (const k of plan.keywords) for (const id of k.sourceIds) if (!facts.some(f => f.id === id)) throw new Error(`Unknown source ${id} for ${k.keyword}`);
 const csv = (v: string) => `"${v.replace(/"/g, '""')}"`;

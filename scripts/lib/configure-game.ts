@@ -111,7 +111,7 @@ export function integrationVars(g: GameConfig): Record<string, string> {
   const f = g.featureFlags;
   const vars: Record<string, string> = {
     SITE_URL: `https://${g.domain}`, PUBLIC_GA_ID: f.analytics ? g.analytics.ga4 ?? '' : '',
-    PUBLIC_CF_BEACON_TOKEN: f.analytics ? g.analytics.cloudflareToken ?? '' : '', PUBLIC_GSC_VERIFICATION: g.analytics.gscVerification ?? '',
+    PUBLIC_CF_BEACON_TOKEN: f.analytics ? g.analytics.cloudflareBeaconToken ?? '' : '', PUBLIC_GSC_VERIFICATION: g.analytics.gscVerification ?? '',
     PUBLIC_ADSENSE_CLIENT: f.adsense ? g.advertising.adsenseClient ?? '' : '',
   };
   for (const pos of ['sticky', 'sidebar', 'incontent'] as const) vars[`PUBLIC_ADSENSE_SLOT_${pos.toUpperCase()}`] = f.adsense ? g.advertising.adsenseSlots[pos] ?? '' : '';
