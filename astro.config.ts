@@ -296,8 +296,8 @@ function alternatesFor(pagePath: string): Array<{ lang: string; url: string }> |
 function gameforgeIndexable(p: string): boolean {
   if (!gameforge) return true;
   const [first] = p.slice(1).split('/');
-  if (!locales.includes(first as typeof defaultLocale) || first === defaultLocale) return true;
-  return indexableLocalePage(p, first, defaultLocale, gameforge.translatedLanguages, CONTENT_TYPES);
+  const locale = locales.includes(first as typeof defaultLocale) ? first : defaultLocale;
+  return indexableLocalePage(p, locale, defaultLocale, gameforge.translatedLanguages, CONTENT_TYPES);
 }
 
 // https://astro.build/config

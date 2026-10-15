@@ -65,16 +65,22 @@ export function configureGame(root = process.cwd()) {
   const facts = loadFacts(root);
   for (const lang of [...new Set(['en', ...langs])]) {
     const file = `src/locales/${lang}.json`;
-    const base = fs.existsSync(path.join(root, file)) ? read(file) : read('.gameforge/ui-base.json');
-    const ui = JSON.parse(rewriteLocaleJson(input, lang, new Date().getUTCFullYear(), read('.gameforge/ui-base.json')));
+    const seed = fs.existsSync(path.join(root, `.gameforge/ui-${lang}.json`)) ? read(`.gameforge/ui-${lang}.json`) : read('.gameforge/ui-base.json');
+    const base = fs.existsSync(path.join(root, file)) ? read(file) : seed;
+    const ui = JSON.parse(rewriteLocaleJson(input, lang, new Date().getUTCFullYear(), seed));
     const custom = JSON.parse(base);
     for (const field of ['search', 'shared', 'footer']) if (custom[field]) ui[field] = { ...ui[field], ...custom[field] };
     ui.site.name = g.siteName;
     ui.footer.copyrightText = `© ${new Date().getUTCFullYear()} ${g.siteName}`;
     ui.footer.playGame = `Play ${g.gameName}`;
     for (const n of g.navigation) {
-      ui.nav[n.key] = n.label;
-      ui.overview[n.key] = { overviewTitle: `All ${g.gameName} ${n.label}`, overviewDescription: `${n.label} for ${g.gameName}. ${g.description}`.slice(0, 165) };
+      const label = lang === g.defaultLanguage ? n.label : custom.nav?.[n.key] ?? JSON.parse(seed).nav?.[n.key] ?? n.label;
+      ui.nav[n.key] = label;
+      const languageMarker = lang === g.defaultLanguage ? '' : ` (${lang})`;
+      ui.overview[n.key] = {
+        overviewTitle: `All ${g.gameName} ${label}${languageMarker}`,
+        overviewDescription: ui.shared.defaultListDescription.replace('{title}', `${g.gameName} ${label}`).slice(0, 155) + languageMarker,
+      };
     }
     // Explicitly translated home copy is content; never overwrite it during a build.
     if (lang !== g.defaultLanguage && g.translatedLanguages.includes(lang)) {

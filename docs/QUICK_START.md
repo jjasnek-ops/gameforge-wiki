@@ -22,3 +22,5 @@ pnpm predeploy
 verify-game 允许尚无发布文章的起步站；predeploy 额外要求真实发布文章、联系方式，并拒绝 testOnly。获得相应域名与部署授权后按 DEPLOYMENT.md 部署。
 
 改游戏身份、域名、颜色、导航和首页时只改 game.config.json，再运行 configure-game（dev/build 自动执行）。文章仍使用 YAML frontmatter MDX，不修改核心组件。
+
+可选 `--content /absolute/verified-mdx` 导入按 locale/category 组织的现有 MDX；文件仍须通过全部核验门禁。图片资源随后放入新站相应 public/images 或 src/assets 目录后重新验证。

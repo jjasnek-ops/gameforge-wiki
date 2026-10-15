@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
-import { gameSchema, planKeywords, evidenceErrors, sourceSchema } from '../scripts/lib/gameforge';
+import { gameSchema, planKeywords, evidenceErrors, sourceSchema, loadGame } from '../scripts/lib/gameforge';
 import { integrationVars, configureGame } from '../scripts/lib/configure-game';
 import { indexableLocalePage } from '../src/lib/gameforge-indexing';
 
@@ -33,12 +33,15 @@ describe('GameForge input and publishing safety', () => {
       fs.writeFileSync(path.join(dir, 'game.config.json'), JSON.stringify(next)); configureGame(dir);
       expect(fs.readFileSync(path.join(dir, 'src/locales/en.json'), 'utf8')).not.toContain(game.gameName);
       expect(JSON.parse(fs.readFileSync(path.join(dir, '.gameforge/retired-identities.json'), 'utf8'))).toContain(game.domain);
+      fs.unlinkSync(path.join(dir, 'game.config.json'));
+      expect(() => loadGame(dir)).toThrow('missing game.config.json');
     } finally { fs.rmSync(dir, { recursive: true, force: true }); }
   });
   it('only indexes translated home and real collection pages; fixed English legal pages stay English', () => {
     expect(indexableLocalePage('/ja/', 'ja', 'en', ['en'], ['guides'])).toBe(false);
     expect(indexableLocalePage('/ja/', 'ja', 'en', ['en', 'ja'], ['guides'])).toBe(true);
     expect(indexableLocalePage('/ja/about/', 'ja', 'en', ['en', 'ja'], ['guides'])).toBe(false);
+    expect(indexableLocalePage('/about/', 'ja', 'ja', ['ja'], ['guides'])).toBe(false);
     expect(indexableLocalePage('/ja/guides/', 'ja', 'en', ['en'], ['guides'])).toBe(true);
   });
   it.each(['https://bad.example', 'bad.example/path', 'bad.example/', 'bad.example:8080', 'bad.example?x=1', '../escape'])('rejects invalid domain %s', domain => expect(gameSchema.safeParse({ ...fixture, domain }).success).toBe(false));

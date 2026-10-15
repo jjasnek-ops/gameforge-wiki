@@ -98,6 +98,9 @@ export function planKeywords(input: unknown, game: GameConfig) {
 }
 export function loadGame(root = process.cwd()): GameConfig | null {
   const file = path.join(root, 'game.config.json');
+  if (!fs.existsSync(file) && ['site.json', 'ui-base.json'].some(name => fs.existsSync(path.join(root, '.gameforge', name)))) {
+    throw new Error('Generated site is missing game.config.json; refusing the upstream fixture exemption');
+  }
   return fs.existsSync(file) ? gameSchema.parse(JSON.parse(fs.readFileSync(file, 'utf8'))) : null;
 }
 export function loadFacts(root: string): FactSource[] {

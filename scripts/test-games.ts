@@ -47,6 +47,18 @@ try {
       assert(!map.includes(`https://${game.domain}/ja/`));
       assert(home.includes('hreflang="en"'));
       assert(!home.includes('hreflang="ja"'));
+      const original = articles(site).find(a => a.data.draft !== true)!;
+      const translated = original.file.replace(`${path.sep}en${path.sep}`, `${path.sep}ja${path.sep}`);
+      fs.mkdirSync(path.dirname(translated), { recursive: true });
+      const data = { ...original.data, title: `${game.gameName} 日本語の動作確認ガイド`, description: `${game.gameName} は架空のテスト用ゲームです。このページはテンプレートの日本語翻訳、出典表示と検索設定の検証だけに使用します。`, summary: 'これは架空のテスト資料です。実際のゲームの数値、ボス属性、交換コードなどは主張していません。' };
+      fs.writeFileSync(translated, `---\n${stringify(data)}---\n\n## このテストで何を確認しますか？\n\nこれは日本語の記事と出典、パンくず、検索エンジン設定を確認するための架空の資料です。\n\n## 本物のゲームの攻略ですか？\n\nいいえ。公開サイトに配信するための資料ではありません。\n`);
+      runPnpm(site, ['verify-game']);
+      const translatedMap = fs.readFileSync(path.join(site, 'dist/sitemap-0.xml'), 'utf8');
+      const translatedRoute = path.relative(path.join(site, 'src/content/wiki'), translated).replace(/\\/g, '/').replace(/\.mdx$/, '/');
+      assert(translatedMap.includes(`https://${game.domain}/${translatedRoute}`));
+      assert(!translatedMap.includes(`<loc>https://${game.domain}/ja/</loc>`), 'English fallback homepage stays excluded');
+      const detail = fs.readFileSync(path.join(site, 'dist', translatedRoute, 'index.html'), 'utf8');
+      assert(detail.includes('hreflang="ja"'));
     }
     assert.equal(motherHash(), before, 'Generation must not mutate mother config/content/assets');
     reports.push({ fixture: type, independentDirectory: true, allGates: 'passed', draftAndPublishedRendering: true, noMotherMutation: true, seo: JSON.parse(fs.readFileSync(path.join(site, '.gameforge/seo-report.json'), 'utf8')) });

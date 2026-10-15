@@ -11,3 +11,12 @@
 母版保留原营销/示例为回归夹具，新站独立输出中剥离路由/虚构资料/原站身份，生成中性品牌素材。docs 和 Agent Skills 留在仓库，不公开为生产页面。新站 CI 运行自身可移植配置/证据/组件测试，母版完整上游测试和初始化 E2E 不删除，新增两游戏完整生成测试。
 
 事实真实性仍依赖人工核对来源。工具检查记录完整性/版本/日期/状态，不能证明链接内容或审稿人身份。语义同义词使用显式 canonicalKeyword，不假装自动理解全部意图。未部署、未创建新远端仓库、未修改外部账户和域名。
+
+
+验收验证：26 套 Vitest、426 项通过；1 项为原有 English expiryDate 本地化条件豁免，未新增跳过。lint 与 Astro 类型检查零错误、零警告。配置、内容、严格 UI key、生产构建、Pagefind、内部链接均通过；本地 HTTP 逐条验证 Sitemap 的全部 URL 返回 200。原 apply-template 真实模式 E2E 通过。
+
+两套完整独立站验证通过并清理临时目录：Roblox 36 个 HTML / 21 个 Sitemap URL，含真实日文测试译文与未译首页排除；Steam 19 个 HTML / 15 个 Sitemap URL，分类和页型不同。两站所有草稿默认隔离，审核后页面正常构建，广告默认关闭，产物无原游戏/域名残留；母版 src/public 内容哈希一致。生产 SEO 审计均零错误。
+
+母版 template-audit 返回成功，但仍报告保留上游参考夹具带来的 9 项预期警告（5/14 健康项）。它们不代表生产站被豁免：新站运行严格 check-seo，残留示例与旧身份会失败。没有将这些警告改成虚假的全绿。
+
+额外修复：Python UTF-8 跨平台读取、UI import 块兼容 CRLF、空 recent/tags 的 Sitemap 排除、空聚合页 hreflang、404 Canonical/noindex、跨语言标签页 Title 冲突。旧游戏身份自动记入 retired-identities，供生产产物审计。

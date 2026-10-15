@@ -56,6 +56,13 @@ fs.writeFileSync(path.join(target, '.gameforge/answers.json'), JSON.stringify(an
 // Install the exact template lockfile in the independent project.
 runPnpm(target, ['install', '--frozen-lockfile']);
 runScript(target, 'scripts/apply-template.ts', ['--answers', '.gameforge/answers.json']);
+// Retain mature generic UI translations without retaining any game identity.
+for (const file of fs.readdirSync(path.join(target, 'src/locales')).filter(file => file.endsWith('.json'))) {
+  const seed = JSON.parse(fs.readFileSync(path.join(target, 'src/locales', file), 'utf8'));
+  for (const field of ['site', 'home', 'overview']) delete seed[field];
+  delete seed.footer.copyrightText; delete seed.footer.playGame;
+  fs.writeFileSync(path.join(target, '.gameforge', `ui-${file}`), JSON.stringify(seed, null, 2));
+}
 // This is a fresh output, so all remaining source content is template material.
 // Never clear the parent's content or a user-supplied directory.
 const content = path.join(target, 'src/content/wiki');

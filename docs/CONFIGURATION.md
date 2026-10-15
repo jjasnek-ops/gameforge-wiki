@@ -14,7 +14,7 @@ game.config.json 是独立站配置真相源。scripts/lib/gameforge.ts 的严�
 | themeColor | #RRGGBB，自动派生 CSS 品牌变量和 manifest |
 | defaultLanguage | 无 URL 前缀的默认语言，默认 en |
 | supportedLanguages | 候选语言列表，保留 en 基础字典，包含默认语言 |
-| translatedLanguages | 默认语言以外拥有真实首页/FAQ/固定页译文的语言 |
+| translatedLanguages | 默认语言以外拥有真实首页/FAQ 译文的语言 |
 | navigation | 1–8 项 {key,label,icon}，与目录一致，icon 使用 lucide，不能占保留路由 |
 | featureFlags | comments/adsense/adsterra/affiliates/advancedVideo/multilingual/analytics，全部默认 false |
 | analytics | ga4 / cloudflareToken / gscVerification，仅公共标识，不放秘密 |
@@ -31,3 +31,5 @@ facts 为 {label,value,sourceId}，faq 为 {question,answer,sourceIds}，来源�
 多语言开关关闭时只启用默认语言。文章译文以真实 MDX 为准，缺失详情 fallback noindex，并退出 Sitemap/hreflang。首页真实译文在 locale JSON 管理，声明 translatedLanguages 后保留 home。禁止把克隆英文当译文。
 
 派生产物：site/navigation/features、routing/ui、globals.css 品牌变量、locale 身份/首页、wrangler.toml、manifest、ads.txt。.gameforge/ui-base.json 是无游戏身份的通用字典。环境 SITE_URL 与 domain 冲突时失败，避免第二份域名源。联盟推荐内容继续在 affiliates.ts 配置并由开关控制。
+
+法律页正文沿用上游英文实现；非英语 URL 始终 noindex，不因首页已翻译而提交索引。已有 en/ja 通用 UI 译文保留；其他语言需要在 locale JSON 中补齐真实文案。
