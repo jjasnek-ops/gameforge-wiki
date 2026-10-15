@@ -1,3 +1,5 @@
+> GameForge 当前工作流请先读 [QUICK_START](QUICK_START.md)、[CONFIGURATION](CONFIGURATION.md)、[CONTENT_WORKFLOW](CONTENT_WORKFLOW.md)；下文保留上游参考。
+
 # MDX 文章格式
 
 > 怎么写一篇 AnvilWiki 的 MDX 文章。文章是 wiki 的核心——文件路径即 URL。

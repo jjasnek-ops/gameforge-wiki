@@ -21,6 +21,7 @@
  *   <AdSenseSlot position="sidebar" />
  *   <AdSenseSlot position="incontent" />
  */
+import { features } from '~/config/features';
 interface Props {
   /** Where the ad lives — maps to a PUBLIC_ADSENSE_SLOT_* env var. */
   position: 'sticky' | 'sidebar' | 'incontent';
@@ -43,7 +44,7 @@ const client = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
 const slot = import.meta.env[positionToEnv[position]] as string | undefined;
 ---
 
-{client && slot && (
+{features.adsense && client && slot && (
   <ins
     class={`adsbygoogle ${className}`.trim()}
     style="display:block"
@@ -54,7 +55,7 @@ const slot = import.meta.env[positionToEnv[position]] as string | undefined;
   />
 )}
 
-{client && slot && (
+{features.adsense && client && slot && (
   <script is:inline>
     (window.adsbygoogle = window.adsbygoogle || []).push({});
   </script>

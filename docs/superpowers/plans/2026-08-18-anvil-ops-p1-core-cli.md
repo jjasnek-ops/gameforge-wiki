@@ -555,7 +555,7 @@ export function loadSiteConfig(startDir: string): SiteConfig {
   }
   throw new OpsError(
     'No wrangler.toml found (searched up from ' + startDir + ').',
-    'Run `anvil-ops` from inside your AnvilWiki fork. If you deleted wrangler.toml (see docs/deployment.md), re-create it with a [vars] SITE_URL, or restore it so anvil-ops can read your site config.',
+    'Run `anvil-ops` from inside your AnvilWiki fork. If you deleted wrangler.toml (see docs/DEPLOYMENT.md), re-create it with a [vars] SITE_URL, or restore it so anvil-ops can read your site config.',
   );
 }
 ```

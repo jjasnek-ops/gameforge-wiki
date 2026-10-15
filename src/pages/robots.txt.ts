@@ -1,9 +1,10 @@
 import type { APIRoute } from 'astro';
+import { testOnly } from '~/lib/evidence';
 import { siteUrl } from '~/config/site';
 
 const robotsTxt = `
 User-agent: *
-Allow: /
+${testOnly ? 'Disallow: /' : 'Allow: /'}
 
 Sitemap: ${siteUrl}/sitemap-index.xml
 `.trim();

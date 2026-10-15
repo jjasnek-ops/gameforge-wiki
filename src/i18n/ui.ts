@@ -12,7 +12,7 @@
 import en from '~/locales/en.json';
 import ja from '~/locales/ja.json';
 
-import { defaultLocale, isLocale, type Locale } from './routing';
+import { isLocale, type Locale } from './routing';
 
 const messages: Record<Locale, Record<string, unknown>> = {
   en: en as Record<string, unknown>,
@@ -81,7 +81,7 @@ for (const table of Object.values(messages)) deepFreeze(table);
 const uiCache = new Map<Locale, typeof en>();
 
 export function getUi(locale: string): typeof en {
-  if (locale === defaultLocale) return en;
+  if (locale === 'en') return en;
   if (isLocale(locale)) {
     const cached = uiCache.get(locale);
     if (cached) return cached;

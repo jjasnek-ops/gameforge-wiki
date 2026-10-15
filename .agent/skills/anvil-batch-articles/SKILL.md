@@ -3,6 +3,8 @@ name: anvil-batch-articles
 description: 从用户给的关键词清单批量生成一批符合 AnvilWiki schema 的 MDX 内页：按搜索意图归类 → 生成 new-posts.csv → pnpm bulk-new-posts 批量建草稿 → 按统一提示词模板逐篇填充 → 全批验收。触发词：批量写文章 / 一次生成一堆攻略 / 关键词清单生成页面 / batch articles。
 ---
 
+> GameForge：独立站优先读取 docs/CONTENT_WORKFLOW.md。JSON 关键词入口为 pnpm plan-content；所有骨架保持 draft。发布前必须有 facts.json 来源、版本、reviewedBy/reviewedAt，并通过 pnpm verify-game。不要对母版执行游戏替换。
+
 # AnvilWiki 批量内页生成
 
 把一份关键词清单变成一批构建必过的 MDX 页面。单篇规范与 `anvil-new-article` 完全一致——本技能只解决「批量」的产能与一致性。**先读规范再动手**（与 anvil-new-article 相同）：

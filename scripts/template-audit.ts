@@ -370,7 +370,7 @@ check(() => {
   }
   const siteUrl = read('wrangler.toml').match(/^SITE_URL\s*=\s*"([^"]+)"/m)?.[1];
   if (!siteUrl) {
-    warn('wrangler.toml has no SITE_URL in [vars] — see docs/deployment.md');
+    warn('wrangler.toml has no SITE_URL in [vars] — see docs/DEPLOYMENT.md');
   } else if (DEMO_DOMAINS.some((d) => siteUrl === `https://${d}`)) {
     warn(`wrangler.toml SITE_URL is still the demo "${siteUrl}" — while this file exists it OVERRIDES the dashboard; a fork must edit [vars] or delete the file.`);
   } else {
@@ -409,7 +409,7 @@ check(() => {
     if (m && DEMO_VAR_VALUES.includes(m[2])) hits.push(m[1]);
   }
   if (hits.length > 0) {
-    warn(`wrangler.toml [vars] still carries demo value(s) (${hits.join(', ')}) — demo analytics/ads/IndexNow config sends fork data to the demo site. Run pnpm apply-template or edit [vars] (docs/deployment.md).`);
+    warn(`wrangler.toml [vars] still carries demo value(s) (${hits.join(', ')}) — demo analytics/ads/IndexNow config sends fork data to the demo site. Run pnpm apply-template or edit [vars] (docs/DEPLOYMENT.md).`);
   } else {
     ok('wrangler.toml [vars] carries no demo values (full DEMO_VAR_VALUES scan)');
   }

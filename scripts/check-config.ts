@@ -118,11 +118,16 @@ for (const loc of routingLocales) {
   }
 }
 const localesDir = path.resolve(ROOT, 'src/locales');
+const gameConfigPath = path.resolve(ROOT, 'game.config.json');
+const gameConfig = fs.existsSync(gameConfigPath) ? JSON.parse(fs.readFileSync(gameConfigPath, 'utf8')) : null;
+// Turning multilingual off must retain translation work as dormant content.
+// Only explicitly configured candidate languages get this exemption.
+const dormantLanguages: string[] = gameConfig && gameConfig.featureFlags?.multilingual !== true ? gameConfig.supportedLanguages : [];
 if (fs.existsSync(localesDir)) {
   for (const f of fs.readdirSync(localesDir)) {
     if (!f.endsWith('.json')) continue;
     const loc = f.replace('.json', '');
-    if (!routingLocales.includes(loc)) {
+    if (!routingLocales.includes(loc) && !dormantLanguages.includes(loc) && !(loc === 'en' && gameConfig)) {
       err(`src/locales/${f} exists but "${loc}" is not in routing.ts locales`);
       localeErrors++;
     }
@@ -182,7 +187,7 @@ if (!domain) {
     const host = new URL(effectiveUrl).host;
     if (host !== domain) {
       err(
-        `${urlSource} SITE_URL host "${host}" ≠ site.ts domain "${domain}" — every canonical/og:url/sitemap URL would point at the wrong site. Fix wrangler.toml [vars] (or delete the file, see docs/deployment.md).`,
+        `${urlSource} SITE_URL host "${host}" ≠ site.ts domain "${domain}" — every canonical/og:url/sitemap URL would point at the wrong site. Fix wrangler.toml [vars] (or delete the file, see docs/DEPLOYMENT.md).`,
       );
     } else {
       console.log(`  ✅ ${urlSource} → ${effectiveUrl} matches site.ts domain`);

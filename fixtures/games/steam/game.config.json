@@ -1,0 +1,74 @@
+{
+  "gameName": "Fixture Iron Harbor",
+  "siteName": "Fixture Iron Harbor Wiki",
+  "shortName": "Steam Fixture",
+  "domain": "iron-harbor.example",
+  "description": "Fixture Iron Harbor is an explicitly fictional integration test site for GameForge Wiki. No real gameplay claims are published.",
+  "platform": "Steam",
+  "genre": "Fictional test scenario",
+  "developer": "Test fixture authors",
+  "officialUrl": "https://iron-harbor.example/official",
+  "themeColor": "#059669",
+  "defaultLanguage": "en",
+  "supportedLanguages": [
+    "en"
+  ],
+  "translatedLanguages": [],
+  "navigation": [
+    {
+      "key": "walkthroughs",
+      "label": "Walkthroughs",
+      "icon": "lucide:book-open"
+    },
+    {
+      "key": "items",
+      "label": "Items",
+      "icon": "lucide:book-open"
+    },
+    {
+      "key": "maps",
+      "label": "Maps",
+      "icon": "lucide:book-open"
+    },
+    {
+      "key": "builds",
+      "label": "Builds",
+      "icon": "lucide:book-open"
+    },
+    {
+      "key": "questions",
+      "label": "Questions",
+      "icon": "lucide:book-open"
+    }
+  ],
+  "featureFlags": {
+    "multilingual": false
+  },
+  "homepage": {
+    "intro": "Fixture Iron Harbor is fictional test data. This site only exercises template behavior.",
+    "facts": [
+      {
+        "label": "Fixture platform",
+        "value": "Steam test scenario",
+        "sourceId": "fixture-official"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is Fixture Iron Harbor a real game?",
+        "answer": "No. This is explicitly fictional test material for local template verification.",
+        "sourceIds": [
+          "fixture-official"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "category": "walkthroughs",
+        "title": "Fixture Iron Harbor Walkthroughs",
+        "description": "Fictional walkthroughs scenarios for local integration tests."
+      }
+    ]
+  },
+  "testOnly": true
+}

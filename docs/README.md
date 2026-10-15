@@ -14,7 +14,7 @@
 | [requirements/](../requirements/) | 建站前内容准备两张表:事实来源表 + 对标参考表(模板) | 🎯 选好游戏、准备让 AI 产页的人 |
 | [README](../README.md) | 项目是什么 + 5 分钟跑起来 | 所有人 |
 | [apply-template.md](apply-template.md) | 把 demo 站换成你的游戏(配置层手册) | fork 用户 |
-| [deployment.md](deployment.md) | 部署到 Cloudflare Pages(含 wrangler.toml 大坑 + 数据复盘 + Clarity) | fork 用户 |
+| [deployment.md](DEPLOYMENT.md) | 部署到 Cloudflare Pages(含 wrangler.toml 大坑 + 数据复盘 + Clarity) | fork 用户 |
 | [ads.md](ads.md) | 广告时机 + AdSense 收款 + Adsterra 接入与收款 + 平台全景三档 + 游戏垂直网络 | 开始赚钱的站长 |
 | [content-format.md](content-format.md) | 怎么写文章(frontmatter 字段表 + 组件用法) | 内容作者 |
 | [seo.md](seo.md) | SEO 工程化 + 外链实操(九渠道逐步教程) + 2026 Google 官方更新记录 | 内容作者 / 好奇的人 |

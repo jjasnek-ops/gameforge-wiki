@@ -120,7 +120,7 @@ pnpm dev    # 逐页访问确认正常
 
 ### Step 5 — 部署
 
-按 [部署指南](./deployment.md) 部署到 Cloudflare Pages。
+按 [部署指南](./DEPLOYMENT.md) 部署到 Cloudflare Pages。
 
 ---
 
@@ -157,6 +157,6 @@ pnpm dev    # 逐页访问确认正常
 ## 下一步
 
 - [套用模板指南](./apply-template.md)
-- [部署指南](./deployment.md)
+- [部署指南](./DEPLOYMENT.md)
 - [PRD](./PRD.md)（完整设计文档）
 - 回到 [README](../README.md)

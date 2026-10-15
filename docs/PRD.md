@@ -1,5 +1,7 @@
 # AnvilWiki 产品需求文档（PRD）
 
+GameForge 复审验收补充（2026-10-15）：独立站的 Unicode 标签 URL 必须通过真实构建后的 SEO/链接检查；首页浏览按钮必须跳转到文案对应的已发布分类，不能因前置空分类而错链。只做代码与 CI 验证，不部署、不修改域名。
+
 > **版本**：v1.0
 > **日期**：2026-08-12
 > **状态**：已发布（demo 站 anvil.wiki 上线，Lighthouse 全 100，CI 全绿）
@@ -1392,7 +1394,7 @@ describe('sitemap', () => {
 | docs/sourcing.md | 挖词 9 渠道 + 意图满足度判断（v2.1.0） | docs/ |
 | requirements/（2 张填空模板） | 产页前素材准备：事实来源表 + 对标参考表（v2.1.0） | 仓库根 requirements/ |
 | docs/apply-template.md | 套用模板用户，配置参考（含初始化清理规范） | docs/ |
-| docs/deployment.md | 新手，部署指南（含 wrangler.toml 大坑 + 数据复盘） | docs/ |
+| docs/DEPLOYMENT.md | 新手，部署指南（含 wrangler.toml 大坑 + 数据复盘） | docs/ |
 | docs/content-format.md | 内容创作者，MDX 格式 | docs/ |
 | docs/content-pipeline.md | 想批量铺内容的站长：PR 门控管道（v2.0） | docs/ |
 | docs/multi-site.md | 多站运营：anvilwiki-ops 1.0 + AI 引用追踪（v2.0） | docs/ |
@@ -1648,7 +1650,7 @@ PUBLIC_GISCUS_MAPPING=pathname
 | 2026-08-12 | v1.0 | demo 站 `anvilwiki.pages.dev` 上线；Lighthouse 全 100；v1.2 Pagefind 搜索 + v1.5 Astro Image + v2.0 套用模板 CLI 全部实现；完整日语翻译；SEO 修复（hreflang / og:image / prefetch / breadcrumb / security headers） |
 | 2026-08-22 | v2.0.0 | 内容经营操作系统：PR 门控内容管道（auto-content.yml + 共享门禁 composite action）+ anvilwiki-ops 1.0.0 多站与 AI 引用追踪 + gen-covers 封面生成（og:image 标准 1200×675 + max-image-preview:large）+ AffiliateSuggestion 建议位；模板零 breaking（升级=常规 merge）。v1.1–v1.19 逐版本明细见 CHANGELOG.md 与 §14.2 迭代表 |
 | 2026-08-24 | v2.0.1 | v2.0.0 发版当日五视角审计的同日加固版：category 改 schema enum 硬门禁（软 404 根除）、check-i18n `--strict-ui` 让第八道门禁真正能红、setup.yml 开 PR 前构建验证、auto-content 只提交内容变更 + 零产出响亮失败、ops 测试进主 CI、sitemap hreflang 按真实 MDX 覆盖生成、anvilwiki-ops 1.0.1（MCP 站点解析防吞错、GSC 错误带修复指引、worker 线程卸载、测试 111→125）、demo 内容规则补课；详见 CHANGELOG [2.0.1] |
-| 2026-08-26 | v2.1.0 | SEO 实战文档批（零代码变更，fork 常规 merge 即得）：新增 `docs/sourcing.md` 挖词与选词指南（9 渠道 + 第 7 条判断「意图满足度」+ 选词决策管理表，补选品漏斗的「渠道」层）、`docs/ads.md` 广告时机与 Adsterra 收款两条路线（USDT/OKX 与 Payoneer wire transfer）、`requirements/` 建站前内容准备两模板（事实来源表 + 对标参考表，闭环「AI 不编造游戏数据」）；`docs/seo.md` 增外链策略章、`docs/deployment.md` 增上线数据复盘指标（CTR≥2%/日点击 1000/人均 1.5 页/每周 10+ 只加不改）+ Clarity 热力图接入、`docs/game-selection.md` 明确首版 10-15 篇核心页分批上线（批量生成 40-60 篇可以、部署分批）；学习手册第 7 章中英同步补「先说时机：别一上线就开广告」；详见 CHANGELOG [2.1.0] |
+| 2026-08-26 | v2.1.0 | SEO 实战文档批（零代码变更，fork 常规 merge 即得）：新增 `docs/sourcing.md` 挖词与选词指南（9 渠道 + 第 7 条判断「意图满足度」+ 选词决策管理表，补选品漏斗的「渠道」层）、`docs/ads.md` 广告时机与 Adsterra 收款两条路线（USDT/OKX 与 Payoneer wire transfer）、`requirements/` 建站前内容准备两模板（事实来源表 + 对标参考表，闭环「AI 不编造游戏数据」）；`docs/seo.md` 增外链策略章、`docs/DEPLOYMENT.md` 增上线数据复盘指标（CTR≥2%/日点击 1000/人均 1.5 页/每周 10+ 只加不改）+ Clarity 热力图接入、`docs/game-selection.md` 明确首版 10-15 篇核心页分批上线（批量生成 40-60 篇可以、部署分批）；学习手册第 7 章中英同步补「先说时机：别一上线就开广告」；详见 CHANGELOG [2.1.0] |
 | 2026-08-26 | v2.1.1 | 手册同步与初始化规范批：学习手册 7 章双语接 v2.1.0 文档层（ch1 挖词 9 渠道+意图满足度、ch4 requirements 准备表+首版 10-15 篇分批、ch6 上线 3-7 天复盘指引、ch8 四条及格线指标表+Clarity 热力图小节、ch10 翻正节奏、ch11 外链策略节、ch7 统计三件套 GA4/CF Web Analytics/Clarity 完整接入教程含同意横幅门控说明）；`docs/apply-template.md` 新增「初始化清理规范」章节（两通道删除清单首次文档化）；setup.yml 中文官网删除路径收窄对齐 LANDING_PATHS、apply-template.ts wrangler `[vars]` 重置与 setup.yml 逐行对齐（两处通道漂移修复）；en/weekly-ops tldr 超 480 字符 schema 上限修复；详见 CHANGELOG [2.1.1] |
 | 2026-08-26 | v2.2.0 | 变现+外链实操文档批（零代码变更）：`docs/ads.md` 新增 AdSense 收款完整教程（W-8BEN 10% 协定税率/PIN 明信片 4 次寄送 4 个月期限/电汇绑卡/每月 21 日出账节奏）、Adsterra 接入教程（五广告格式取舍表 + Google 政策「挂 AdSense 禁 popunder」共存红线 + 脚本粘贴位置 BaseLayout/ArticlePage）、广告平台全景三档表（2026-08 实时门槛：Journey 1k sessions/Mediavine $5k 年收入/Raptive 25k PV）+ 游戏垂直网络层（NitroPay/Venatus/Playwire/PubNation，全景表 11 平台全挂官网直链）+ 游戏 wiki 五档分阶段路线表；`docs/seo.md` 外链章扩到操作层（九渠道优先级清单 + 逐渠道步骤 + 三份 outreach 邮件模板 + 免费工具箱 + 做多少节奏节；HARO 2025 复活/Reddit 10% 全站规则调研校准）；学习手册第 7 章双语新增「收款三件事」节、tldr 两步走改三步走；详见 CHANGELOG [2.2.0] |
 | 2026-08-26 | v2.3.0 | 新手动线优化批（专家团三线审计驱动）：README 按零基础标准重构（pnpm 前置/「push 回 fork」步骤/零终端 Actions→Initialize AnvilWiki 通道/wrangler 警告下沉部署步骤/文档导航收敛 4 入口/英文区对齐中文区/语言切换锚+截图+Contributing·Changelog 入口/删误导性 Deploy 按钮）；落地页转化（hero 与 FinalCta 主 CTA 直达 Fork URL、docsEntry SEO 卡+devGuide 五步链接改站内手册章、写死章数 6 处移除、公告压缩）；HandbookHub 新增 beginnerHint 零基础胶囊（接口+双语数据+组件）；两章「下一步」补链接；文档漂移清理（Comments 断链/PRD §15.2 文档表 7→20 项/roadmap 版本头/ROADMAP-v1.5-v1.6.md 归档 superpowers/）；详见 CHANGELOG [2.3.0] |

@@ -180,7 +180,7 @@ describe('resolveEffectiveRoot', () => {
 
 describe('sitesRegistryPath', () => {
   it('honors XDG_CONFIG_HOME when absolute', () => {
-    expect(sitesRegistryPath({ XDG_CONFIG_HOME: '/xdg' })).toBe('/xdg/anvil-ops/sites.toml');
+    expect(sitesRegistryPath({ XDG_CONFIG_HOME: '/xdg' })).toBe(join('/xdg', 'anvil-ops', 'sites.toml'));
   });
 
   it('ignores relative XDG_CONFIG_HOME and falls back to ~/.config', () => {

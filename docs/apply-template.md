@@ -1,3 +1,5 @@
+> GameForge 当前工作流请先读 [QUICK_START](QUICK_START.md)、[CONFIGURATION](CONFIGURATION.md)、[CONTENT_WORKFLOW](CONTENT_WORKFLOW.md)；下文保留上游参考。
+
 # 配置参考手册
 
 > 把 AnvilWiki 从 demo 站（虚构游戏 "Anvil Quest"）换成你的目标游戏站点。
@@ -294,7 +296,7 @@ tags: ["boss", "guide"]
 □ hero 图是真实图片（非占位）
 □ 所有 MDX frontmatter 通过 Zod schema（pnpm build 不报错）
 □ sitemap URL 全部返回 200（pnpm check-sitemap）
-□ SITE_URL 已配（含 https:// 协议，改 wrangler.toml 或 dashboard —— 注意 wrangler.toml 存在时会接管 dashboard，见 [deployment.md](./deployment.md)）
+□ SITE_URL 已配（含 https:// 协议，改 wrangler.toml 或 dashboard —— 注意 wrangler.toml 存在时会接管 dashboard，见 [deployment.md](./DEPLOYMENT.md)）
 □ `.indexnow-key` 已由 apply-template 自动生成（无需另配 INDEXNOW_KEY；`pnpm build` 会生成对应 `dist/<key>.txt`）
 ```
 
@@ -320,7 +322,7 @@ pnpm template-audit
 
 ## 下一步
 
-- [部署指南](./deployment.md)：部署到 Cloudflare Pages
+- [部署指南](./DEPLOYMENT.md)：部署到 Cloudflare Pages
 - [内容格式](./content-format.md)：MDX 文章怎么写
 - [SEO 说明](./seo.md)：SEO 工程化细节
 - 回到 [README](../README.md)

@@ -15,14 +15,15 @@ interface FaqItem {
 
 interface Props {
   title: string;
+  headingLevel?: 'h1' | 'h2';
   description?: string;
   items: FaqItem[];
 }
-const { title, description, items = [] } = Astro.props;
+const { title, description, items = [], headingLevel: Heading = 'h1' } = Astro.props;
 ---
 
 <section class="section">
-  <h1 class="text-3xl font-extrabold tracking-tight md:text-4xl">{title}</h1>
+  <Heading class="text-3xl font-extrabold tracking-tight md:text-4xl">{title}</Heading>
   {description && <p class="mt-2 text-muted-foreground">{description}</p>}
   <div class="mt-8 space-y-2" data-faq-group>
     {

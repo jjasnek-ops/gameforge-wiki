@@ -1,4 +1,5 @@
 ---
+import { features } from '~/config/features';
 /**
  * Inline YouTube video for MDX articles (v1.8.1).
  *
@@ -28,6 +29,8 @@ interface Props {
 }
 const sharedStrings = currentSharedStrings(Astro.currentLocale);
 const { id, title = sharedStrings.watchVideo ?? 'Watch video' } = Astro.props;
+if (!features.advancedVideo) return null;
+
 ---
 
 <div class="not-prose my-6">

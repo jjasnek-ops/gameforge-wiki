@@ -19,7 +19,9 @@ if (!isLocale(localeParam) || localeParam === defaultLocale) {
 }
 const locale: Locale = localeParam;
 
-const alternates = languageAlternates((loc) => tagsPath(loc), locales);
+const coverage = await Promise.all(locales.map(async loc => ({ loc, count: (await getTagsWithCounts(loc)).length })));
+const coveredLocales = coverage.filter(item => item.count > 0).map(item => item.loc);
+const alternates = languageAlternates((loc) => tagsPath(loc), coveredLocales);
 // Zero tags = thin empty state — noindex, same treatment as ListPage's
 // empty category lists.
 const noindex = (await getTagsWithCounts(locale)).length === 0;

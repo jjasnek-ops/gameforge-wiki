@@ -1,0 +1,12 @@
+[
+  {
+    "id": "fixture-official",
+    "url": "https://sky-orchard.example/official",
+    "title": "Explicitly fictional test source",
+    "kind": "official",
+    "verified": true,
+    "verifiedAt": "2026-10-01",
+    "version": "fixture-1",
+    "notes": "Local automated fixture only. This reserved .example URL is not evidence for a real game."
+  }
+]

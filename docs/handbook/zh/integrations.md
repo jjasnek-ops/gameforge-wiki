@@ -46,7 +46,7 @@ if (!client) return null;   // 变量空着 = 这个组件整个消失
 | `INDEXNOW_KEY` | 旧站 IndexNow key 的兼容覆盖 | 新 fork 默认使用仓库里的 `.indexnow-key`，这里留空 |
 | `PUBLIC_SPONSOR_URL` / `_IMAGE_URL` | 赞助卡片 | 赞助卡不显示 |
 
-正常初始化的新 fork 已经不需要给 IndexNow 配环境变量：`Initialize AnvilWiki` / `pnpm apply-template` 会一次性生成 `.indexnow-key`，postbuild 据此生成 `/<key>.txt`，CI 后的自动推送也读取同一份仓库文件。`INDEXNOW_KEY` 只保留给旧的环境变量方案兼容使用，详见 `docs/deployment.md`。
+正常初始化的新 fork 已经不需要给 IndexNow 配环境变量：`Initialize AnvilWiki` / `pnpm apply-template` 会一次性生成 `.indexnow-key`，postbuild 据此生成 `/<key>.txt`，CI 后的自动推送也读取同一份仓库文件。`INDEXNOW_KEY` 只保留给旧的环境变量方案兼容使用，详见 `docs/DEPLOYMENT.md`。
 
 统计三件套(GA4 / Cloudflare Web Analytics / Clarity)的选型对比与逐步接入教程,见[学习手册「接广告」一课](/zh/landing/docs/enable-ads)「可选:评论和统计」一节;GSC(站长后台)的完整接入教程在[让 Google 认识你](/zh/landing/docs/get-on-google)。
 

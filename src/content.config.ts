@@ -43,6 +43,15 @@ const wiki = defineCollection({
        * build (pages, lists, recent, related, hreflang, sitemap).
        */
       draft: z.boolean().default(false),
+      pageType: z.enum(['beginner-guide', 'walkthrough', 'codes', 'tier-list', 'boss-guide', 'items', 'maps', 'builds', 'faq']).optional(),
+      keyword: z.string().optional(),
+      canonicalKeyword: z.string().optional(),
+      searchIntent: z.string().optional(),
+      evidenceStatus: z.enum(['pending', 'verified', 'disputed']).optional(),
+      sourceIds: z.array(z.string()).default([]),
+      reviewedBy: z.string().optional(),
+      reviewedAt: z.coerce.date().transform(date => date.toISOString().slice(0, 10)).optional(),
+      relatedCandidates: z.array(z.string()).default([]),
       /**
        * Game version this article applies to (e.g. "v2.5"). Rendered as a
        * badge on the article header — a freshness/E-E-A-T signal for

@@ -3,6 +3,8 @@ name: anvil-new-article
 description: 从用户提供的素材(口述要点/YouTube 视频/别的攻略/原始数据)直接生成一篇符合 AnvilWiki schema 的 MDX 文章页,自动填 frontmatter(title/description/category/tags/summary/boss 等),写完后自动跑校验。视频素材走 Step 0 抓字幕再成文。触发词:写文章 / 生成攻略页 / 视频转攻略 / new article / 帮我把这些内容做成页面。
 ---
 
+> GameForge：独立站优先读取 docs/CONTENT_WORKFLOW.md。JSON 关键词入口为 pnpm plan-content；所有骨架保持 draft。发布前必须有 facts.json 来源、版本、reviewedBy/reviewedAt，并通过 pnpm verify-game。不要对母版执行游戏替换。
+
 # AnvilWiki 新文章生成
 
 把用户给的任何素材变成一篇构建必过的 MDX 页面。**先读规范再动手:**

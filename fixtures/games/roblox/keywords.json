@@ -1,0 +1,82 @@
+[
+  {
+    "topicName": "Beginner Guide",
+    "category": "guides",
+    "keyword": "Fixture Sky Orchard beginner-guide",
+    "slug": "beginner",
+    "intent": "Inspect fictional beginner-guide test scenario",
+    "priority": 1,
+    "evidenceStatus": "pending",
+    "pageType": "beginner-guide",
+    "sourceIds": [
+      "fixture-official"
+    ]
+  },
+  {
+    "topicName": "Codes",
+    "category": "codes",
+    "keyword": "Fixture Sky Orchard codes",
+    "slug": "codes",
+    "intent": "Inspect fictional codes test scenario",
+    "priority": 2,
+    "evidenceStatus": "pending",
+    "pageType": "codes",
+    "sourceIds": [
+      "fixture-official"
+    ]
+  },
+  {
+    "topicName": "Boss Guide",
+    "category": "bosses",
+    "keyword": "Fixture Sky Orchard boss-guide",
+    "slug": "boss-guide",
+    "intent": "Inspect fictional boss-guide test scenario",
+    "priority": 3,
+    "evidenceStatus": "pending",
+    "pageType": "boss-guide",
+    "sourceIds": [
+      "fixture-official"
+    ]
+  },
+  {
+    "topicName": "Tier List",
+    "category": "tiers",
+    "keyword": "Fixture Sky Orchard tier-list",
+    "slug": "tier-list",
+    "intent": "Inspect fictional tier-list test scenario",
+    "priority": 4,
+    "evidenceStatus": "pending",
+    "pageType": "tier-list",
+    "sourceIds": [
+      "fixture-official"
+    ]
+  },
+  {
+    "topicName": "Beginner Guide",
+    "category": "guides",
+    "keyword": "Fixture Sky Orchard starter",
+    "slug": "beginner",
+    "intent": "Inspect fictional beginner-guide test scenario",
+    "priority": 1,
+    "evidenceStatus": "pending",
+    "pageType": "beginner-guide",
+    "sourceIds": [
+      "fixture-official"
+    ],
+    "canonicalKeyword": "Fixture Sky Orchard beginner-guide"
+  },
+  {
+    "topicName": "Beginner Guide",
+    "category": "guides",
+    "keyword": "unrelated",
+    "slug": "beginner",
+    "intent": "Inspect fictional beginner-guide test scenario",
+    "priority": 1,
+    "evidenceStatus": "pending",
+    "pageType": "beginner-guide",
+    "sourceIds": [
+      "fixture-official"
+    ],
+    "relevant": false
+  }
+]

@@ -1,3 +1,6 @@
+import { indexableLocalePage } from './src/lib/gameforge-indexing';
+import { gameSchema, validateEvidence } from './scripts/lib/gameforge';
+import { integrationVars } from './scripts/lib/configure-game';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -195,7 +198,13 @@ function buildLastmodMap(
   return map;
 }
 
-const siteOrigin = process.env.SITE_URL || 'https://anvil.wiki';
+const gameforgeFile = path.resolve('game.config.json');
+const gameforge = fs.existsSync(gameforgeFile) ? gameSchema.parse(JSON.parse(fs.readFileSync(gameforgeFile, 'utf8'))) : null;
+validateEvidence(process.cwd());
+// Public integration IDs come from the same config in local and Pages builds.
+// This runs before Vite resolves PUBLIC_ env replacements; no secret is read.
+if (gameforge) for (const [name, value] of Object.entries(integrationVars(gameforge))) process.env[name] = value;
+const siteOrigin = process.env.SITE_URL || (gameforge ? `https://${gameforge.domain}` : 'https://anvil.wiki');
 
 // trailingSlash:'always' makes every generated URL end with "/", but the
 // lookup tables above (lastmodMap / noindexPaths / coverage keys) are built
@@ -231,6 +240,17 @@ const localeCoverage = new Map<string, Set<string>>();
 const detailCoverage = new Map<string, Set<string>>();
 const categoryCoverage = new Map<string, Set<string>>();
 const lastmodMap = buildLastmodMap(noindexPaths, localeCoverage, detailCoverage, categoryCoverage);
+// Recent/tags pages already render noindex when empty. The sitemap must
+// reflect that state, including the all-draft first build of a fresh site.
+for (const l of locales) {
+  if (![...categoryCoverage.values()].some(coverage => coverage.has(l))) {
+    for (const suffix of ['recent', 'tags']) noindexPaths.add(l === defaultLocale ? `/${suffix}` : `/${l}/${suffix}`);
+  }
+}
+if (gameforge) for (const l of locales) {
+  const ui = JSON.parse(fs.readFileSync(path.resolve(`src/locales/${l}.json`), 'utf8'));
+  if (!ui.home?.faq?.items?.length) noindexPaths.add(l === defaultLocale ? '/faq' : `/${l}/faq`);
+}
 
 /**
  * Article/list hreflang alternates that match the page-level <head> truth.
@@ -276,9 +296,17 @@ function alternatesFor(pagePath: string): Array<{ lang: string; url: string }> |
   return undefined;
 }
 
+// Non-article translated pages need real localized copy, not English UI fallback.
+function gameforgeIndexable(p: string): boolean {
+  if (!gameforge) return true;
+  const [first] = p.slice(1).split('/');
+  const locale = locales.includes(first as typeof defaultLocale) ? first : defaultLocale;
+  return indexableLocalePage(p, locale, defaultLocale, gameforge.translatedLanguages, CONTENT_TYPES);
+}
+
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://anvil.wiki',
+  site: siteOrigin,
   output: 'static',
   // Astro 7 flipped the default from true to 'jsx', which strips whitespace
   // between adjacent inline elements ("word" + "word" can render joined).
@@ -325,6 +353,8 @@ export default defineConfig({
       // demo.astro and gets collected automatically.
       filter: (url) =>
         !noindexPaths.has(normalizePath(decodeSitemapPath(url))) &&
+        normalizePath(decodeSitemapPath(url)) !== '/404' &&
+        gameforgeIndexable(normalizePath(decodeSitemapPath(url))) &&
         !(landingLinkEnabled && normalizePath(decodeSitemapPath(url)) === '/'),
       // Inject <lastmod> from article frontmatter (see buildLastmodMap) and
       // hreflang alternates that mirror the page-level truth (see alternatesFor).

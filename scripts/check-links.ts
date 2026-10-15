@@ -72,7 +72,10 @@ for (const file of htmlFiles) {
     if (isAssetPath(href)) continue;
     if (href.startsWith('//')) continue;
     checked++;
-    const clean = href.split('#')[0].split('?')[0];
+    let clean = href.split('#')[0].split('?')[0];
+    // Built directories use raw Unicode; URL-shaped anchors may be encoded.
+    // A literal malformed percent sequence should remain a lookup, not throw.
+    try { clean = decodeURIComponent(clean); } catch { /* retain the literal path */ }
     if (clean === '' || clean === '/') continue;
     if (!knownPaths.has(clean.replace(/\/$/, ''))) {
       const list = broken.get(href) ?? [];
