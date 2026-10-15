@@ -23,6 +23,11 @@ const meta = (html: string, name: string) => {
 const tags = (html: string, name: string) => [...html.matchAll(new RegExp(`<${name}\\s[^>]*>`, 'gi'))].map(m => m[0]);
 const htmlFiles = walkFiles(dist, { exts: ['.html'] }).filter(f => !path.relative(dist, f).replace(/\\/g, '/').startsWith('ads/'));
 const byRoute = new Map<string, { html: string; indexed: boolean }>();
+// Astro writes Unicode directory names while URL() percent-encodes links.
+// Decode once for disk-route lookups, retaining malformed percent literals.
+const routeKey = (pathname: string) => {
+  try { return decodeURIComponent(pathname); } catch { return pathname; }
+};
 for (const file of htmlFiles) {
   const rel = path.relative(dist, file).replace(/\\/g, '/');
   const route = rel === 'index.html' ? '/' : rel.endsWith('/index.html') ? `/${rel.slice(0, -10)}` : `/${rel}`;
@@ -36,7 +41,7 @@ for (const file of htmlFiles) {
   if (!description?.trim()) err('Missing meta description');
   if ((html.match(/<h1(?:\s|>)/gi) ?? []).length !== 1) err('Expected exactly one H1');
   const canonical = tags(html, 'link').filter(t => attr(t, 'rel') === 'canonical');
-  if (canonical.length !== 1 || attr(canonical[0], 'href') !== origin + route) err('Canonical does not match the actual URL');
+  if (canonical.length !== 1 || routeKey(attr(canonical[0], 'href') ?? '') !== origin + route) err('Canonical does not match the actual URL');
   if (!meta(html, 'robots')) err('Missing robots directive');
   for (const name of ['og:title', 'og:description', 'og:image', 'og:url', 'twitter:card', 'twitter:image']) if (!meta(html, name)) err(`Missing ${name}`);
   for (const name of ['og:image', 'twitter:image']) {
@@ -66,7 +71,7 @@ for (const [route, { html }] of byRoute) for (const link of tags(html, 'link').f
   const href = attr(link, 'href');
   if (!href?.startsWith(origin + '/')) errors.push(`${route}: hreflang has a foreign origin`);
   else {
-    const destination = byRoute.get(new URL(href).pathname);
+    const destination = byRoute.get(routeKey(new URL(href).pathname));
     if (!destination?.indexed) errors.push(`${route}: hreflang points at missing/noindex page ${href}`);
   }
 }
@@ -78,7 +83,7 @@ for (const file of sitemapFiles) for (const m of fs.readFileSync(file, 'utf8').m
   if (submitted.has(value)) errors.push(`Duplicate sitemap URL ${value}`);
   submitted.add(value);
   if (!value.startsWith(origin + '/')) errors.push(`Foreign sitemap URL ${value}`);
-  const page = byRoute.get(new URL(value).pathname);
+  const page = byRoute.get(routeKey(new URL(value).pathname));
   if (!page?.indexed) errors.push(`Sitemap points at missing/noindex page ${value}`);
 }
 if (!fs.existsSync(path.join(dist, '404.html'))) errors.push('404.html missing');

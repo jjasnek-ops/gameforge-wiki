@@ -33,8 +33,18 @@ try {
       const body = `## What does ${a.data.title} test?\n\nThis explicitly fictional ${a.data.pageType} fixture for ${game.gameName} tests scenario ${i + 1}. It is a local template integration test, with no real codes, boss statistics or release claims.\n\n## How is scenario ${i + 1} checked?\n\nThe test harness checks ${a.data.pageType} metadata, source attribution, navigation, theme, and static output. Only fixture sources are used.\n`;
       fs.writeFileSync(a.file, `---\n${stringify(a.data)}---\n\n${body}`);
     }
+    // Exercise a navigation category with no published articles before the
+    // first real category: CTA labels and destinations must still agree.
+    const emptyCategory = game.navigation.find(n => !articles(site).some(a => a.data.draft !== true && a.data.category === n.key));
+    assert(emptyCategory, 'Fixture needs an empty leading category');
+    game.navigation = [emptyCategory, ...game.navigation.filter(n => n !== emptyCategory)];
+    fs.writeFileSync(path.join(site, 'game.config.json'), JSON.stringify(game));
     runPnpm(site, ['verify-game']);
     const home = fs.readFileSync(path.join(site, 'dist/index.html'), 'utf8');
+    const generatedUi = JSON.parse(fs.readFileSync(path.join(site, 'src/locales/en.json'), 'utf8'));
+    const firstPublishedLink = generatedUi.home.popular.quickLinks[0];
+    assert(firstPublishedLink, 'A published category needs a browse link');
+    assert(home.includes(`href="${firstPublishedLink.href}" class="btn-outline"`), 'Hero CTA must target its labeled published category');
     assert(home.includes(game.siteName));
     assert(home.includes(game.themeColor) || fs.readFileSync(path.join(site, 'public/manifest.json'), 'utf8').includes(game.themeColor));
     assert(!/Anvil Quest|anvil\.wiki|googlesyndication\.com\/pagead|giscus\.app\/client/.test(home));
@@ -50,7 +60,7 @@ try {
       const original = articles(site).find(a => a.data.draft !== true)!;
       const translated = original.file.replace(`${path.sep}en${path.sep}`, `${path.sep}ja${path.sep}`);
       fs.mkdirSync(path.dirname(translated), { recursive: true });
-      const data = { ...original.data, title: `${game.gameName} 日本語の動作確認ガイド`, description: `${game.gameName} は架空のテスト用ゲームです。このページはテンプレートの日本語翻訳、出典表示と検索設定の検証だけに使用します。`, summary: 'これは架空のテスト資料です。実際のゲームの数値、ボス属性、交換コードなどは主張していません。' };
+      const data = { ...original.data, tags: ['動作確認'], title: `${game.gameName} 日本語の動作確認ガイド`, description: `${game.gameName} は架空のテスト用ゲームです。このページはテンプレートの日本語翻訳、出典表示と検索設定の検証だけに使用します。`, summary: 'これは架空のテスト資料です。実際のゲームの数値、ボス属性、交換コードなどは主張していません。' };
       fs.writeFileSync(translated, `---\n${stringify(data)}---\n\n## このテストで何を確認しますか？\n\nこれは日本語の記事と出典、パンくず、検索エンジン設定を確認するための架空の資料です。\n\n## 本物のゲームの攻略ですか？\n\nいいえ。公開サイトに配信するための資料ではありません。\n`);
       runPnpm(site, ['verify-game']);
       const translatedMap = fs.readFileSync(path.join(site, 'dist/sitemap-0.xml'), 'utf8');
@@ -59,6 +69,8 @@ try {
       assert(!translatedMap.includes(`<loc>https://${game.domain}/ja/</loc>`), 'English fallback homepage stays excluded');
       const detail = fs.readFileSync(path.join(site, 'dist', translatedRoute, 'index.html'), 'utf8');
       assert(detail.includes('hreflang="ja"'));
+      assert(fs.existsSync(path.join(site, 'dist/ja/tags/動作確認/index.html')), 'Unicode tag route must be generated');
+      assert(translatedMap.includes(encodeURIComponent('動作確認')), 'Sitemap must contain the encoded Unicode tag URL');
     }
     if (type === 'steam') {
       const configFile = path.join(site, 'game.config.json');

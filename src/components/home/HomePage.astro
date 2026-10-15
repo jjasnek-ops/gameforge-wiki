@@ -71,6 +71,10 @@ const closingCta: HomeUi['closingCta'] = home.closingCta;
 // QuickLink may be a string or { label, href } — normalize for the sidebar list.
 type QuickLink = string | { label: string; href: string };
 const trendingLinks: QuickLink[] = Array.isArray(popular.quickLinks) ? popular.quickLinks : [];
+const firstQuickLink = trendingLinks.find((link) => typeof link !== 'string');
+const browseHref = gameforgeEnabled
+  ? firstQuickLink ? trendingHref(firstQuickLink) : null
+  : listPath(NAVIGATION_CONFIG[0]?.key ?? 'guides', locale);
 function trendingHref(link: QuickLink): string | null {
   return typeof link === 'string' ? null : localizePath(link.href, locale);
 }
@@ -126,8 +130,8 @@ function trendingLabel(link: QuickLink): string {
           )
         }
         {
-          hero.ctaSecondary && (
-            <a href={listPath(NAVIGATION_CONFIG[0]?.key ?? 'guides', locale)} class="btn-outline">
+          hero.ctaSecondary && browseHref && (
+            <a href={browseHref} class="btn-outline">
               {hero.ctaSecondary}
             </a>
           )
@@ -156,9 +160,9 @@ function trendingLabel(link: QuickLink): string {
       <div class="lg:col-span-2">
         <div class="flex items-baseline justify-between">
           <h2 class="text-2xl font-bold">{updates.title}</h2>
-          <a href={listPath(NAVIGATION_CONFIG[0]?.key ?? 'guides', locale)} class="text-sm text-foreground hover:text-nav hover:underline"
+          {browseHref && <a href={browseHref} class="text-sm text-foreground hover:text-nav hover:underline"
             >{shared.browseAll}</a
-          >
+          >}
         </div>
         <div class="mt-4 grid gap-4 sm:grid-cols-2">
           {
