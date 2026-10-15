@@ -1,6 +1,6 @@
 import { parse as parseYaml } from 'yaml';
 import { indexableLocalePage } from './src/lib/gameforge-indexing';
-import { gameSchema, validateEvidence } from './scripts/lib/gameforge';
+import { loadGame, validateEvidence } from './scripts/lib/gameforge';
 import { integrationVars } from './scripts/lib/configure-game';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
@@ -202,8 +202,7 @@ function buildLastmodMap(
   return map;
 }
 
-const gameforgeFile = path.resolve('game.config.json');
-const gameforge = fs.existsSync(gameforgeFile) ? gameSchema.parse(JSON.parse(fs.readFileSync(gameforgeFile, 'utf8'))) : null;
+const gameforge = loadGame(process.cwd());
 validateEvidence(process.cwd());
 // Public integration IDs come from the same config in local and Pages builds.
 // This runs before Vite resolves PUBLIC_ env replacements; no secret is read.

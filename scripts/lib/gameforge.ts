@@ -3,7 +3,7 @@ import path from 'node:path';
 import { z } from 'astro/zod';
 import { parse } from 'yaml';
 import { walkFiles } from './walk';
-import { assertPublicData } from './security';
+import { assertPublicData, readPublicJson } from './security';
 import { sourceUrlIssue } from './source-links';
 
 const text = z.string().trim().min(1).refine(v => !/[\x00-\x1f]/.test(v), 'Control characters are not allowed');
@@ -105,12 +105,12 @@ export function loadGame(root = process.cwd()): GameConfig | null {
     throw new Error('Generated site is missing game.config.json; refusing the upstream fixture exemption');
   }
   if (!fs.existsSync(file)) return null;
-  const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const raw = readPublicJson(file, 'game.config.json');
   assertPublicData(raw, 'game.config.json');
   return gameSchema.parse(raw);
 }
 export function loadFacts(root: string): FactSource[] {
-  const raw = JSON.parse(fs.readFileSync(path.join(root, 'facts.json'), 'utf8'));
+  const raw = readPublicJson(path.join(root, 'facts.json'), 'facts.json');
   assertPublicData(raw, 'facts.json');
   const facts = z.array(sourceSchema).parse(raw);
   if (new Set(facts.map(f => f.id)).size !== facts.length) throw new Error('Duplicate fact source ID');

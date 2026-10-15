@@ -4,7 +4,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { assertPublicData, productionFiles, secretFindings, sensitivePath } from '../scripts/lib/security';
+import { assertPublicData, readPublicJson, productionFiles, secretFindings, sensitivePath } from '../scripts/lib/security';
 import { gameSchema, sourceSchema, evidenceErrors } from '../scripts/lib/gameforge';
 import { integrationVars } from '../scripts/lib/configure-game';
 import { checkSourceLink, cachedSourceLink, sourceUrlIssue, publicAddress, type LinkDependencies } from '../scripts/lib/source-links';
@@ -25,6 +25,13 @@ describe('sensitive configuration, production copy and Git commit safety', () =>
     expect(gameSchema.safeParse({ ...game, analytics: { cloudflareBeaconToken: token } }).success).toBe(false);
     expect(() => assertPublicData({ notes: `${['CF', 'API', 'TOKEN'].join('_')}=${token}` }, 'facts')).toThrow('sensitive data refused');
     expect(() => assertPublicData({ analytics: configured.analytics }, 'public')).not.toThrow();
+    const dir = tmp();
+    try {
+      const file = path.join(dir, 'malformed.json');
+      fs.writeFileSync(file, `{"description":"${token}`);
+      expect(() => readPublicJson(file, 'fixture')).toThrow('invalid JSON (input details redacted)');
+      try { readPublicJson(file, 'fixture'); } catch (error) { expect(String(error)).not.toContain(token); }
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
   });
   it('detects provider signatures and key material without echoing their values', () => {
     const signature = ['ghp', '_', 'A'.repeat(36)].join('');

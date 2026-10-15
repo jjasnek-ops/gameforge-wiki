@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { assertPublicData, productionFiles, secretFindings } from './lib/security';
+import { assertPublicData, readPublicJson, productionFiles, secretFindings } from './lib/security';
 import { gameSchema, loadFacts, planKeywords, validateEvidence } from './lib/gameforge';
 import { configureGame } from './lib/configure-game';
 import { runScript, runPnpm } from './lib/run';
@@ -14,10 +14,10 @@ function arg(name: string) {
 }
 const root = fs.realpathSync(process.cwd());
 const config = arg('config'), keywordsFile = arg('keywords'), factsFile = arg('facts'), output = arg('out');
-const configData = JSON.parse(fs.readFileSync(config, 'utf8'));
+const configData = readPublicJson(config, 'game.config.json');
 assertPublicData(configData, 'game.config.json');
 const game = gameSchema.parse(configData);
-const keywordData = JSON.parse(fs.readFileSync(keywordsFile, 'utf8'));
+const keywordData = readPublicJson(keywordsFile, 'keywords.json');
 assertPublicData(keywordData, 'keywords.json');
 planKeywords(keywordData, game);
 // Validate inputs before creating a directory. The output may not overwrite
@@ -26,7 +26,8 @@ const parent = fs.realpathSync(path.dirname(output));
 const target = path.join(parent, path.basename(output));
 if (fs.existsSync(target)) throw new Error('Output already exists; refusing to overwrite');
 if (target === root || target.startsWith(root + path.sep) || root.startsWith(target + path.sep)) throw new Error('New site must be outside the template directory');
-const factsRaw = fs.readFileSync(factsFile, 'utf8');
+const factsData = readPublicJson(factsFile, 'facts.json');
+const factsRaw = JSON.stringify(factsData, null, 2) + '\n';
 const { z } = await import('astro/zod');
 const { sourceSchema } = await import('./lib/gameforge');
 assertPublicData(JSON.parse(factsRaw), 'facts.json');

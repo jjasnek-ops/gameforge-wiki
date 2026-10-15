@@ -25,6 +25,16 @@ export function assertPublicData(value: unknown, label: string) {
   const issues = secretFindings(JSON.stringify(value, null, 2));
   if (issues.length) throw new Error(`${label}: sensitive data refused\n${issues.join('\n')}`);
 }
+export function readPublicJson(file: string, label: string): unknown {
+  const raw = fs.readFileSync(file, 'utf8');
+  const findings = secretFindings(raw);
+  if (findings.length) throw new Error(`${label}: sensitive data refused\n${findings.join('\n')}`);
+  let parsed: unknown;
+  try { parsed = JSON.parse(raw); }
+  catch { throw new Error(`${label}: invalid JSON (input details redacted)`); }
+  assertPublicData(parsed, label);
+  return parsed;
+}
 export function sensitivePath(relative: string): boolean {
   const parts = relative.replace(/\\/g, '/').split('/');
   return parts.some(p => /^(?:\.env(?:\..*)?|\.dev\.vars(?:\..*)?|\.npmrc|\.yarnrc.*|\.aws|\.ssh|credentials?(?:\.(?:json|ya?ml|toml|txt))?|secrets?(?:\.(?:json|ya?ml|toml|txt))?|\.netrc|\.pypirc)(?:$)/i.test(p) && !/^\.env\.(?:example|template)$/.test(p)) ||
