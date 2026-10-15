@@ -44,6 +44,9 @@ jobs:
       # check-content → check-links → check-i18n) live in one composite
       # action so the auto-content pipeline verifies drafts with the exact
       # same definition before opening a PR.
+      - name: Sensitive configuration and tracked files
+        run: pnpm check-secrets
+
       - name: Quality gates
         uses: ./.github/actions/gates
         with:

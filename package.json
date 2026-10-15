@@ -32,7 +32,7 @@
   "packageManager": "pnpm@11.1.1",
   "scripts": {
     "dev": "tsx scripts/configure-game.ts && astro dev",
-    "build": "tsx scripts/configure-game.ts && tsx scripts/check-evidence.ts && astro build",
+    "build": "tsx scripts/check-secrets.ts && tsx scripts/configure-game.ts && tsx scripts/check-evidence.ts && astro build",
     "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs && tsx scripts/write-indexnow-key.ts",
     "preview": "astro preview",
     "check": "astro check",
@@ -65,8 +65,12 @@
     "check-evidence": "tsx scripts/check-evidence.ts",
     "check-seo": "tsx scripts/check-seo.ts",
     "test:games": "tsx scripts/test-games.ts",
-    "verify-game": "pnpm configure-game && pnpm lint && pnpm typecheck && pnpm test && pnpm check-config && pnpm check-content && pnpm check-i18n --strict-ui && pnpm build && pnpm check-links && pnpm check-seo",
-    "predeploy": "tsx scripts/predeploy.ts"
+    "verify-game": "pnpm check-secrets && pnpm configure-game && pnpm lint && pnpm typecheck && pnpm test && pnpm check-config && pnpm check-content && pnpm check-i18n --strict-ui && pnpm build && pnpm check-links && pnpm check-seo",
+    "predeploy": "tsx scripts/predeploy.ts",
+    "check-secrets": "tsx scripts/check-secrets.ts",
+    "check-sources": "tsx scripts/check-sources.ts",
+    "security:install-hook": "node scripts/install-hooks.mjs",
+    "prepare": "node scripts/install-hooks.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.1",

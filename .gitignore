@@ -60,3 +60,11 @@ ops/
 # Local generation/SEO reports; tracked UI seed exists only in generated sites
 .gameforge/generation-tests.json
 .gameforge/seo-report.json
+
+# All environment variants and private source-check caches
+.env.*
+!.env.example
+!.env.template
+.dev.vars*
+.gameforge/source-cache.json
+.gameforge/source-report.json

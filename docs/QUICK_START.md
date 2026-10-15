@@ -8,7 +8,7 @@
 pnpm create-game --config /absolute/input/game.config.json --keywords /absolute/input/keywords.json --facts /absolute/input/facts.json --out ../new-game-wiki
 ```
 
-路径含空格时加引号；父目录必须存在，目标目录必须不存在。输出拒绝覆盖、拒绝位于母版内。命令复制当前 Git 跟踪/未忽略文件，不复制 .git、环境密钥或 IndexNow 身份。失败时保留独立目录排查，不自动清理用户数据。
+路径含空格时加引号；父目录必须存在，目标目录必须不存在。输出拒绝覆盖、拒绝位于母版内。命令只复制 Git 跟踪文件中受控的源码、脚本、构建配置、资源和文档；未跟踪文件、环境凭据、个人临时文件、开发产物、外部工具目录与 IndexNow 身份不会复制。新增生产文件须先确认安全、加入 Git 暂存，并符合 scripts/lib/security.ts 清单。失败时保留独立目录排查，不自动清理用户数据。
 
 4. 进入独立目录，阅读 LAUNCH_REPORT.md 与 .gameforge/content-plan.json。所有文章保持 draft: true。
 5. 使用保留的 anvil-new-article / anvil-batch-articles 技能填入真实内容，逐篇审核后再发布。
@@ -24,3 +24,5 @@ verify-game 允许尚无发布文章的起步站；predeploy 额外要求真实�
 改游戏身份、域名、颜色、导航和首页时只改 game.config.json，再运行 configure-game（dev/build 自动执行）。文章仍使用 YAML frontmatter MDX，不修改核心组件。
 
 可选 `--content /absolute/verified-mdx` 导入按 locale/category 组织的现有 MDX；文件仍须通过全部核验门禁。图片资源随后放入新站相应 public/images 或 src/assets 目录后重新验证。
+
+初始化独立 Git 仓库后运行 `pnpm security:install-hook`，再提交。`pnpm check-sources` 默认只做离线 URL 校验；需要联网时显式使用 `pnpm check-sources --online`。详情见 CONTENT_WORKFLOW.md。

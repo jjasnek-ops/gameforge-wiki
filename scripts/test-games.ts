@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 import { createHash } from 'node:crypto';
 import { stringify } from 'yaml';
 import { walkFiles } from './lib/walk';
@@ -9,6 +11,12 @@ import { runScript, runPnpm } from './lib/run';
 import { articles, loadGame } from './lib/gameforge';
 
 const root = process.cwd();
+const require = createRequire(import.meta.url);
+function expectGateFailure(site: string, script: string, message: string) {
+  const result = spawnSync(process.execPath, [require.resolve('tsx/cli'), path.join(site, script)], { cwd: site, encoding: 'utf8' });
+  assert.notEqual(result.status, 0);
+  assert((result.stdout + result.stderr).includes(message), result.stdout + result.stderr);
+}
 function motherHash() {
   const h = createHash('sha256');
   for (const file of [...walkFiles(path.join(root, 'src')), ...walkFiles(path.join(root, 'public'))].sort()) h.update(path.relative(root, file)).update(fs.readFileSync(file));
@@ -21,6 +29,11 @@ try {
   for (const type of ['roblox', 'steam']) {
     const fixture = path.join(root, 'fixtures/games', type), site = path.join(scratch, type);
     runScript(root, 'scripts/create-game.ts', ['--config', path.join(fixture, 'game.config.json'), '--keywords', path.join(fixture, 'keywords.json'), '--facts', path.join(fixture, 'facts.json'), '--out', site]);
+    for (const excluded of ['tools', 'fixtures', '.zcode', '.dev.vars', '.env.local', 'docs/superpowers', 'scripts/test-games.ts']) assert(!fs.existsSync(path.join(site, excluded)), `Unsafe/unrelated copied path: ${excluded}`);
+    assert(fs.existsSync(path.join(site, '.githooks/pre-commit')));
+    const wrangler = fs.readFileSync(path.join(site, 'wrangler.toml'), 'utf8');
+    assert(wrangler.includes('pages_build_output_dir = "dist"'));
+    assert(!/CLOUDFLARE_API_TOKEN|CF_API_TOKEN/.test(wrangler));
     const game = loadGame(site)!;
     const files = articles(site);
     assert(files.length >= 2);
@@ -29,7 +42,7 @@ try {
     // Publish two explicitly fictional fixture articles to exercise real list,
     // detail, source, breadcrumb, related and sitemap output, then rebuild.
     for (const [i, a] of files.slice(0, 2).entries()) {
-      Object.assign(a.data, { draft: false, evidenceStatus: 'verified', reviewedBy: 'Test fixture harness', reviewedAt: '2026-10-01', gameVersion: 'fixture-1', sourceIds: ['fixture-official'], description: `Fictional ${game.gameName} integration fixture ${i + 1} verifies ${a.data.pageType} rendering and source attribution.`, summary: `This is fictional test material for ${game.gameName}. Fixture ${i + 1} checks ${a.data.pageType} rendering. It asserts no real gameplay data.` });
+      Object.assign(a.data, { tags: type === 'steam' ? [] : a.data.tags, draft: false, evidenceStatus: 'verified', reviewedBy: 'Test fixture harness', reviewedAt: '2026-10-01', gameVersion: 'fixture-1', sourceIds: ['fixture-official'], description: `Fictional ${game.gameName} integration fixture ${i + 1} verifies ${a.data.pageType} rendering and source attribution.`, summary: `This is fictional test material for ${game.gameName}. Fixture ${i + 1} checks ${a.data.pageType} rendering. It asserts no real gameplay data.` });
       const body = `## What does ${a.data.title} test?\n\nThis explicitly fictional ${a.data.pageType} fixture for ${game.gameName} tests scenario ${i + 1}. It is a local template integration test, with no real codes, boss statistics or release claims.\n\n## How is scenario ${i + 1} checked?\n\nThe test harness checks ${a.data.pageType} metadata, source attribution, navigation, theme, and static output. Only fixture sources are used.\n`;
       fs.writeFileSync(a.file, `---\n${stringify(a.data)}---\n\n${body}`);
     }
@@ -40,7 +53,35 @@ try {
     game.navigation = [emptyCategory, ...game.navigation.filter(n => n !== emptyCategory)];
     fs.writeFileSync(path.join(site, 'game.config.json'), JSON.stringify(game));
     runPnpm(site, ['verify-game']);
-    const home = fs.readFileSync(path.join(site, 'dist/index.html'), 'utf8');
+    // Mutate real built output: omission must fail even when every remaining
+    // sitemap URL is otherwise valid. Restore before continuing verification.
+    const sitemapFile = path.join(site, 'dist/sitemap-0.xml');
+    const completeSitemap = fs.readFileSync(sitemapFile, 'utf8');
+    fs.writeFileSync(sitemapFile, completeSitemap.replace(/<url>[\s\S]*?<\/url>/, ''));
+    try { expectGateFailure(site, 'scripts/check-seo.ts', 'missing from sitemap'); }
+    finally { fs.writeFileSync(sitemapFile, completeSitemap); }
+    const factsFile = path.join(site, 'facts.json');
+    const factsRaw = fs.readFileSync(factsFile, 'utf8');
+    const unverified = JSON.parse(factsRaw); unverified[0].verified = false;
+    fs.writeFileSync(factsFile, JSON.stringify(unverified));
+    try { expectGateFailure(site, 'scripts/check-evidence.ts', 'verified'); }
+    finally { fs.writeFileSync(factsFile, factsRaw); }
+    // No network request: fictional sources still support the local draft flow.
+    expectGateFailure(site, 'scripts/predeploy.ts', 'Test-only game');
+    runScript(site, 'scripts/check-sources.ts');
+    runScript(site, 'scripts/check-seo.ts');
+    const homeFile = path.join(site, 'dist/index.html');
+    const home = fs.readFileSync(homeFile, 'utf8');
+    const badCanonical = home.replace(/(rel="canonical" href=")[^"]+/, '$1https://foreign.example/');
+    assert.notEqual(badCanonical, home);
+    fs.writeFileSync(homeFile, badCanonical);
+    try { expectGateFailure(site, 'scripts/check-seo.ts', 'Canonical does not match'); }
+    finally { fs.writeFileSync(homeFile, home); }
+    const configBeforeRobotsTest = fs.readFileSync(path.join(site, 'game.config.json'), 'utf8');
+    fs.writeFileSync(path.join(site, 'game.config.json'), JSON.stringify({ ...game, testOnly: false }));
+    try { expectGateFailure(site, 'scripts/check-seo.ts', 'blocked by robots'); }
+    finally { fs.writeFileSync(path.join(site, 'game.config.json'), configBeforeRobotsTest); }
+    runScript(site, 'scripts/check-seo.ts');
     const generatedUi = JSON.parse(fs.readFileSync(path.join(site, 'src/locales/en.json'), 'utf8'));
     const firstPublishedLink = generatedUi.home.popular.quickLinks[0];
     assert(firstPublishedLink, 'A published category needs a browse link');
@@ -77,13 +118,14 @@ try {
       const originalConfig = fs.readFileSync(configFile, 'utf8');
       const enabled = JSON.parse(originalConfig);
       enabled.featureFlags = { ...enabled.featureFlags, analytics: true, adsense: true, comments: true };
-      enabled.analytics = { ga4: 'G-FIXTURE123' };
+      enabled.analytics = { ga4: 'G-FIXTURE123', cloudflareBeaconToken: '0123456789abcdef0123456789abcdef' };
       enabled.advertising = { adsenseClient: 'ca-pub-1234567890', adsenseSlots: { sticky: '12345', sidebar: '12346', incontent: '12347' } };
       enabled.comments = { repo: 'fixture/test-only', repoId: 'fixture-repo', category: 'Fixture', categoryId: 'fixture-category' };
       fs.writeFileSync(configFile, JSON.stringify(enabled));
       try {
         runPnpm(site, ['build']);
         const html = fs.readFileSync(path.join(site, 'dist/index.html'), 'utf8');
+        assert(html.includes('0123456789abcdef0123456789abcdef'), 'Only the configured public beacon ID may be exposed');
         assert(html.includes('G-FIXTURE123'), 'Analytics must use the configured ID in local builds');
         assert(html.includes('ca-pub-1234567890'), 'AdSense loader must use the configured publisher');
         const detailFile = articles(site).find(a => a.data.draft !== true)!;
