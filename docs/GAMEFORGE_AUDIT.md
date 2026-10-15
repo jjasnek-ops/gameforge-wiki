@@ -20,3 +20,7 @@
 母版 template-audit 返回成功，但仍报告保留上游参考夹具带来的 9 项预期警告（5/14 健康项）。它们不代表生产站被豁免：新站运行严格 check-seo，残留示例与旧身份会失败。没有将这些警告改成虚假的全绿。
 
 额外修复：Python UTF-8 跨平台读取、UI import 块兼容 CRLF、空 recent/tags 的 Sitemap 排除、空聚合页 hreflang、404 Canonical/noindex、跨语言标签页 Title 冲突。旧游戏身份自动记入 retired-identities，供生产产物审计。
+
+可选集成补查通过：Steam 夹具启用 GA4、AdSense 和 Giscus，以虚构公共 ID 检查静态构建产物，再恢复全部关闭；没有访问外部服务。Astro 配置在 Vite 解析前统一注入公共集成 ID，避免仅写 wrangler.toml 而本地不生效。关闭多语言时保留已配置语言的译文为休眠内容，配置检查不要求删除翻译。
+
+Ops 工具包单独安装并验证：20 套、175 项测试全部通过，类型检查与构建通过。额外发现并修复了三个测试文件的 Windows 夹具问题：两个 POSIX 路径断言改为原生路径比较，MCP TOML 夹具正确转义反斜杠；生产逻辑和原断言意图不变。

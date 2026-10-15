@@ -33,3 +33,5 @@ facts 为 {label,value,sourceId}，faq 为 {question,answer,sourceIds}，来源�
 派生产物：site/navigation/features、routing/ui、globals.css 品牌变量、locale 身份/首页、wrangler.toml、manifest、ads.txt。.gameforge/ui-base.json 是无游戏身份的通用字典。环境 SITE_URL 与 domain 冲突时失败，避免第二份域名源。联盟推荐内容继续在 affiliates.ts 配置并由开关控制。
 
 法律页正文沿用上游英文实现；非英语 URL 始终 noindex，不因首页已翻译而提交索引。已有 en/ja 通用 UI 译文保留；其他语言需要在 locale JSON 中补齐真实文案。
+
+Adsterra 启用后仍需按 docs/ads.md 提供自己的 public/ads/<slot>.html 广告代码；配置公共单元 ID 不会伪造或代替广告平台代码。

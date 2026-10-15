@@ -2,12 +2,15 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
+import { spawnSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 import { gameSchema, planKeywords, evidenceErrors, sourceSchema, loadGame } from '../scripts/lib/gameforge';
 import { integrationVars, configureGame } from '../scripts/lib/configure-game';
 import { indexableLocalePage } from '../src/lib/gameforge-indexing';
 
 const fixture = JSON.parse(fs.readFileSync(path.resolve('fixtures/games/roblox/game.config.json'), 'utf8'));
 const game = gameSchema.parse(fixture);
+const require = createRequire(import.meta.url);
 const keyword = { topicName: 'Beginner Guide', category: 'guides', keyword: 'test beginner', slug: 'beginner', intent: 'learn basics', priority: 1, evidenceStatus: 'pending', pageType: 'beginner-guide' };
 const source = sourceSchema.parse({ id: 'official', url: 'https://fixture.example/official', title: 'Test fixture', kind: 'official', verified: true, verifiedAt: '2026-01-01', version: 'fixture-1', notes: 'Fictional fixture only' });
 const publicArticle = { evidenceStatus: 'verified', reviewedBy: 'Fixture reviewer', reviewedAt: '2026-01-02', gameVersion: 'fixture-1', sourceIds: ['official'] };
@@ -29,6 +32,12 @@ describe('GameForge input and publishing safety', () => {
       expect(fs.readFileSync(path.join(dir, 'src/config/site.ts'), 'utf8')).toBe(first);
       expect(first).toContain('export interface SiteConfig');
       expect(first).toContain('export const site: SiteConfig');
+      fs.writeFileSync(path.join(dir, 'game.config.json'), JSON.stringify({ ...game, featureFlags: { ...game.featureFlags, multilingual: false } }));
+      configureGame(dir);
+      expect(fs.existsSync(path.join(dir, 'src/locales/ja.json'))).toBe(true);
+      expect(fs.readFileSync(path.join(dir, 'src/i18n/routing.ts'), 'utf8')).toContain('export const locales = ["en"] as const');
+      const check = spawnSync(process.execPath, [require.resolve('tsx/cli'), path.resolve('scripts/check-config.ts')], { cwd: dir, encoding: 'utf8' });
+      expect(check.status, check.stdout + check.stderr).toBe(0);
       const next = { ...game, gameName: 'Fixture Second Game', siteName: 'Fixture Second Wiki', domain: 'second-fixture.example', description: 'An explicitly fictional second game used only for template rebrand regression tests.', homepage: { intro: 'Fictional second-game configuration for a rebrand regression test.', facts: [], faq: [], modules: [] } };
       fs.writeFileSync(path.join(dir, 'game.config.json'), JSON.stringify(next)); configureGame(dir);
       expect(fs.readFileSync(path.join(dir, 'src/locales/en.json'), 'utf8')).not.toContain(game.gameName);

@@ -142,7 +142,7 @@ describe('MCP site resolution (multi-site registry)', () => {
     const registryPath = join(base, 'sites.toml');
     writeFileSync(
       registryPath,
-      `defaultSite = "main-wiki"\n\n[[sites]]\nname = "main-wiki"\npath = "${siteDir}"\n`,
+      `defaultSite = "main-wiki"\n\n[[sites]]\nname = "main-wiki"\npath = ${JSON.stringify(siteDir)}\n`,
     );
     return { registryPath, siteDir, emptyDir };
   }

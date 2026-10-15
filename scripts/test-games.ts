@@ -60,6 +60,31 @@ try {
       const detail = fs.readFileSync(path.join(site, 'dist', translatedRoute, 'index.html'), 'utf8');
       assert(detail.includes('hreflang="ja"'));
     }
+    if (type === 'steam') {
+      const configFile = path.join(site, 'game.config.json');
+      const originalConfig = fs.readFileSync(configFile, 'utf8');
+      const enabled = JSON.parse(originalConfig);
+      enabled.featureFlags = { ...enabled.featureFlags, analytics: true, adsense: true, comments: true };
+      enabled.analytics = { ga4: 'G-FIXTURE123' };
+      enabled.advertising = { adsenseClient: 'ca-pub-1234567890', adsenseSlots: { sticky: '12345', sidebar: '12346', incontent: '12347' } };
+      enabled.comments = { repo: 'fixture/test-only', repoId: 'fixture-repo', category: 'Fixture', categoryId: 'fixture-category' };
+      fs.writeFileSync(configFile, JSON.stringify(enabled));
+      try {
+        runPnpm(site, ['build']);
+        const html = fs.readFileSync(path.join(site, 'dist/index.html'), 'utf8');
+        assert(html.includes('G-FIXTURE123'), 'Analytics must use the configured ID in local builds');
+        assert(html.includes('ca-pub-1234567890'), 'AdSense loader must use the configured publisher');
+        const detailFile = articles(site).find(a => a.data.draft !== true)!;
+        const route = path.relative(path.join(site, 'src/content/wiki/en'), detailFile.file).replace(/\.mdx$/, '');
+        const detail = fs.readFileSync(path.join(site, 'dist', route, 'index.html'), 'utf8');
+        assert(detail.includes('fixture-repo'), 'Comments must use configured public IDs');
+        assert(detail.includes('data-ad-slot="12347"'), 'Configured ad slots must render');
+      } finally { fs.writeFileSync(configFile, originalConfig); }
+      runPnpm(site, ['build']);
+      runScript(site, 'scripts/check-seo.ts');
+      const restored = fs.readFileSync(path.join(site, 'dist/index.html'), 'utf8');
+      assert(!restored.includes('G-FIXTURE123') && !restored.includes('ca-pub-1234567890'));
+    }
     assert.equal(motherHash(), before, 'Generation must not mutate mother config/content/assets');
     reports.push({ fixture: type, independentDirectory: true, allGates: 'passed', draftAndPublishedRendering: true, noMotherMutation: true, seo: JSON.parse(fs.readFileSync(path.join(site, '.gameforge/seo-report.json'), 'utf8')) });
   }

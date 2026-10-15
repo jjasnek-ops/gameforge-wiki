@@ -1,5 +1,6 @@
 import { indexableLocalePage } from './src/lib/gameforge-indexing';
-import { validateEvidence } from './scripts/lib/gameforge';
+import { gameSchema, validateEvidence } from './scripts/lib/gameforge';
+import { integrationVars } from './scripts/lib/configure-game';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -198,8 +199,11 @@ function buildLastmodMap(
 }
 
 const gameforgeFile = path.resolve('game.config.json');
-const gameforge = fs.existsSync(gameforgeFile) ? JSON.parse(fs.readFileSync(gameforgeFile, 'utf8')) : null;
+const gameforge = fs.existsSync(gameforgeFile) ? gameSchema.parse(JSON.parse(fs.readFileSync(gameforgeFile, 'utf8'))) : null;
 validateEvidence(process.cwd());
+// Public integration IDs come from the same config in local and Pages builds.
+// This runs before Vite resolves PUBLIC_ env replacements; no secret is read.
+if (gameforge) for (const [name, value] of Object.entries(integrationVars(gameforge))) process.env[name] = value;
 const siteOrigin = process.env.SITE_URL || (gameforge ? `https://${gameforge.domain}` : 'https://anvil.wiki');
 
 // trailingSlash:'always' makes every generated URL end with "/", but the

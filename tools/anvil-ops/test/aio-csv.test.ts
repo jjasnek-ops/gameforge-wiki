@@ -1,3 +1,4 @@
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parseAioCsv, formatAioCsv, aioArchivePath } from '../src/core/aio-csv.js';
 import { OpsError } from '../src/core/errors.js';
@@ -72,7 +73,7 @@ describe('formatAioCsv', () => {
 describe('aioArchivePath', () => {
   it('archives under ops/ai-visibility with a date-stamped filename', () => {
     expect(aioArchivePath('/repo', new Date('2026-08-22T12:00:00Z'))).toBe(
-      '/repo/ops/ai-visibility/2026-08-22-aio.csv',
+      join('/repo', 'ops', 'ai-visibility', '2026-08-22-aio.csv'),
     );
   });
 });
