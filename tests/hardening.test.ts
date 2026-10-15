@@ -67,6 +67,12 @@ describe('sensitive configuration, production copy and Git commit safety', () =>
       expect(blocked.stderr + blocked.stdout).not.toContain(token);
       git(dir, ['add', 'config.json']);
       expect(() => git(dir, ['commit', '-qm', 'safe fixture'])).not.toThrow();
+      fs.mkdirSync(path.join(dir, 'dist'));
+      fs.writeFileSync(path.join(dir, 'dist/bundle.js'), `const CF_API_TOKEN = '${token}';`);
+      const artifact = spawnSync(process.execPath, [path.join(root, 'node_modules/tsx/dist/cli.mjs'), path.join(root, 'scripts/check-secrets.ts'), '--dist'], { cwd: dir, encoding: 'utf8' });
+      expect(artifact.status).not.toBe(0);
+      expect(artifact.stderr + artifact.stdout).toContain('dist');
+      expect(artifact.stderr + artifact.stdout).not.toContain(token);
     } finally { fs.rmSync(dir, { recursive: true, force: true }); }
   });
 });

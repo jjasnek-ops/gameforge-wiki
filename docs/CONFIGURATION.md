@@ -42,4 +42,4 @@ Adsterra 启用后仍需按 docs/ads.md 提供自己的 public/ads/<slot>.html �
 
 Cloudflare API Token、API Key、GitHub token、服务账号私钥等仅由实际部署环境的 Secrets 或私密环境变量注入，例如 `CLOUDFLARE_API_TOKEN`；静态站生成不需要这些凭据，也不会把它们映射到 PUBLIC_。本次加固不创建或修改任何外部 Secrets/账户。不要把私密 `.env*`、`.dev.vars*`、凭据 JSON、证书或私钥加入 Git。
 
-`pnpm check-secrets` 检查跟踪文件与独立站输入；`pnpm check-secrets --staged` 直接检查 Git 暂存 blob，工作区清理不能掩盖已暂存凭据。安装依赖时 prepare 安装 `.githooks/pre-commit`；已有自定义 hooksPath 会保留，须把暂存检查接入现有 hook。新站 git init 后先运行 `pnpm security:install-hook`。CI/build/verify-game 也执行扫描。扫描仅输出位置/规则，不能证明不存在未知格式或人为绕过的秘密。
+`pnpm check-secrets` 检查跟踪文件与独立站输入；`pnpm check-secrets --staged` 直接检查 Git 暂存 blob，工作区清理不能掩盖已暂存凭据。安装依赖时 prepare 安装 `.githooks/pre-commit`；已有自定义 hooksPath 会保留，须把暂存检查接入现有 hook。新站 git init 后先运行 `pnpm security:install-hook`。CI/build/verify-game 也执行扫描，postbuild 通过 `check-secrets --dist` 再检查实际静态产物。扫描仅输出位置/规则，不能证明不存在未知格式或人为绕过的秘密。

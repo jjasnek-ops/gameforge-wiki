@@ -33,7 +33,7 @@
   "scripts": {
     "dev": "tsx scripts/configure-game.ts && astro dev",
     "build": "tsx scripts/check-secrets.ts && tsx scripts/configure-game.ts && tsx scripts/check-evidence.ts && astro build",
-    "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs && tsx scripts/write-indexnow-key.ts",
+    "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs && tsx scripts/write-indexnow-key.ts && tsx scripts/check-secrets.ts --dist",
     "preview": "astro preview",
     "check": "astro check",
     "typecheck": "astro check",

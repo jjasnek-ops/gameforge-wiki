@@ -14,10 +14,12 @@ try {
 } catch {
   if (staged) throw new Error('Staged scan requires a Git repository root');
   files = walkFiles(root, { skipDirs: ['node_modules', '.git', '.astro', '.wrangler', '.gameforge', 'dist', '.zcode'] }).map(f => path.relative(root, f));
-  // Real generated sites also scan their emitted text, never environment files.
+  // Untracked private environment files are runtime inputs, never copy candidates.
   files = files.filter(f => !/(?:^|[\\/])(?:\.env(?:\..*)?|\.dev\.vars(?:\..*)?)$/.test(f) || /\.env\.(?:example|template)$/.test(f));
 }
 for (const name of ['game.config.json', 'facts.json', 'keywords.json']) if (!staged && fs.existsSync(name) && !files.includes(name)) files.push(name);
+if (process.argv.includes('--dist')) files.push(...walkFiles(path.join(root, 'dist')).map(f => path.relative(root, f)));
+files = [...new Set(files)];
 const errors: string[] = [];
 for (const rel of files) {
   if (sensitivePath(rel)) { errors.push(`${JSON.stringify(rel)}: forbidden sensitive filename`); continue; }
