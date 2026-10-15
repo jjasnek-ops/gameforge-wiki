@@ -1,16 +1,16 @@
 {
-  "name": "anvilwiki",
+  "name": "gameforge-wiki",
   "version": "2.37.0",
   "type": "module",
-  "description": "Open-source game wiki site template. Astro + Cloudflare Pages. Free, fast, beginner-friendly.",
+  "description": "Reusable, evidence-gated Astro game wiki template for independent Cloudflare Pages sites.",
   "license": "MIT",
-  "homepage": "https://anvil.wiki",
+  "homepage": "https://github.com/jjasnek-ops/gameforge-wiki",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PNGTRID/AnvilWiki.git"
+    "url": "https://github.com/jjasnek-ops/gameforge-wiki.git"
   },
   "bugs": {
-    "url": "https://github.com/PNGTRID/AnvilWiki/issues"
+    "url": "https://github.com/jjasnek-ops/gameforge-wiki/issues"
   },
   "keywords": [
     "astro",
@@ -31,8 +31,8 @@
   },
   "packageManager": "pnpm@11.1.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "tsx scripts/configure-game.ts && astro dev",
+    "build": "tsx scripts/configure-game.ts && tsx scripts/check-evidence.ts && astro build",
     "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs && tsx scripts/write-indexnow-key.ts",
     "preview": "astro preview",
     "check": "astro check",
@@ -58,7 +58,15 @@
     "check-i18n": "tsx scripts/check-i18n.ts",
     "check-links": "tsx scripts/check-links.ts",
     "check-content": "tsx scripts/check-content.ts",
-    "refresh-audit": "tsx scripts/refresh-audit.ts"
+    "refresh-audit": "tsx scripts/refresh-audit.ts",
+    "configure-game": "tsx scripts/configure-game.ts",
+    "create-game": "tsx scripts/create-game.ts",
+    "plan-content": "tsx scripts/plan-content.ts",
+    "check-evidence": "tsx scripts/check-evidence.ts",
+    "check-seo": "tsx scripts/check-seo.ts",
+    "test:games": "tsx scripts/test-games.ts",
+    "verify-game": "pnpm configure-game && pnpm lint && pnpm typecheck && pnpm test && pnpm check-config && pnpm check-content && pnpm check-i18n --strict-ui && pnpm build && pnpm check-links && pnpm check-seo",
+    "predeploy": "tsx scripts/predeploy.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.1",

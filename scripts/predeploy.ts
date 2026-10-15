@@ -1,0 +1,9 @@
+import { loadGame, articles } from './lib/gameforge';
+import { runPnpm } from './lib/run';
+const root = process.cwd(), game = loadGame(root);
+if (!game) throw new Error('Template reference fixtures cannot be deployed as a new game site. Use create-game.');
+if (game.testOnly) throw new Error('Test-only game: deployment check refused');
+if (!game.contactEmail && !game.discordUrl) throw new Error('Provide a reachable contactEmail or community channel');
+if (!articles(root).some(a => a.data.draft !== true && !a.data.noindex)) throw new Error('No published verified articles. Complete and review content first.');
+runPnpm(root, ['verify-game']);
+console.log('Local deployment checks passed. No deployment or DNS operation was performed. Follow docs/DEPLOYMENT.md with the authorized domain.');

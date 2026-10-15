@@ -37,6 +37,8 @@ import SponsorCard from '~/components/article/SponsorCard.astro';
 import { articleJsonLd, breadcrumbJsonLd, pageTitle, videoObjectJsonLd, imageObjectJsonLd, faqPageJsonLd } from '~/lib/seo';
 import { listPath, detailPath, tagPath, homeUrl } from '~/lib/url';
 import { site } from '~/config/site';
+import { features } from '~/config/features';
+import { getArticleSources } from '~/lib/evidence';
 import { getAuthor } from '~/config/authors';
 
 interface Props {
@@ -53,6 +55,7 @@ interface Props {
 }
 const { locale, resolved, alternates = [], availableLocales } = Astro.props;
 const { entry, servedLocale, isFallback } = resolved;
+const sources = getArticleSources(entry.data.sourceIds);
 const ui = getUi(locale);
 const nav = ui.nav as Record<string, string>;
 const shared = ui.shared;
@@ -93,7 +96,7 @@ const faqTitle = shared.faqTitle;
 // fallback — the ID appearing in the raw body is the inline marker. Videos
 // only registered in frontmatter render here as before (backward compatible).
 const bodySrc = entry.body ?? '';
-const fallbackVideos = (entry.data.videos ?? []).filter((v: string) => !bodySrc.includes(v));
+const fallbackVideos = (features.advancedVideo ? entry.data.videos ?? [] : []).filter((v: string) => !bodySrc.includes(v));
 
 const { Content, headings } = await render(entry);
 
@@ -139,7 +142,7 @@ const jsonLd = [
     homeLabel: nav.home,
   }),
   // One VideoObject per embedded video — Google Video search eligibility.
-  ...(entry.data.videos ?? []).map((videoId: string) =>
+  ...(features.advancedVideo ? entry.data.videos ?? [] : []).map((videoId: string) =>
     videoObjectJsonLd({
       videoId,
       title: entry.data.title,
@@ -368,6 +371,10 @@ const jsonLd = [
       data-pagefind-body
     >
       <Content />
+              {sources.length > 0 && <section class="mt-8 border-t pt-4">
+                <h2>{shared.sourcesTitle}</h2>
+                <ul>{sources.map(source => <li><a href={source.url} rel="noopener noreferrer">{source.title}</a> — <time datetime={source.verifiedAt}>{source.verifiedAt}</time> · {source.version}</li>)}</ul>
+              </section>}
     </div>
 
     {/* Fallback videos — only IDs NOT inlined in the body via <Video/>.

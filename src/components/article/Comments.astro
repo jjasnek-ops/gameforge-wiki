@@ -19,6 +19,7 @@
  * User-facing setup guide: docs/comments.md
  */
 import { type Locale } from '~/i18n/routing';
+import { features } from '~/config/features';
 import { getUi } from '~/i18n/ui';
 
 interface Props {
@@ -37,7 +38,7 @@ const categoryId = env.PUBLIC_GISCUS_CATEGORY_ID;
 const mapping = env.PUBLIC_GISCUS_MAPPING || 'pathname';
 
 // 4 required business fields — any one empty = disabled (no half-rendered iframe).
-const enabled = Boolean(repo && repoId && category && categoryId);
+const enabled = features.comments && Boolean(repo && repoId && category && categoryId);
 
 // Giscus data-lang uses short codes matching our locale values.
 // Whitelist is defensive (Giscus codes ≠ BCP-47 in edge cases).

@@ -286,6 +286,6 @@ Adsterra 的 wire transfer(电汇)默认最低支付额是 $1000(另收手续费
 
 ## 下一步
 
-- [deployment.md](deployment.md) 上线后的数据复盘指标 + Clarity 热力图(看广告位有没有被点)
+- [deployment.md](DEPLOYMENT.md) 上线后的数据复盘指标 + Clarity 热力图(看广告位有没有被点)
 - [seo.md](seo.md) 外链策略——和本文同一个原则:排名没起来前,先把内容和体验做好
 - 回到 [文档中心](README.md)

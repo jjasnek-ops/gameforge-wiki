@@ -61,7 +61,7 @@ Google 搜 `{game name} wiki` 和 `{game name} codes`,看前 10:
 ## 建站(30 分钟)
 
 选品完成后 → fork 本仓库 → `pnpm apply-template`(或跑一次 "Initialize AnvilWiki"
-workflow)→ 详细步骤见 [apply-template.md](apply-template.md) 和 [deployment.md](deployment.md)。
+workflow)→ 详细步骤见 [apply-template.md](apply-template.md) 和 [deployment.md](DEPLOYMENT.md)。
 
 ## 首日 10 页(黄金窗口的黄金 24 小时)
 

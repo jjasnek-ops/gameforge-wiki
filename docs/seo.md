@@ -1,3 +1,5 @@
+> GameForge 当前工作流请先读 [QUICK_START](QUICK_START.md)、[CONFIGURATION](CONFIGURATION.md)、[CONTENT_WORKFLOW](CONTENT_WORKFLOW.md)；下文保留上游参考。
+
 # SEO 工程化
 
 > AnvilWiki 的 SEO 设计原则：**填好内容，SEO 标签由构建流程自动生成**。
@@ -236,7 +238,7 @@
 
 ### 策略排序（按阶段）
 
-1. **排名没起来前**：别死磕外链。把时间全部投进内容质量和页面体验（首版核心页写透、内链铺好、盯着 [deployment.md 的数据复盘指标](./deployment.md)）。
+1. **排名没起来前**：别死磕外链。把时间全部投进内容质量和页面体验（首版核心页写透、内链铺好、盯着 [deployment.md 的数据复盘指标](./DEPLOYMENT.md)）。
 2. **排名起来了再补外链**：核心词进了前两页、增长放缓，这时候每一条外链才是雪中送炭。
 
 ### 渠道清单：去哪找外链

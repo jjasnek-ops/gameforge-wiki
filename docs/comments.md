@@ -74,7 +74,7 @@ Giscus 是「评论」(需要 GitHub 登录),不是「留言板」或「客服�
 - giscus app 是否安装到该仓库？
 - 4 个必填字段是否都填了？（任一为空 = 组件不渲染）
 - `data-category-id` 是否对？（不是 category 名字，是那串 `DIC_...` 开头的 ID）
-- **🚨 配了 env 但构建时读不到？** 检查仓库根目录有没有 `wrangler.toml`。有的话它接管 env，dashboard 配的会被忽略。要么删 `wrangler.toml`，要么改它的 `[vars]` 段。详见 [docs/deployment.md](./deployment.md)。
+- **🚨 配了 env 但构建时读不到？** 检查仓库根目录有没有 `wrangler.toml`。有的话它接管 env，dashboard 配的会被忽略。要么删 `wrangler.toml`，要么改它的 `[vars]` 段。详见 [docs/DEPLOYMENT.md](./DEPLOYMENT.md)。
 
 **登录后页面卡住？** 确认你没有用 ad-blocker 拦截 `giscus.app` 域名。某些隐私扩展（uBlock Origin、Privacy Badger）会误拦 Giscus 的 OAuth 回调。
 

@@ -1,0 +1,67 @@
+[
+  {
+    "topicName": "Walkthrough",
+    "category": "walkthroughs",
+    "keyword": "Fixture Iron Harbor walkthrough",
+    "slug": "beginner",
+    "intent": "Inspect fictional walkthrough test scenario",
+    "priority": 1,
+    "evidenceStatus": "pending",
+    "pageType": "walkthrough",
+    "sourceIds": [
+      "fixture-official"
+    ]
+  },
+  {
+    "topicName": "Items",
+    "category": "items",
+    "keyword": "Fixture Iron Harbor items",
+    "slug": "items",
+    "intent": "Inspect fictional items test scenario",
+    "priority": 2,
+    "evidenceStatus": "pending",
+    "pageType": "items",
+    "sourceIds": [
+      "fixture-official"
+    ]
+  },
+  {
+    "topicName": "Maps",
+    "category": "maps",
+    "keyword": "Fixture Iron Harbor maps",
+    "slug": "maps",
+    "intent": "Inspect fictional maps test scenario",
+    "priority": 3,
+    "evidenceStatus": "pending",
+    "pageType": "maps",
+    "sourceIds": [
+      "fixture-official"
+    ]
+  },
+  {
+    "topicName": "Builds",
+    "category": "builds",
+    "keyword": "Fixture Iron Harbor builds",
+    "slug": "builds",
+    "intent": "Inspect fictional builds test scenario",
+    "priority": 4,
+    "evidenceStatus": "pending",
+    "pageType": "builds",
+    "sourceIds": [
+      "fixture-official"
+    ]
+  },
+  {
+    "topicName": "Faq",
+    "category": "questions",
+    "keyword": "Fixture Iron Harbor faq",
+    "slug": "faq",
+    "intent": "Inspect fictional faq test scenario",
+    "priority": 5,
+    "evidenceStatus": "pending",
+    "pageType": "faq",
+    "sourceIds": [
+      "fixture-official"
+    ]
+  }
+]

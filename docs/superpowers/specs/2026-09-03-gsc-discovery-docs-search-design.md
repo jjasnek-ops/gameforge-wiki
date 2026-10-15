@@ -27,7 +27,7 @@
    - description 改写露出「GSC API 接入」(zh 40–165 字、en 40–165 chars 均守住);
    - 课内 H2「第二步:接上两个数据源(GSC 5 分钟,CF 2 分钟)」→「第二步:GSC API 接入(5 分钟)+ CF Web Analytics(2 分钟)」(页内 TOC 露出 GSC API);`updated` 同步 2026-09-03。
 3. **引用同步**(一致性铁律):`en/contribute-back.md` 下一课链接文本、`landing.ts` en+zh 开发手册描述补 GSC 字样。
-4. **三处指路互链**:`docs/README.md` 找文档决策树增「要接 GSC API」行;`docs/deployment.md` 数据复盘节链到接入教程(`./handbook/zh/ai-ops.md` 相对链);`tools/anvil-ops/README.md`「GSC setup」节反链手册(GitHub blob 绝对链——该 README 会发到 npm,相对链会断)。
+4. **三处指路互链**:`docs/README.md` 找文档决策树增「要接 GSC API」行;`docs/DEPLOYMENT.md` 数据复盘节链到接入教程(`./handbook/zh/ai-ops.md` 相对链);`tools/anvil-ops/README.md`「GSC setup」节反链手册(GitHub blob 绝对链——该 README 会发到 npm,相对链会断)。
 5. **doctor 指路**:`doctor.ts` gsc-config 缺配置的 `detail` 追加教程 URL(https://anvilwiki.pages.dev/landing/docs/ai-ops/)。注意 `fix` 字段只在 `!ok` 时渲染,而「未配置」是 env 门控的 `ok:true`(契约),所以走 detail;测试补 URL 断言。
 
 ### 第 ② 部分:文档中心接入全站搜索

@@ -46,7 +46,7 @@ Where to fill them in: pick one — the **Cloudflare dashboard** (Settings → V
 | `INDEXNOW_KEY` | Legacy IndexNow key override for existing sites | New forks normally use committed `.indexnow-key`; leave this empty |
 | `PUBLIC_SPONSOR_URL` / `_IMAGE_URL` | Sponsor card | Sponsor card doesn't show |
 
-IndexNow no longer needs an environment variable on a normally initialized fork. `Initialize AnvilWiki` / `pnpm apply-template` creates `.indexnow-key` once; postbuild emits `/<key>.txt`, and the post-CI workflow reads the same committed file. `INDEXNOW_KEY` remains only as a compatibility override for existing env-backed sites. See `docs/deployment.md` for details.
+IndexNow no longer needs an environment variable on a normally initialized fork. `Initialize AnvilWiki` / `pnpm apply-template` creates `.indexnow-key` once; postbuild emits `/<key>.txt`, and the post-CI workflow reads the same committed file. `INDEXNOW_KEY` remains only as a compatibility override for existing env-backed sites. See `docs/DEPLOYMENT.md` for details.
 
 For the choosing table and step-by-step setup of the three analytics tools (GA4 / Cloudflare Web Analytics / Clarity), see [the Turn On Ads lesson of the Learning Manual](/landing/docs/enable-ads), section "Optional: comments and analytics"; the full GSC walkthrough lives in [Get on Google](/landing/docs/get-on-google).
 

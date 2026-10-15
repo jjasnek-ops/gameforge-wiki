@@ -9,7 +9,7 @@ AnvilWiki 的代码/配置/内容三层分离(见 README)正是为这个场景�
 | 层 | 目录 | fork 后你会改吗 | merge 冲突概率 |
 | --- | --- | --- | --- |
 | Code | `src/pages` `src/components` `src/lib` `src/i18n` | 几乎不碰 | 低 |
-| Config | `src/config` `src/locales` `src/styles/globals.css` `wrangler.toml` `astro.config.ts` | 一定会改 | **高(预期内)** —— 注意 `wrangler.toml` 存在时是 Pages env 的唯一真相源（dashboard 被忽略），见 [deployment.md](./deployment.md) |
+| Config | `src/config` `src/locales` `src/styles/globals.css` `wrangler.toml` `astro.config.ts` | 一定会改 | **高(预期内)** —— 注意 `wrangler.toml` 存在时是 Pages env 的唯一真相源（dashboard 被忽略），见 [deployment.md](./DEPLOYMENT.md) |
 | Content | `src/content` `src/locales/<loc>.json` 的 home 数据 | 一定会替换 | 高(预期内) |
 
 上游新功能(组件、页面、脚本)几乎全部落在 Code 层,所以 merge 通常很干净。

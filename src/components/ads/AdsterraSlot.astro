@@ -49,11 +49,12 @@ interface Props {
   hideOnMobile?: boolean;
 }
 
+import { features } from '~/config/features';
 import { currentSharedStrings } from '~/lib/shared-ui';
 
 const { name, width, height, label = true, hideOnMobile = false } = Astro.props;
 const envKey = `PUBLIC_ADSTERRA_SLOT_${name.replace(/-/g, '_').toUpperCase()}`;
-const show = !!import.meta.env[envKey];
+const show = features.adsterra && !!import.meta.env[envKey];
 // Same env condition under which BaseLayout renders CookieConsent — when
 // either is set the banner (and its consent promise) is live on every page.
 const consentBannerActive = !!(

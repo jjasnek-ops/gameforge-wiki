@@ -11,6 +11,8 @@
  * Pages should wrap themselves in LocaleLayout (which wraps this), not call this directly.
  */
 import '~/styles/globals.css';
+import { indexableLocalePage } from '~/lib/gameforge-indexing';
+import { features, gameforgeEnabled, indexedLanguages } from '~/config/features';
 import { site, siteUrl } from '~/config/site';
 import { defaultLocale, locales, OG_LOCALE_MAP, type Locale } from '~/i18n/routing';
 import { organizationJsonLd } from '~/lib/seo';
@@ -75,11 +77,11 @@ const {
   title,
   description,
   locale,
-  alternates = [],
+  alternates: pageAlternates = [],
   image = `${siteUrl}/images/hero.webp`,
   jsonLd = [],
   article = false,
-  noindex = false,
+  noindex: pageNoindex = false,
   titleSuffix,
   ogImageWidth,
   ogImageHeight,
@@ -90,6 +92,11 @@ const {
 } = Astro.props;
 
 // Language of the main content (falls back to the UI locale).
+const canonicalPath = /^\/404\/?$/.test(Astro.url.pathname) ? '/404.html' : Astro.url.pathname;
+const categories = Object.keys(getUi(locale).overview);
+const localePageAllowed = (l: string) => indexableLocalePage(Astro.url.pathname, l, defaultLocale, indexedLanguages, categories);
+const noindex = pageNoindex || Astro.url.pathname === '/404.html' || (gameforgeEnabled && !article && !localePageAllowed(locale));
+const alternates = gameforgeEnabled && !article ? pageAlternates.filter(a => localePageAllowed(a.hreflang)) : pageAlternates;
 const mainLocale = contentLocale ?? locale;
 const ogLocaleMap = OG_LOCALE_MAP as Record<string, string>;
 const ogLocale = ogLocaleMap[mainLocale] ?? mainLocale;
@@ -123,10 +130,10 @@ const xDefaultHref = defaultAlt
     : `${siteUrl}${Astro.url.pathname.replace(localePrefixRe, '')}`;
 
 // Optional analytics / verification / ads (env-var gated — empty = not injected).
-const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
-const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN as string | undefined;
+const gaId = features.analytics ? import.meta.env.PUBLIC_GA_ID as string | undefined : undefined;
+const cfBeaconToken = features.analytics ? import.meta.env.PUBLIC_CF_BEACON_TOKEN as string | undefined : undefined;
 const gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION as string | undefined;
-const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
+const adsenseClient = features.adsense ? import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined : undefined;
 
 // Consent banner labels: wiki locales derive them from the locale JSON
 // (hardcoded English fallbacks for a locale whose JSON hasn't been translated
@@ -176,11 +183,13 @@ const privacyLabel = consent?.privacyLabel ?? footerStrings.privacyPolicy ?? 'Pr
          without this, covers never surface as large preview images (v2.0). */
       <meta name="robots" content="max-image-preview:large" />
     )}
-    <link rel="canonical" href={new URL(Astro.url.pathname, siteUrl).href} />
+    <link rel="canonical" href={new URL(canonicalPath, siteUrl).href} />
 
     {/* hreflang alternates */}
-    {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
-    <link rel="alternate" hreflang="x-default" href={xDefaultHref} />
+    {!noindex && <>
+      {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
+      <link rel="alternate" hreflang="x-default" href={xDefaultHref} />
+    </>}
 
     {/* Open Graph */}
     <meta property="og:type" content={article ? 'article' : 'website'} />
@@ -204,7 +213,7 @@ const privacyLabel = consent?.privacyLabel ?? footerStrings.privacyPolicy ?? 'Pr
         </>
       ) : null
     }
-    <meta property="og:url" content={new URL(Astro.url.pathname, siteUrl).href} />
+    <meta property="og:url" content={new URL(canonicalPath, siteUrl).href} />
     <meta property="og:site_name" content={site.name} />
     {/* OG wants language_TERRITORY (en_US / ja_JP), not a bare ISO code. */}
     <meta property="og:locale" content={ogLocale} />

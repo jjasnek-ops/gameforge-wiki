@@ -13,7 +13,7 @@
 # What this does NOT do (run `pnpm apply-template` locally for these):
 #   game name / theme color / locales / homepage copy — see docs/apply-template.md.
 #
-# After merging: connect the repo to Cloudflare Pages (docs/deployment.md).
+# After merging: connect the repo to Cloudflare Pages (docs/DEPLOYMENT.md).
 
 name: Initialize AnvilWiki
 
@@ -75,7 +75,7 @@ jobs:
                   'or https://mygame.wiki. Fix the site_url input and re-run.'
               )
           p = 'wrangler.toml'
-          s = open(p).read()
+          s = open(p, encoding='utf-8').read()
           new_vars = '''[vars]
           # Site (must include https:// protocol — Astro validates this as a URL)
           SITE_URL = "__SITE_URL__"
@@ -244,7 +244,7 @@ jobs:
           # matches just BEFORE a trailing newline, so a [vars] section at EOF
           # keeps its old `\n` outside the match and the splice can double it.
           out = out.rstrip('\n') + '\n'
-          open(p, 'w').write(out)
+          open(p, 'w', encoding='utf-8').write(out)
           EOF
 
       - name: Read normalized SITE_URL
@@ -297,10 +297,10 @@ jobs:
           python3 - <<'EOF'
           import re
           p = 'src/config/authors.ts'
-          s = open(p).read()
+          s = open(p, encoding='utf-8').read()
           # Drop the DEMO entry block (comment + 'Forge Master Kael' line).
           s = re.sub(r"\n\s*// DEMO .*?\n\s*'Forge Master Kael'.*?\n", '\n', s)
-          open(p, 'w').write(s)
+          open(p, 'w', encoding='utf-8').write(s)
           EOF
 
       - name: Setup pnpm
@@ -383,7 +383,7 @@ jobs:
             echo "PR already exists — leaving the existing one open."
           else
             gh pr create --title "Initialize AnvilWiki for your game" \
-              --body "Automated by the Initialize AnvilWiki workflow. wrangler.toml [vars] reset to ${SITE_URL_INPUT} (demo Giscus cleared); stable .indexnow-key generated; project landing page removed. Next: run pnpm apply-template locally for game name / theme / locales, then connect Cloudflare Pages (docs/deployment.md)."
+              --body "Automated by the Initialize AnvilWiki workflow. wrangler.toml [vars] reset to ${SITE_URL_INPUT} (demo Giscus cleared); stable .indexnow-key generated; project landing page removed. Next: run pnpm apply-template locally for game name / theme / locales, then connect Cloudflare Pages (docs/DEPLOYMENT.md)."
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -122,7 +122,7 @@ if (fs.existsSync(localesDir)) {
   for (const f of fs.readdirSync(localesDir)) {
     if (!f.endsWith('.json')) continue;
     const loc = f.replace('.json', '');
-    if (!routingLocales.includes(loc)) {
+    if (!routingLocales.includes(loc) && !(loc === 'en' && fs.existsSync(path.resolve(ROOT, 'game.config.json')))) {
       err(`src/locales/${f} exists but "${loc}" is not in routing.ts locales`);
       localeErrors++;
     }
@@ -182,7 +182,7 @@ if (!domain) {
     const host = new URL(effectiveUrl).host;
     if (host !== domain) {
       err(
-        `${urlSource} SITE_URL host "${host}" ≠ site.ts domain "${domain}" — every canonical/og:url/sitemap URL would point at the wrong site. Fix wrangler.toml [vars] (or delete the file, see docs/deployment.md).`,
+        `${urlSource} SITE_URL host "${host}" ≠ site.ts domain "${domain}" — every canonical/og:url/sitemap URL would point at the wrong site. Fix wrangler.toml [vars] (or delete the file, see docs/DEPLOYMENT.md).`,
       );
     } else {
       console.log(`  ✅ ${urlSource} → ${effectiveUrl} matches site.ts domain`);

@@ -1,0 +1,70 @@
+{
+  "gameName": "Fixture Sky Orchard",
+  "siteName": "Fixture Sky Orchard Wiki",
+  "shortName": "Roblox Fixture",
+  "domain": "sky-orchard.example",
+  "description": "Fixture Sky Orchard is an explicitly fictional integration test site for GameForge Wiki. No real gameplay claims are published.",
+  "platform": "Roblox",
+  "genre": "Fictional test scenario",
+  "developer": "Test fixture authors",
+  "officialUrl": "https://sky-orchard.example/official",
+  "themeColor": "#2563eb",
+  "defaultLanguage": "en",
+  "supportedLanguages": [
+    "en",
+    "ja"
+  ],
+  "translatedLanguages": [],
+  "navigation": [
+    {
+      "key": "guides",
+      "label": "Guides",
+      "icon": "lucide:book-open"
+    },
+    {
+      "key": "codes",
+      "label": "Codes",
+      "icon": "lucide:book-open"
+    },
+    {
+      "key": "bosses",
+      "label": "Bosses",
+      "icon": "lucide:book-open"
+    },
+    {
+      "key": "tiers",
+      "label": "Tiers",
+      "icon": "lucide:book-open"
+    }
+  ],
+  "featureFlags": {
+    "multilingual": true
+  },
+  "homepage": {
+    "intro": "Fixture Sky Orchard is fictional test data. This site only exercises template behavior.",
+    "facts": [
+      {
+        "label": "Fixture platform",
+        "value": "Roblox test scenario",
+        "sourceId": "fixture-official"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is Fixture Sky Orchard a real game?",
+        "answer": "No. This is explicitly fictional test material for local template verification.",
+        "sourceIds": [
+          "fixture-official"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "category": "guides",
+        "title": "Fixture Sky Orchard Guides",
+        "description": "Fictional guides scenarios for local integration tests."
+      }
+    ]
+  },
+  "testOnly": true
+}

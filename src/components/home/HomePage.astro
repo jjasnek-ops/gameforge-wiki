@@ -22,6 +22,9 @@ import LocaleLayout from '~/components/layout/LocaleLayout.astro';
 import VideoSection from '~/components/home/VideoSection.astro';
 import QuickStart from '~/components/home/QuickStart.astro';
 import ExploreModules from '~/components/home/ExploreModules.astro';
+import FaqSection from '~/components/home/FaqSection.astro';
+import { features, homepageInfo, gameforgeEnabled } from '~/config/features';
+import { faqPageJsonLd } from '~/lib/seo';
 import { site } from '~/config/site';
 import { NAVIGATION_CONFIG } from '~/config/navigation';
 import { type Locale } from '~/i18n/routing';
@@ -81,7 +84,7 @@ function trendingLabel(link: QuickLink): string {
   title={meta.title}
   description={meta.description}
   alternates={alternates}
-  jsonLd={jsonLd}
+  jsonLd={[...jsonLd, ...(gameforgeEnabled && home.faq.items.length ? [faqPageJsonLd(home.faq.items)] : [])]}
 >
   {/* ─────────────────────────────── Hero ─────────────────────────────── */}
   <section class="relative flex min-h-[52vh] items-center overflow-hidden border-b border-border md:min-h-[68vh]">
@@ -107,6 +110,7 @@ function trendingLabel(link: QuickLink): string {
         {hero.title}
       </h1>
       <p class="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">{hero.description}</p>
+      {homepageInfo.heroImage && <img src={homepageInfo.heroImage} alt={homepageInfo.heroAlt} width="1200" height="630" class="mt-6 rounded-xl" /> }
       <div class="mt-8 flex flex-wrap gap-3">
         {
           hero.ctaPrimary && (
@@ -123,7 +127,7 @@ function trendingLabel(link: QuickLink): string {
         }
         {
           hero.ctaSecondary && (
-            <a href={listPath(NAVIGATION_CONFIG[1]?.key ?? 'guides', locale)} class="btn-outline">
+            <a href={listPath(NAVIGATION_CONFIG[0]?.key ?? 'guides', locale)} class="btn-outline">
               {hero.ctaSecondary}
             </a>
           )
@@ -133,7 +137,7 @@ function trendingLabel(link: QuickLink): string {
   </section>
 
   {/* Trailer — only renders when a videoId is configured. */}
-  {hero.videoId && (
+  {features.advancedVideo && hero.videoId && (
     <VideoSection videoId={hero.videoId} title={`${site.game.name} ${shared.gameTrailer}`} />
   )}
 
@@ -152,7 +156,7 @@ function trendingLabel(link: QuickLink): string {
       <div class="lg:col-span-2">
         <div class="flex items-baseline justify-between">
           <h2 class="text-2xl font-bold">{updates.title}</h2>
-          <a href={listPath(NAVIGATION_CONFIG[1]?.key ?? 'guides', locale)} class="text-sm text-foreground hover:text-nav hover:underline"
+          <a href={listPath(NAVIGATION_CONFIG[0]?.key ?? 'guides', locale)} class="text-sm text-foreground hover:text-nav hover:underline"
             >{shared.browseAll}</a
           >
         </div>
@@ -227,6 +231,16 @@ function trendingLabel(link: QuickLink): string {
       </section>
     )
   }
+
+  {gameforgeEnabled && homepageInfo.facts.length > 0 && (
+    <section class="section border-t border-border">
+      <h2 class="text-2xl font-bold">{site.game.name}</h2>
+      <dl class="mt-4 grid gap-4 sm:grid-cols-2">
+        {homepageInfo.facts.map(f => <div class="card p-4"><dt class="font-semibold">{f.label}</dt><dd>{f.value} <a href={f.sourceUrl} rel="noopener noreferrer" class="underline">{homepageInfo.sourcesLabel}</a></dd></div>)}
+      </dl>
+    </section>
+  )}
+  {gameforgeEnabled && home.faq.items.length > 0 && <FaqSection title={home.faq.title} description={home.faq.description} items={home.faq.items} headingLevel="h2" />}
 
   {/* ─────────────────────────────── Final CTA ────────────────────────── */}
   {

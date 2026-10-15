@@ -311,7 +311,7 @@ async function main(): Promise<void> {
     console.log(
       found
         ? `[IndexNow] Key source: ${found.source}`
-        : '[IndexNow] No .indexnow-key or legacy INDEXNOW_KEY configured — a real run would fail. Run template initialization or see docs/deployment.md.',
+        : '[IndexNow] No .indexnow-key or legacy INDEXNOW_KEY configured — a real run would fail. Run template initialization or see docs/DEPLOYMENT.md.',
     );
     return;
   }
@@ -319,7 +319,7 @@ async function main(): Promise<void> {
   if (!found) {
     throw new Error(
       'No IndexNow key is configured. New forks should run Initialize AnvilWiki or pnpm apply-template once to create .indexnow-key. ' +
-        'Existing sites may keep using legacy INDEXNOW_KEY / .env. See docs/deployment.md.',
+        'Existing sites may keep using legacy INDEXNOW_KEY / .env. See docs/DEPLOYMENT.md.',
     );
   }
 

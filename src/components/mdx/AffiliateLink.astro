@@ -18,6 +18,7 @@
  *     cta="View on Steam"
  *   />
  */
+import { features } from '~/config/features';
 import { Icon } from 'astro-icon/components';
 
 interface Props {
@@ -35,6 +36,7 @@ interface Props {
   sponsoredLabel?: string;
 }
 
+if (!features.affiliates) return null;
 const { url, title, description, cta = 'Learn more', sponsored = true, sponsoredLabel = 'Sponsored' } = Astro.props;
 ---
 

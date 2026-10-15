@@ -146,7 +146,7 @@ export function buildUiMessagesEntries(locales: string[]): string {
  * rewritten file matches nothing and fails with ❌. The binding side stays
  * `\w+` because generated bindings are camelCase identifiers (localeIdent).
  */
-export const UI_IMPORT_BLOCK_RE = /(?:import \w+ from '~\/locales\/[\w-]+\.json';\n)+/;
+export const UI_IMPORT_BLOCK_RE = /(?:import \w+ from '~\/locales\/[\w-]+\.json';\r?\n)+/;
 
 /**
  * The `const messages` map literal in ui.ts — the second CLI-rewritten

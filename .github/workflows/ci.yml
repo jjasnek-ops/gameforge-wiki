@@ -49,6 +49,9 @@ jobs:
         with:
           site-url: ${{ vars.SITE_URL || 'https://anvil.wiki' }}
 
+      - name: GameForge two independent game sites
+        run: pnpm test:games
+
   # apply-template has ZERO vitest coverage and only breaks in real
   # (non-dry-run) mode, which the demo repo never exercises — three real-mode
   # bugs shipped through the eight gates unnoticed before this job existed
