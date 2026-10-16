@@ -7,4 +7,4 @@ if (!game.contactEmail && !game.discordUrl) throw new Error('Provide a reachable
 if (!articles(root).some(a => a.data.draft !== true && !a.data.noindex)) throw new Error('No published verified articles. Complete and review content first.');
 runPnpm(root, ['verify-game']);
 runPnpm(root, ['check-sources', '--online', '--strict']);
-console.log('Local deployment checks passed. No deployment or DNS operation was performed. Follow docs/DEPLOYMENT.md with the authorized domain.');
+console.log('Local deployment checks passed. No deployment or DNS operation was performed. Use only the built dist output with separately authorized deployment instructions.');

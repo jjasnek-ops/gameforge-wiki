@@ -1,0 +1,8713 @@
+{
+  "baseline": "1992eb4309d627e457d7a66817225afb766ac8bf",
+  "trackedFiles": 516,
+  "classes": {
+    "A": 2,
+    "B": 748,
+    "C": 267
+  },
+  "findings": [
+    {
+      "file": ".agent/skills/anvil-adsense-audit/SKILL.md",
+      "line": 6,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-adsense-audit/SKILL.md",
+      "line": 101,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-batch-articles/SKILL.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-batch-articles/SKILL.md",
+      "line": 6,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-batch-articles/SKILL.md",
+      "line": 8,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-batch-articles/SKILL.md",
+      "line": 63,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-find-keywords/SKILL.md",
+      "line": 6,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-find-keywords/SKILL.md",
+      "line": 103,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-new-article/SKILL.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-new-article/SKILL.md",
+      "line": 6,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-new-article/SKILL.md",
+      "line": 8,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-new-article/SKILL.md",
+      "line": 31,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-new-article/SKILL.md",
+      "line": 97,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-new-article/SKILL.md",
+      "line": 105,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-refresh/SKILL.md",
+      "line": 6,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-refresh/SKILL.md",
+      "line": 24,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-update-codes/SKILL.md",
+      "line": 6,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".agent/skills/anvil-update-codes/SKILL.md",
+      "line": 54,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".env.example",
+      "line": 8,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/FUNDING.yml",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/FUNDING.yml",
+      "line": 3,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/ISSUE_TEMPLATE/bug-report.md",
+      "line": 24,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/ISSUE_TEMPLATE/feature-request.md",
+      "line": 10,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/actions/gates/action.yml",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/actions/gates/action.yml",
+      "line": 11,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/auto-content.yml",
+      "line": 100,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/ci.yml",
+      "line": 53,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/ci.yml",
+      "line": 55,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/content-pipeline.yml",
+      "line": 35,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/release-ops.yml",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/release-ops.yml",
+      "line": 6,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/release-ops.yml",
+      "line": 7,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/release-ops.yml",
+      "line": 9,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/release-ops.yml",
+      "line": 22,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 18,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 166,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 167,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 168,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 301,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 302,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 333,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 334,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 337,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 362,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 385,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".github/workflows/setup.yml",
+      "line": 386,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".gitignore",
+      "line": 61,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".gitignore",
+      "line": 62,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".gitignore",
+      "line": 69,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": ".gitignore",
+      "line": 70,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 1,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 3,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 12,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 16,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 20,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "anvil.wiki",
+        "github.com/PNGTRID/AnvilWiki",
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 45,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 96,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 107,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 127,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 129,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 145,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 16,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 48,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 49,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 72,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 103,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 133,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 134,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 158,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 193,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 199,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 259,
+      "terms": [
+        "AnvilWiki",
+        "Forge Master Kael"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 269,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 275,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 319,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 345,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 350,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 548,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 646,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 688,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 709,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 772,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 773,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 842,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 843,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 844,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 845,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 846,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 853,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 859,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 865,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 866,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 872,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 956,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 970,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 976,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 977,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 981,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 984,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 987,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1066,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1067,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1166,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1177,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1190,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1195,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1199,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1208,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1224,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1230,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1238,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1267,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1272,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1305,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1328,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1350,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1382,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1386,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1387,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1388,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1389,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1390,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1391,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1392,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1393,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1394,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1395,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1396,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1397,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1398,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1399,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1400,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1401,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1402,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1403,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1404,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1405,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1406,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1407,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1408,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1409,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1410,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1411,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1412,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1413,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1414,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1415,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1416,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1417,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1418,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1419,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1420,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1421,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1422,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1423,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1424,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1425,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1426,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1427,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1428,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1429,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1430,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1431,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1432,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1433,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1434,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1435,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1436,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1437,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1438,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1439,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1440,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1441,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1442,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1443,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1444,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1445,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1446,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1447,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1448,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1449,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1450,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1451,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1452,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1453,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1454,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1455,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1456,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1457,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1458,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1459,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1460,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1461,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1462,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1463,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1464,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1465,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1466,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1467,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1468,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1469,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1470,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1471,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1472,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1473,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1474,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1475,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1476,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "line": 1477,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 14,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 15,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 62,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 66,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 71,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "LICENSE",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "A"
+    },
+    {
+      "file": "README.md",
+      "line": 1,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "README.md",
+      "line": 23,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "README.md",
+      "line": 49,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "README.md",
+      "line": 51,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "GameForge",
+        "gameforge-wiki",
+        "github.com/PNGTRID/AnvilWiki",
+        "github.com/jjasnek-ops/gameforge-wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 2,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 3,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 205,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 209,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 210,
+      "terms": [
+        "anvil.wiki",
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 255,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 305,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 306,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 309,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "astro.config.ts",
+      "line": 362,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/CONFIGURATION.md",
+      "line": 3,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/CONFIGURATION.md",
+      "line": 33,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/CONTENT_WORKFLOW.md",
+      "line": 57,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 1,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 15,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/GAMEFORGE_AUDIT.md",
+      "line": 1,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/GAMEFORGE_AUDIT.md",
+      "line": 3,
+      "terms": [
+        "GameForge",
+        "gameforge-wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 3,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 5,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 9,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 10,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 54,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 63,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 65,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 67,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 95,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 98,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 102,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 114,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 116,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 154,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 177,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 179,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 197,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 208,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 237,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 285,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 348,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 355,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 435,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 458,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 500,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 519,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 528,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 544,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 555,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 560,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 565,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 734,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 827,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 829,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1079,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1083,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1085,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1087,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1120,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1164,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1172,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1191,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1246,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1292,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1323,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1345,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1350,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1373,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1382,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1402,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1415,
+      "terms": [
+        "anvil.wiki",
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1417,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1435,
+      "terms": [
+        "AnvilWiki",
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1448,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1605,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1641,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1652,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1653,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1654,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1658,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1690,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1692,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1700,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1701,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1704,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/PRD.md",
+      "line": 1713,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/QUICK_START.md",
+      "line": 13,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/README.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/README.md",
+      "line": 5,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/README.md",
+      "line": 11,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/README.md",
+      "line": 23,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/README.md",
+      "line": 39,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/SEO_CHECKLIST.md",
+      "line": 3,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/ads.md",
+      "line": 3,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/ads.md",
+      "line": 116,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/apply-template.md",
+      "line": 1,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/apply-template.md",
+      "line": 5,
+      "terms": [
+        "AnvilWiki",
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/apply-template.md",
+      "line": 37,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/apply-template.md",
+      "line": 48,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/apply-template.md",
+      "line": 60,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/apply-template.md",
+      "line": 72,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/apply-template.md",
+      "line": 75,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/apply-template.md",
+      "line": 87,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/apply-template.md",
+      "line": 163,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/audits/AUDIT-2026-09-20-round21-full-project.md",
+      "line": 18,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/audits/AUDIT-2026-09-20-round21-full-project.md",
+      "line": 19,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/audits/AUDIT-2026-09-20-round21-full-project.md",
+      "line": 60,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/comments.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/comments.md",
+      "line": 89,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/content-format.md",
+      "line": 1,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/content-format.md",
+      "line": 5,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/content-format.md",
+      "line": 166,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/content-format.md",
+      "line": 187,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/content-pipeline.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/content-pipeline.md",
+      "line": 48,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/development.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/development.md",
+      "line": 93,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/game-selection.md",
+      "line": 63,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/ai-ops.md",
+      "line": 8,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/ai-ops.md",
+      "line": 23,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/ai-ops.md",
+      "line": 42,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/ai-ops.md",
+      "line": 51,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/ai-ops.md",
+      "line": 52,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/ai-ops.md",
+      "line": 65,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/ai-ops.md",
+      "line": 88,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/batch-pages.md",
+      "line": 96,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/content-pipeline.md",
+      "line": 22,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/content-pipeline.md",
+      "line": 23,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/contribute-back.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/enable-ads.md",
+      "line": 22,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/find-candidates.md",
+      "line": 52,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/first-article.md",
+      "line": 8,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/first-article.md",
+      "line": 32,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/first-article.md",
+      "line": 34,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/first-article.md",
+      "line": 46,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/get-on-google.md",
+      "line": 52,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/integrations.md",
+      "line": 49,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/multi-site.md",
+      "line": 7,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/multi-site.md",
+      "line": 19,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/multi-site.md",
+      "line": 20,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/multi-site.md",
+      "line": 23,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/multi-site.md",
+      "line": 24,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/multi-site.md",
+      "line": 25,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/multi-site.md",
+      "line": 26,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/multi-site.md",
+      "line": 27,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/put-site-online.md",
+      "line": 31,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/put-site-online.md",
+      "line": 49,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/rebrand-your-site.md",
+      "line": 50,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/rebrand-your-site.md",
+      "line": 65,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/rebrand-your-site.md",
+      "line": 85,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 8,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 14,
+      "terms": [
+        "AnvilWiki",
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 23,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 24,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 25,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 26,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 34,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 35,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 52,
+      "terms": [
+        "AnvilWiki",
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 57,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/run-your-site.md",
+      "line": 68,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/search-intent.md",
+      "line": 48,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/sync-upstream.md",
+      "line": 19,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/trust-and-backlinks.md",
+      "line": 33,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/trust-and-backlinks.md",
+      "line": 62,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/verify-your-changes.md",
+      "line": 41,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/verify-your-changes.md",
+      "line": 44,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/weekly-ops.md",
+      "line": 36,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/en/weekly-ops.md",
+      "line": 68,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/ai-ops.md",
+      "line": 8,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/ai-ops.md",
+      "line": 23,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/ai-ops.md",
+      "line": 42,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/ai-ops.md",
+      "line": 51,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/ai-ops.md",
+      "line": 52,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/ai-ops.md",
+      "line": 65,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/architecture.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/batch-pages.md",
+      "line": 96,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/content-pipeline.md",
+      "line": 22,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/content-pipeline.md",
+      "line": 23,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/contribute-back.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/contribute-back.md",
+      "line": 40,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/enable-ads.md",
+      "line": 22,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/find-candidates.md",
+      "line": 52,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/first-article.md",
+      "line": 8,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/first-article.md",
+      "line": 32,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/first-article.md",
+      "line": 34,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/first-article.md",
+      "line": 46,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/get-on-google.md",
+      "line": 52,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/integrations.md",
+      "line": 49,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/multi-site.md",
+      "line": 7,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/multi-site.md",
+      "line": 19,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/multi-site.md",
+      "line": 20,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/multi-site.md",
+      "line": 23,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/multi-site.md",
+      "line": 24,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/multi-site.md",
+      "line": 25,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/multi-site.md",
+      "line": 26,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/multi-site.md",
+      "line": 27,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/put-site-online.md",
+      "line": 31,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/put-site-online.md",
+      "line": 49,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/rebrand-your-site.md",
+      "line": 50,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/rebrand-your-site.md",
+      "line": 65,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/rebrand-your-site.md",
+      "line": 85,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 8,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 14,
+      "terms": [
+        "AnvilWiki",
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 23,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 24,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 25,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 26,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 34,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 35,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 52,
+      "terms": [
+        "AnvilWiki",
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 57,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/run-your-site.md",
+      "line": 68,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/search-intent.md",
+      "line": 48,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/sync-upstream.md",
+      "line": 19,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/trust-and-backlinks.md",
+      "line": 33,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/trust-and-backlinks.md",
+      "line": 62,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/verify-your-changes.md",
+      "line": 40,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/verify-your-changes.md",
+      "line": 41,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/verify-your-changes.md",
+      "line": 44,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/weekly-ops.md",
+      "line": 36,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/handbook/zh/weekly-ops.md",
+      "line": 68,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/home.schema.json",
+      "line": 3,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/home.schema.json",
+      "line": 4,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 5,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 11,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 46,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 64,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 71,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 76,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 82,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 85,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 86,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/migration-from-nextjs.md",
+      "line": 149,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/multi-site.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/multi-site.md",
+      "line": 45,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/roadmap.md",
+      "line": 5,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/roadmap.md",
+      "line": 9,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/roadmap.md",
+      "line": 18,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/roadmap.md",
+      "line": 21,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/roadmap.md",
+      "line": 45,
+      "terms": [
+        "AnvilWiki",
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/roadmap.md",
+      "line": 53,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/seo.md",
+      "line": 1,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/seo.md",
+      "line": 5,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/seo.md",
+      "line": 37,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/seo.md",
+      "line": 57,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/seo.md",
+      "line": 76,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/seo.md",
+      "line": 201,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/sourcing.md",
+      "line": 136,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/staying-up-to-date.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/staying-up-to-date.md",
+      "line": 7,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/staying-up-to-date.md",
+      "line": 21,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/staying-up-to-date.md",
+      "line": 38,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/staying-up-to-date.md",
+      "line": 49,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/ROADMAP-v1.5-v1.6.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/ROADMAP-v1.5-v1.6.md",
+      "line": 57,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 5,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 15,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 70,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 74,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 169,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 439,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 450,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 558,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 1402,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 1535,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 1617,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 1619,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 1626,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 1627,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p1-core-cli.md",
+      "line": 1666,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p2-mcp.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p2-mcp.md",
+      "line": 5,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p2-mcp.md",
+      "line": 142,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p2-mcp.md",
+      "line": 149,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p2-mcp.md",
+      "line": 246,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p3-insights-submit.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-08-18-anvil-ops-p3-insights-submit.md",
+      "line": 5,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-18-anvil-ops-cli-mcp-design.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-18-anvil-ops-cli-mcp-design.md",
+      "line": 5,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-18-anvil-ops-cli-mcp-design.md",
+      "line": 9,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-18-anvil-ops-cli-mcp-design.md",
+      "line": 18,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-18-anvil-ops-cli-mcp-design.md",
+      "line": 28,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-18-anvil-ops-cli-mcp-design.md",
+      "line": 45,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-18-anvil-ops-cli-mcp-design.md",
+      "line": 51,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-18-anvil-ops-cli-mcp-design.md",
+      "line": 122,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-22-v2.0-content-os-design.md",
+      "line": 13,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-08-22-v2.0-content-os-design.md",
+      "line": 19,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-09-02-handbook-teaching-redesign.md",
+      "line": 87,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-09-03-gsc-discovery-docs-search-design.md",
+      "line": 9,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-09-03-gsc-discovery-docs-search-design.md",
+      "line": 31,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-09-08-community-digest-pipeline.md",
+      "line": 20,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-09-08-community-digest-pipeline.md",
+      "line": 32,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-09-08-community-digest-pipeline.md",
+      "line": 107,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-09-08-git-based-cms-evaluation.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 14,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 32,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 46,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 205,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 214,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 297,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 304,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 314,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 322,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "docs/upstream-deployment.md",
+      "line": 365,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "eslint.config.js",
+      "line": 2,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "fixtures/games/roblox/game.config.json",
+      "line": 6,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "fixtures/games/steam/game.config.json",
+      "line": 6,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "package.json",
+      "line": 2,
+      "terms": [
+        "GameForge",
+        "gameforge-wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "package.json",
+      "line": 7,
+      "terms": [
+        "GameForge",
+        "gameforge-wiki",
+        "github.com/jjasnek-ops/gameforge-wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "package.json",
+      "line": 10,
+      "terms": [
+        "GameForge",
+        "gameforge-wiki",
+        "github.com/jjasnek-ops/gameforge-wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "package.json",
+      "line": 13,
+      "terms": [
+        "GameForge",
+        "gameforge-wiki",
+        "github.com/jjasnek-ops/gameforge-wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "public/_headers",
+      "line": 43,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "public/images/hero.svg",
+      "line": 9,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "public/manifest.json",
+      "line": 2,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "public/manifest.json",
+      "line": 4,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "scripts/apply-template.ts",
+      "line": 587,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/apply-template.ts",
+      "line": 705,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/apply-template.ts",
+      "line": 719,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/apply-template.ts",
+      "line": 756,
+      "terms": [
+        "Forge Studios"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/bulk-new-posts.ts",
+      "line": 109,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/bulk-new-posts.ts",
+      "line": 265,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-config.ts",
+      "line": 84,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-evidence.ts",
+      "line": 1,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-secrets.ts",
+      "line": 16,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-seo.ts",
+      "line": 4,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-seo.ts",
+      "line": 11,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-seo.ts",
+      "line": 89,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-seo.ts",
+      "line": 103,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-seo.ts",
+      "line": 104,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-sitemap.ts",
+      "line": 37,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-sitemap.ts",
+      "line": 115,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-sources.ts",
+      "line": 3,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-sources.ts",
+      "line": 16,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-sources.ts",
+      "line": 32,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/check-sources.ts",
+      "line": 33,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/create-game.ts",
+      "line": 4,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/create-game.ts",
+      "line": 32,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/create-game.ts",
+      "line": 48,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/create-game.ts",
+      "line": 53,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/create-game.ts",
+      "line": 59,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/create-game.ts",
+      "line": 62,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/create-game.ts",
+      "line": 68,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/create-game.ts",
+      "line": 93,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/create-game.ts",
+      "line": 98,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/e2e-apply-template.mjs",
+      "line": 39,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/e2e-apply-template.mjs",
+      "line": 47,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/e2e-apply-template.mjs",
+      "line": 180,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/e2e-apply-template.mjs",
+      "line": 233,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/e2e-apply-template.mjs",
+      "line": 234,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/e2e-apply-template.mjs",
+      "line": 241,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/gen-demo-media.mjs",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/gen-demo-media.mjs",
+      "line": 97,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/gen-demo-media.mjs",
+      "line": 111,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/gen-demo-media.mjs",
+      "line": 308,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/init-indexnow-key.ts",
+      "line": 4,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-rewrites.ts",
+      "line": 493,
+      "terms": [
+        "AnvilWiki",
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-rewrites.ts",
+      "line": 712,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-rewrites.ts",
+      "line": 832,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-rewrites.ts",
+      "line": 840,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-rewrites.ts",
+      "line": 841,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-rewrites.ts",
+      "line": 843,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-rewrites.ts",
+      "line": 861,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-rewrites.ts",
+      "line": 1165,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-rewrites.ts",
+      "line": 1187,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-template-i18n.ts",
+      "line": 30,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-template-i18n.ts",
+      "line": 78,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-template-i18n.ts",
+      "line": 175,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/apply-template-i18n.ts",
+      "line": 221,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/configure-game.ts",
+      "line": 4,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/configure-game.ts",
+      "line": 27,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/configure-game.ts",
+      "line": 68,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/configure-game.ts",
+      "line": 103,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/configure-game.ts",
+      "line": 108,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/gameforge.ts",
+      "line": 104,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/security.ts",
+      "line": 56,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/seo-audit.ts",
+      "line": 2,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/seo-audit.ts",
+      "line": 3,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/lib/source-links.ts",
+      "line": 55,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/new-post.ts",
+      "line": 46,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/plan-content.ts",
+      "line": 5,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/plan-content.ts",
+      "line": 16,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/plan-content.ts",
+      "line": 17,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/plan-content.ts",
+      "line": 49,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/predeploy.ts",
+      "line": 1,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/submit-indexnow.ts",
+      "line": 144,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/submit-indexnow.ts",
+      "line": 206,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/submit-indexnow.ts",
+      "line": 321,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/sync-codes.ts",
+      "line": 107,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/sync-codes.ts",
+      "line": 164,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/template-audit.ts",
+      "line": 5,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/template-audit.ts",
+      "line": 54,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/template-audit.ts",
+      "line": 56,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/template-audit.ts",
+      "line": 57,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/template-audit.ts",
+      "line": 111,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/template-audit.ts",
+      "line": 389,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/test-games.ts",
+      "line": 11,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/test-games.ts",
+      "line": 26,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/test-games.ts",
+      "line": 91,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/test-games.ts",
+      "line": 143,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/test-games.ts",
+      "line": 145,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/test-games.ts",
+      "line": 146,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/test-games.ts",
+      "line": 149,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/write-indexnow-key.ts",
+      "line": 46,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "scripts/write-indexnow-key.ts",
+      "line": 47,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/home/HomePage.astro",
+      "line": 26,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/home/HomePage.astro",
+      "line": 75,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/home/HomePage.astro",
+      "line": 91,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/home/HomePage.astro",
+      "line": 239,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/home/HomePage.astro",
+      "line": 247,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/landing/CommunitySites.astro",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/CompareTable.astro",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/CompareTable.astro",
+      "line": 4,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/ComparisonPage.astro",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/ComparisonPage.astro",
+      "line": 43,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/ComparisonPage.astro",
+      "line": 141,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingHero.astro",
+      "line": 91,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 28,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 77,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 240,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 257,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 315,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 377,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 395,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 402,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 410,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/LandingLayout.astro",
+      "line": 413,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 741,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1587,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1588,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1618,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1694,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1695,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1780,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1781,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1821,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1831,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1840,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1841,
+      "terms": [
+        "AnvilWiki",
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1846,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1861,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1866,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1881,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1896,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1926,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1945,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 1946,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 2030,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 2049,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 2169,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 2297,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 2300,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 2497,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 3015,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4288,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4447,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4455,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4512,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4526,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4647,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4709,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4765,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4766,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4839,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4871,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4992,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 4993,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5060,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5093,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5094,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5160,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5166,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5177,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5178,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5542,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5543,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5544,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5562,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5563,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5601,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5613,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5916,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/landing/community-digest.json",
+      "line": 5948,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/components/layout/BaseLayout.astro",
+      "line": 14,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/layout/BaseLayout.astro",
+      "line": 15,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/layout/BaseLayout.astro",
+      "line": 98,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/layout/BaseLayout.astro",
+      "line": 99,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/components/mdx/AffiliateLink.astro",
+      "line": 16,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/affiliates.ts",
+      "line": 18,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/authors.ts",
+      "line": 20,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/authors.ts",
+      "line": 21,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/authors.ts",
+      "line": 22,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/features.ts",
+      "line": 2,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 17,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 21,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 31,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 33,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 34,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 36,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 37,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 90,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 92,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 133,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 135,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 149,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 155,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 156,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 219,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 275,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 278,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 289,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 296,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 351,
+      "terms": [
+        "AnvilWiki",
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 359,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 365,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 410,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 455,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 461,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-en.ts",
+      "line": 477,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-shared.ts",
+      "line": 8,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-shared.ts",
+      "line": 17,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-shared.ts",
+      "line": 18,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-shared.ts",
+      "line": 20,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-templates.ts",
+      "line": 56,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-templates.ts",
+      "line": 58,
+      "terms": [
+        "AnvilWiki",
+        "anvil.wiki",
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-templates.ts",
+      "line": 63,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-templates.ts",
+      "line": 143,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-templates.ts",
+      "line": 151,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-templates.ts",
+      "line": 153,
+      "terms": [
+        "AnvilWiki",
+        "anvil.wiki",
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-templates.ts",
+      "line": 157,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-templates.ts",
+      "line": 232,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-types.ts",
+      "line": 8,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 18,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 33,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 43,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 45,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 46,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 48,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 49,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 102,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 104,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 145,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 147,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 161,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 167,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 168,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 210,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 266,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 269,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 275,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 280,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 290,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 333,
+      "terms": [
+        "AnvilWiki",
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 341,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 347,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 388,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 433,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 439,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing-zh.ts",
+      "line": 455,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing.ts",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/landing.ts",
+      "line": 17,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/project.ts",
+      "line": 2,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/project.ts",
+      "line": 28,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/project.ts",
+      "line": 29,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/project.ts",
+      "line": 60,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/project.ts",
+      "line": 61,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/config/site.ts",
+      "line": 9,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/site.ts",
+      "line": 65,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/site.ts",
+      "line": 68,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/site.ts",
+      "line": 69,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/site.ts",
+      "line": 70,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/site.ts",
+      "line": 72,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/site.ts",
+      "line": 89,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/config/site.ts",
+      "line": 91,
+      "terms": [
+        "Forge Studios"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/bosses/emberfang.mdx",
+      "line": 9,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/bosses/emberfang.mdx",
+      "line": 11,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/bosses/emberfang.mdx",
+      "line": 32,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/bosses/frostbound-monarch.mdx",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/bosses/frostbound-monarch.mdx",
+      "line": 9,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/bosses/frostbound-monarch.mdx",
+      "line": 25,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/bosses/stormcaller.mdx",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/bosses/stormcaller.mdx",
+      "line": 9,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/bosses/stormcaller.mdx",
+      "line": 32,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/codes/all-codes.mdx",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/codes/all-codes.mdx",
+      "line": 10,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/codes/all-codes.mdx",
+      "line": 56,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/codes/all-codes.mdx",
+      "line": 58,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/beginner-guide.mdx",
+      "line": 2,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/beginner-guide.mdx",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/beginner-guide.mdx",
+      "line": 8,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/beginner-guide.mdx",
+      "line": 10,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/beginner-guide.mdx",
+      "line": 20,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/beginner-guide.mdx",
+      "line": 135,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/forging-guide.mdx",
+      "line": 2,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/forging-guide.mdx",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/forging-guide.mdx",
+      "line": 9,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/forging-guide.mdx",
+      "line": 11,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/forging-guide.mdx",
+      "line": 16,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/weapon-tier-list.mdx",
+      "line": 2,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/weapon-tier-list.mdx",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/weapon-tier-list.mdx",
+      "line": 9,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/weapon-tier-list.mdx",
+      "line": 16,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/guides/weapon-tier-list.mdx",
+      "line": 157,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/items/emberforged-armor-set.mdx",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/items/emberforged-armor-set.mdx",
+      "line": 9,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/items/emberforged-armor-set.mdx",
+      "line": 11,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/items/emberforged-armor-set.mdx",
+      "line": 16,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/items/forging-materials-guide.mdx",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/items/forging-materials-guide.mdx",
+      "line": 9,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/items/forging-materials-guide.mdx",
+      "line": 11,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/en/items/forging-materials-guide.mdx",
+      "line": 16,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/ja/bosses/emberfang.mdx",
+      "line": 29,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/ja/codes/all-codes.mdx",
+      "line": 3,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/ja/codes/all-codes.mdx",
+      "line": 56,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/content/wiki/ja/codes/all-codes.mdx",
+      "line": 58,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/lib/evidence.ts",
+      "line": 7,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/lib/handbook.ts",
+      "line": 139,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 4,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 6,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 7,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 8,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 134,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 138,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 146,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 151,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 152,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 156,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 157,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 158,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 167,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 172,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 227,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 349,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 379,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 382,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 383,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 386,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 390,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 394,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 395,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 398,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 399,
+      "terms": [
+        "Forge Studios"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 406,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 411,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/en.json",
+      "line": 422,
+      "terms": [
+        "Anvil Quest",
+        "Forge Studios"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 4,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 6,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 7,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 8,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 134,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 146,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 151,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 152,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 156,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 157,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 158,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 167,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 172,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 227,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 349,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 379,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 382,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 383,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 390,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 394,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 395,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 398,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 399,
+      "terms": [
+        "Forge Studios"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 406,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 411,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/locales/ja.json",
+      "line": 422,
+      "terms": [
+        "Anvil Quest",
+        "Forge Studios"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/landing.astro",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/landing/comparison.astro",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/landing/docs/[slug].astro",
+      "line": 79,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/landing/docs/[slug].astro",
+      "line": 89,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/landing/docs/dev.astro",
+      "line": 25,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/landing/docs/index.astro",
+      "line": 44,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/landing/docs/learn.astro",
+      "line": 26,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/llms.txt.ts",
+      "line": 68,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/llms.txt.ts",
+      "line": 71,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/llms.txt.ts",
+      "line": 91,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/llms.txt.ts",
+      "line": 97,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/llms.txt.ts",
+      "line": 103,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/zh/landing/comparison.astro",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/zh/landing/docs/[slug].astro",
+      "line": 70,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/zh/landing/docs/[slug].astro",
+      "line": 80,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/zh/landing/docs/dev.astro",
+      "line": 25,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/zh/landing/docs/index.astro",
+      "line": 41,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/zh/landing/docs/learn.astro",
+      "line": 25,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "src/pages/zh/landing/privacy.astro",
+      "line": 18,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "C"
+    },
+    {
+      "file": "tests/affiliates.test.ts",
+      "line": 10,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/affiliates.test.ts",
+      "line": 24,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 92,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 94,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 98,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 99,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 118,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 133,
+      "terms": [
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 146,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 293,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 303,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 343,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 407,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 409,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 645,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 648,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 656,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 658,
+      "terms": [
+        "Forge Studios"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 813,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 815,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 817,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 854,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 891,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 907,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 914,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 962,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 964,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 969,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 1011,
+      "terms": [
+        "anvil.wiki",
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 1014,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 1017,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 1048,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 1320,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 1322,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 1328,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 1354,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/apply-template.test.ts",
+      "line": 1361,
+      "terms": [
+        "Forge Master Kael"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/changelog.test.ts",
+      "line": 18,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/covers.test.ts",
+      "line": 116,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/gameforge-site.test.ts",
+      "line": 4,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/gameforge.test.ts",
+      "line": 7,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/gameforge.test.ts",
+      "line": 9,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/gameforge.test.ts",
+      "line": 18,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/gameforge.test.ts",
+      "line": 20,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/gameforge.test.ts",
+      "line": 25,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/gameforge.test.ts",
+      "line": 26,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/gameforge.test.ts",
+      "line": 44,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/hardening.test.ts",
+      "line": 8,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/hardening.test.ts",
+      "line": 15,
+      "terms": [
+        "GameForge"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/indexnow.test.ts",
+      "line": 106,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/seo.test.ts",
+      "line": 185,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/seo.test.ts",
+      "line": 186,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/sync-codes.test.ts",
+      "line": 24,
+      "terms": [
+        "Anvil Quest"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/workflows.test.ts",
+      "line": 452,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/workflows.test.ts",
+      "line": 498,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tests/workflows.test.ts",
+      "line": 500,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/LICENSE",
+      "line": 3,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "A"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 3,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 10,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 11,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 12,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 13,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 14,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 15,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 27,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 40,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 41,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 42,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 43,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 68,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/README.md",
+      "line": 92,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/package.json",
+      "line": 2,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/package.json",
+      "line": 5,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/package.json",
+      "line": 12,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/package.json",
+      "line": 39,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "github.com/PNGTRID/AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/package.json",
+      "line": 42,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/src/bin/cli.ts",
+      "line": 22,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/src/core/doctor.ts",
+      "line": 71,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/src/core/doctor.ts",
+      "line": 121,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/src/core/gitops.ts",
+      "line": 80,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/src/mcp/server.ts",
+      "line": 42,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/src/mcp/server.ts",
+      "line": 59,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/doctor.test.ts",
+      "line": 55,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/fixtures/wrangler-full.toml",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/fixtures/wrangler-minimal.toml",
+      "line": 1,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/gitops.test.ts",
+      "line": 235,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/gitops.test.ts",
+      "line": 240,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/gitops.test.ts",
+      "line": 244,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/gitops.test.ts",
+      "line": 368,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/gitops.test.ts",
+      "line": 384,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/smoke.test.ts",
+      "line": 16,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/smoke.test.ts",
+      "line": 17,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "tools/anvil-ops/test/smoke.test.ts",
+      "line": 29,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "wrangler.toml",
+      "line": 3,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "wrangler.toml",
+      "line": 4,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "wrangler.toml",
+      "line": 32,
+      "terms": [
+        "AnvilWiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "wrangler.toml",
+      "line": 38,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "wrangler.toml",
+      "line": 39,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "wrangler.toml",
+      "line": 42,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID",
+        "anvil.wiki"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "wrangler.toml",
+      "line": 43,
+      "terms": [
+        "AnvilWiki",
+        "PNGTRID"
+      ],
+      "class": "B"
+    },
+    {
+      "file": "wrangler.toml",
+      "line": 63,
+      "terms": [
+        "anvil.wiki"
+      ],
+      "class": "B"
+    }
+  ],
+  "mediaAndFonts": [
+    {
+      "path": "public/android-chrome-192x192.png",
+      "sha256": "bce8c9e489f79f390bf404183fa8d6683511af4e9837a624e518eb878492a83f",
+      "bytes": 4145
+    },
+    {
+      "path": "public/android-chrome-512x512.png",
+      "sha256": "e1ac33a36b70f91c4480cb6fa35b75d997a8180d23c5e73ca2f48317a9d8ab45",
+      "bytes": 6377
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "sha256": "bccbc3af7a45ff06c031362ab45b910d48270ab054a19c03a7f1acaa527576bc",
+      "bytes": 3819
+    },
+    {
+      "path": "public/favicon-16x16.png",
+      "sha256": "07a5d49353af35d93cf31559c40b053ceb35934c3b1f0901053c8a003be71535",
+      "bytes": 408
+    },
+    {
+      "path": "public/favicon-32x32.png",
+      "sha256": "a507a1a80f54cfb6cf5844a459c7c091210ce8908bf560694a1aebe170d2ede3",
+      "bytes": 721
+    },
+    {
+      "path": "public/favicon.ico",
+      "sha256": "74ef25c109aab9f10da5d71dd8a85279d199f82d96afc806511c2de26ce80f32",
+      "bytes": 2389
+    },
+    {
+      "path": "public/favicon.svg",
+      "sha256": "b924dc9ff3486234b3b208832113f76228b2f3e537f8f0ea15c9ef0b8d329e9a",
+      "bytes": 305
+    },
+    {
+      "path": "public/images/articles/weapon-frostpike.png",
+      "sha256": "ec829b1a18c019ed2012ec0e72bd4ed61a01265196b9637ee0b1eb3f22124c98",
+      "bytes": 30162
+    },
+    {
+      "path": "public/images/articles/weapon-voidforge.png",
+      "sha256": "5911ec427ea1f27089f36a5e75fba2a5c77f9a7b654ef81de673a3eafeb85168",
+      "bytes": 31188
+    },
+    {
+      "path": "public/images/hero.svg",
+      "sha256": "f4ce904a0604ef3edde0b5d7ca4940ee50dbbb389d7d135d05f70a08c139dc7e",
+      "bytes": 710
+    },
+    {
+      "path": "public/images/hero.webp",
+      "sha256": "aa7eb42f1a92f21d408635647297e393d4a662142e8dbd56af02bcea440ef2bc",
+      "bytes": 18054
+    },
+    {
+      "path": "public/images/showcase/demo-article.webp",
+      "sha256": "7b7f42c14bfc8ada9bf1cb694fe16b8bf43dfdab87d95d98c5a2fd8093f6000c",
+      "bytes": 64240
+    },
+    {
+      "path": "public/images/showcase/demo-codes.webp",
+      "sha256": "8429478127d205742483557fd3613dbf5a4260512f3f2660a39fab8540fed115",
+      "bytes": 57034
+    },
+    {
+      "path": "public/images/showcase/demo-home.webp",
+      "sha256": "92086c8a7b0ceb8fd388f8458a5ea575b68007e5d8e82a1b0e535ff710d504da",
+      "bytes": 23514
+    },
+    {
+      "path": "public/images/showcase/demo-mobile.webp",
+      "sha256": "c69d4e8db3db17f86b6882d93f00e1dd9a9f2e8dd1fdb28ef0c3ea973c5269fc",
+      "bytes": 18096
+    },
+    {
+      "path": "public/images/showcase/demo-tier-list.webp",
+      "sha256": "ca081e281a56f7e9da5e5388175346c862738d90871ed0582c62d7cd3de643ac",
+      "bytes": 72746
+    },
+    {
+      "path": "public/images/showcase/sites/aniimo.jpg",
+      "sha256": "4a360d51ec559672f20d57d900f96f2db236ac1d92f17d3f923fd3c1500a44c9",
+      "bytes": 79911
+    },
+    {
+      "path": "public/images/showcase/sites/jjs-player-guide.png",
+      "sha256": "fe3ee4459a45e4d3c183473bec2d7225ca9ceaef8a10f795fd12b5cd8bb93783",
+      "bytes": 66480
+    },
+    {
+      "path": "public/images/showcase/sites/mortal-shell-ii.png",
+      "sha256": "c8f78b5e5e72b1dba3a3fd7bfacab6fff986abfe39b8c4c24b49ba52adc31934",
+      "bytes": 73035
+    },
+    {
+      "path": "public/images/showcase/sites/nomanssky.jpg",
+      "sha256": "2dccb1fa01a785e0693226974ff59c34f2e1f2eadcccf6b190da10e125b3530c",
+      "bytes": 82589
+    },
+    {
+      "path": "public/images/showcase/sites/resonance.jpg",
+      "sha256": "bf4fe0b704fd6ba59b79b374e9c50775c4486d23edd6ccb01390936b4e9867c3",
+      "bytes": 79025
+    },
+    {
+      "path": "public/images/showcase/sites/sandustry.jpg",
+      "sha256": "b3ad5e2ff38e69fe4d344c6626f761716dad9e7399906daf25f73c21979e4988",
+      "bytes": 90262
+    },
+    {
+      "path": "public/images/showcase/sites/sephiria.jpg",
+      "sha256": "f3d57a7bc360e610781e58b1a4b50afd4dcfd2e8edf378016aa8b216dbdc6372",
+      "bytes": 58228
+    },
+    {
+      "path": "public/images/showcase/sites/steal-anegg.jpg",
+      "sha256": "cba25b133611755bd5bd5ebaeb9acdf72c8d862a30901f4009be9669921902a9",
+      "bytes": 81250
+    },
+    {
+      "path": "public/images/showcase/sites/warhounds.jpg",
+      "sha256": "68d8e6e6990920c611feb8487d809acfdccea2080a251f59a02cd2f497e43bb8",
+      "bytes": 88467
+    },
+    {
+      "path": "public/images/wechat-qr.jpg",
+      "sha256": "177c8926da179ad6c78953f7346d50462556725afb91c27ee408e05bda944bf0",
+      "bytes": 44497
+    },
+    {
+      "path": "scripts/fonts/Lato-Bold.ttf",
+      "sha256": "8a0aace75d33794eece4b28187bfc1df0bbd2888b5d8a56e01788c8d65d16be1",
+      "bytes": 656544
+    },
+    {
+      "path": "scripts/fonts/Lato-Regular.ttf",
+      "sha256": "d636e4683231f931eda222d588e944d082bfd3bdba02f928bee461c0f185b251",
+      "bytes": 656568
+    },
+    {
+      "path": "src/assets/covers/beginner-guide-cover.png",
+      "sha256": "2a9f360df1ec5f0d4fb22f40e59b6012be6ebf044e763e403d38737e35530eb2",
+      "bytes": 88092
+    },
+    {
+      "path": "src/assets/covers/codes-cover.png",
+      "sha256": "b99ea9cfd837b9e75b8f70f6f3a4940e37e5ecfd38766dc5457ab7517d91947a",
+      "bytes": 63071
+    },
+    {
+      "path": "src/assets/covers/emberfang-cover.png",
+      "sha256": "0c37ec0ba5efef8e5545b6e5bd9f084c3dd994328ae0435764d647f328df9eb1",
+      "bytes": 76944
+    },
+    {
+      "path": "src/assets/covers/en-bosses-frostbound-monarch.png",
+      "sha256": "2cf5e50138fb302261c19c887921375f232bf5c07ce16bd79d8bfb505649fc8d",
+      "bytes": 159288
+    },
+    {
+      "path": "src/assets/covers/en-guides-forging-guide.png",
+      "sha256": "fde2bc40a7761e5b307206a28f2a7148d188828873fafdace85cf92bb6fec391",
+      "bytes": 156606
+    },
+    {
+      "path": "src/assets/covers/en-items-emberforged-armor-set.png",
+      "sha256": "423f164604dc40051907cc26b7a326a530d10f17151f882b826e4d63941ec076",
+      "bytes": 155694
+    },
+    {
+      "path": "src/assets/covers/en-items-forging-materials-guide.png",
+      "sha256": "6228a2525642de867880c82d46f13b0339540f98ca224fdb79f7ef2305c9750e",
+      "bytes": 156494
+    },
+    {
+      "path": "src/assets/covers/stormcaller-cover.png",
+      "sha256": "506a41df4a6bc1898827b573ee121a1f5896010c1b01e8122368638258645b1f",
+      "bytes": 68024
+    },
+    {
+      "path": "src/assets/covers/weapon-tier-list-cover.png",
+      "sha256": "2f01f80218bf3d44bdcb105ead0a7720953e1b15f6996633844a5a1104976b3b",
+      "bytes": 82383
+    },
+    {
+      "path": "src/assets/gallery/beginner-class-picks.png",
+      "sha256": "c6c083a4bd7cbb7103ab069551b0d419530858ec3cf92a692f225917c59c5dc5",
+      "bytes": 46477
+    },
+    {
+      "path": "src/assets/gallery/beginner-route.png",
+      "sha256": "03bc4eefde10e861fa2fef300ea2077b47176dad93527eb728523f90c8407350",
+      "bytes": 57128
+    },
+    {
+      "path": "src/assets/gallery/emberfang-arena.png",
+      "sha256": "737a73925557bbba9521905ac234311be31b01a9869ae69d77037120acb622e7",
+      "bytes": 54348
+    },
+    {
+      "path": "src/assets/gallery/emberfang-mechanics.png",
+      "sha256": "44378f9c44a413f481b00ac233e1c2ddfbe86bb3e9e4bec9e2101fcf974d1e37",
+      "bytes": 48070
+    },
+    {
+      "path": "src/assets/gallery/stormcaller-arena.png",
+      "sha256": "dfd5a49ac4e734ad04cb39300ee754128a912f0d33021e1d3c669de0f6a645e1",
+      "bytes": 61081
+    },
+    {
+      "path": "src/assets/gallery/stormcaller-mechanics.png",
+      "sha256": "0e14da5141831146461608a50777db708c2d8e5c44afdacc9393a790d3ce7da4",
+      "bytes": 50153
+    }
+  ]
+}

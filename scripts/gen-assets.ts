@@ -38,6 +38,8 @@ import subsetFont from 'subset-font';
 import { site } from '~/config/site';
 import { hslToHex, hasCjk, parseBrandHsl, stableHash, stripEmoji, subsetText } from '~/lib/covers';
 import { NOTO_BASE } from './lib/fonts';
+import { loadGame } from './lib/gameforge';
+import { recordBrandAssets } from './lib/branding';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = join(root, 'public');
@@ -118,7 +120,7 @@ async function main() {
     console.error('❌ could not parse --brand from src/styles/globals.css');
     process.exit(1);
   }
-  const brandHex = hslToHex(brand.h, brand.s, brand.l);
+  const brandHex = loadGame(root)?.themeColor ?? hslToHex(brand.h, brand.s, brand.l);
   const brandDeep = hslToHex(brand.h, brand.s, Math.max(brand.l - 18, 12));
   const ink = textColorOn(brand);
 
@@ -278,7 +280,7 @@ async function main() {
   console.log('\n✅ Done. favicon.ico is intentionally left as-is (see script header).\n');
 }
 
-main().catch((err) => {
+main().then(() => { const game = loadGame(root); if (game) { if (site.name !== game.siteName || site.domain !== game.domain || site.shortName !== game.shortName) throw new Error('Run configure-game before generating brand artwork'); recordBrandAssets(root, game); } }).catch((err) => {
   console.error('\n❌', err.message);
   process.exit(1);
 });

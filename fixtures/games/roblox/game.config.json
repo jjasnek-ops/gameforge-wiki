@@ -3,7 +3,7 @@
   "siteName": "Fixture Sky Orchard Wiki",
   "shortName": "Roblox Fixture",
   "domain": "sky-orchard.example",
-  "description": "Fixture Sky Orchard is an explicitly fictional integration test site for GameForge Wiki. No real gameplay claims are published.",
+  "description": "Fixture Sky Orchard is an explicitly fictional integration test site for an independent game wiki. No real gameplay claims are published.",
   "platform": "Roblox",
   "genre": "Fictional test scenario",
   "developer": "Test fixture authors",
@@ -66,5 +66,8 @@
       }
     ]
   },
-  "testOnly": true
+  "testOnly": true,
+  "contactEmail": "roblox@sky-orchard.example",
+  "discordUrl": "https://discord.com/invite/roblox-fixture-only",
+  "youtubeUrl": "https://youtube.com/@roblox-fixture-only"
 }

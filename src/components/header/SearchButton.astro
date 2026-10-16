@@ -16,6 +16,7 @@
  *
  * All UI text from JSON (Hard Rule 1): search.{placeholder, noResults} + nav.search.
  */
+import { site } from '~/config/site';
 import { Icon } from 'astro-icon/components';
 import { defaultLocale } from '~/i18n/routing';
 import { getUi } from '~/i18n/ui';
@@ -111,7 +112,7 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
       </div>
       <span class="search-footer-brand">
         <Icon name="lucide:zap" class="h-3 w-3" />
-        Powered by Pagefind
+        {site.name}
       </span>
     </footer>
   </div>

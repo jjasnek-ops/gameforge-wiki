@@ -41,19 +41,32 @@ export function sensitivePath(relative: string): boolean {
     /(?:^|\/)(?:id_(?:rsa|ed25519)|.*[-.]secret\.json)$|\.(?:pem|key|p8|p12|pfx|jks|keystore)$/i.test(relative);
 }
 const rootFiles = new Set(['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', '.nvmrc', '.gitignore', '.gitattributes', '.env.example', '.prettierignore', '.prettierrc', 'eslint.config.js', 'astro.config.ts', 'tailwind.config.mjs', 'tailwind.config.ts', 'tsconfig.json', 'vitest.config.ts', 'wrangler.toml', 'README.md', 'AGENTS.md', 'LICENSE']);
+// Explicit build/editor/gate scripts; newly added factory/research scripts do
+// not automatically become distributable just because they end in .ts.
+const productionScripts = new Set([
+  'apply-template.ts', 'audit-branding.ts', 'bulk-new-posts.ts', 'check-config.ts', 'check-content.ts', 'check-evidence.ts', 'check-i18n.ts', 'check-links.ts',
+  'check-secrets.ts', 'check-seo.ts', 'check-sitemap.ts', 'check-sources.ts', 'configure-game.ts', 'finalize-site.ts', 'gen-assets.ts', 'gen-covers.ts',
+  'init-indexnow-key.ts', 'install-hooks.mjs', 'new-locale.ts', 'new-post.ts', 'plan-content.ts', 'predeploy.ts', 'refresh-audit.ts', 'submit-indexnow.ts',
+  'subset-font.d.ts', 'sync-codes.ts', 'transpile-pagefind.mjs', 'write-indexnow-key.ts',
+  ...['apply-rewrites', 'apply-template-i18n', 'asset-extensions', 'atomic', 'branding-policy', 'branding', 'configure-game', 'delimited', 'fonts', 'gameforge',
+    'indexnow', 'link-scan', 'prompt', 'routing-flags', 'run', 'security', 'seo-audit', 'slugify', 'source-links', 'sync-codes', 'today', 'walk'].map(name => `lib/${name}.ts`),
+]);
 export function productionFile(relative: string): boolean {
   const rel = relative.replace(/\\/g, '/');
   if (rel.split('/').some(p => !p || p === '..' || /^(?:node_modules|dist|\.astro|\.git|\.cache|coverage|reports?|out|tmp|temp)$/i.test(p)) || sensitivePath(rel)) return false;
   if (/(?:^|\/)(?:notes?|scratch|personal|debug)(?:[._-]|$)|\.(?:log|tmp|bak|old|zip|csv|sqlite|db)$/i.test(rel)) return false;
-  if (/^docs\/(?:superpowers|audits)\//.test(rel)) return false;
+  // The independent site is not another copy of the factory or its manuals.
+  if (/^(?:docs\/|\.agent\/|src\/content\/wiki\/|src\/assets\/|public\/images\/|public\/ads\/)/.test(rel)) return false;
+  if (/^src\/(?:components\/landing\/|config\/landing|pages\/(?:landing(?:\.|\/)|demo\.astro|zh\/landing))/.test(rel)) return false;
+  if (['README.md', 'AGENTS.md', '.env.example', 'src/lib/handbook.ts'].includes(rel)) return false;
+  if (/^licenses\/(?:[a-z][a-z-]+\.txt|manifest\.json)$/.test(rel)) return true;
   if (rootFiles.has(rel)) return true;
   if (/^src\/.+\.(?:ts|js|mjs|astro|css|mdx|json|svg|png|jpe?g|webp|gif|avif|woff2?|ttf|otf)$/.test(rel)) return !/\.(?:test|spec)\./.test(rel);
   if (/^scripts\/fonts\/(?:[A-Za-z0-9_-]+\.(?:ttf|otf)|OFL\.txt|LICENSE(?:\.txt)?)$/.test(rel)) return true;
-  if (/^scripts\/.+\.(?:ts|mjs)$/.test(rel)) return !/^scripts\/(?:test-games\.ts|e2e-apply-template\.mjs|gen-demo-media\.mjs)$/.test(rel);
-  if (/^docs\/.+\.md$/.test(rel) || /^\.agent\/skills\/.+\.(?:md|ts|mjs)$/.test(rel)) return true;
-  if (/^public\/(?:images|fonts|ads)\/.+\.(?:svg|png|jpe?g|webp|gif|avif|woff2?|ttf|otf|html)$/.test(rel)) return true;
+  if (rel.startsWith('scripts/')) return productionScripts.has(rel.slice(8));
+  if (/^public\/fonts\/.+\.(?:woff2?|ttf|otf)$/.test(rel)) return true;
   return /^public\/(?:_headers|_redirects|manifest\.json|ads\.txt|favicon(?:-\d+x\d+)?\.(?:svg|png|ico)|apple-touch-icon\.png|android-chrome-\d+x\d+\.png)$/.test(rel) ||
-    /^tests\/(?:gameforge-site|hardening)\.test\.ts$/.test(rel) || rel === '.githooks/pre-commit';
+    /^tests\/(?:gameforge-site|hardening|branding)\.test\.ts$/.test(rel) || rel === '.githooks/pre-commit';
 }
 export function productionFiles(root: string): string[] {
   const files = execFileSync('git', ['ls-files', '--cached', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(productionFile);

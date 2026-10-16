@@ -19,7 +19,7 @@ describe('GameForge input and publishing safety', () => {
   it('compiles repeatedly without touching the interface, and retires old identities after a rebrand', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gameforge-config-'));
     try {
-      for (const rel of ['src/config/site.ts', 'src/config/navigation.ts', 'src/i18n/routing.ts', 'src/i18n/ui.ts', 'src/styles/globals.css', 'src/locales/en.json', 'public/manifest.json']) {
+      for (const rel of ['src/config/site.ts', 'src/config/affiliates.ts', 'src/config/navigation.ts', 'src/i18n/routing.ts', 'src/i18n/ui.ts', 'src/styles/globals.css', 'src/locales/en.json', 'public/manifest.json']) {
         fs.mkdirSync(path.dirname(path.join(dir, rel)), { recursive: true }); fs.copyFileSync(rel, path.join(dir, rel));
       }
       fs.mkdirSync(path.join(dir, '.gameforge'));

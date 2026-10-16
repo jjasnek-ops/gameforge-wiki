@@ -68,3 +68,7 @@ ops/
 .dev.vars*
 .gameforge/source-cache.json
 .gameforge/source-report.json
+
+# Local branding inventory and generated asset proof
+.gameforge/branding-*.json
+.gameforge/assets.json

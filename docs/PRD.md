@@ -1,5 +1,7 @@
 # AnvilWiki 产品需求文档（PRD）
 
+GameForge 品牌与生产隔离（2026-10-16）：独立站身份全部由 game.config.json 编译，默认不展示母版宣传；完整保留 MIT 原版权、许可和合法来源记录。生成站不复制母版手册、调研、Agent 规则、示例内容和媒体；构建产物执行 audit-branding，覆盖 HTML/SEO/JSON-LD/JS/CSS/Sitemap、部署文件白名单、敏感信息、许可证与跨站身份。Roblox/Steam 做独立身份与负向注入回归。母版示例树与全部既有测试保留。私有化只出具迁移方案，不改仓库关系、可见性、历史、域名或 Cloudflare。
+
 GameForge 上线前加固（2026-10-16）：配置与 Git 暂存区检查敏感信息；新站仅复制受控的跟踪文件；公共 Cloudflare beacon ID 与 API 凭据分离。保留人工/版本门禁，支持逐条断言引用与有缓存、超时、重定向防护的可选来源联网检查，本地草稿不依赖网络。SEO 对应索引页面与 Sitemap 做双向集合验证，并核对翻译、canonical、robots/noindex。保留全部母版测试，重跑 Roblox/Steam 独立站、Pagefind 与静态 Pages 配置。只提交修复 PR，不部署、不改 DNS、不操作外部账户。
 
 GameForge 复审验收补充（2026-10-15）：独立站的 Unicode 标签 URL 必须通过真实构建后的 SEO/链接检查；首页浏览按钮必须跳转到文案对应的已发布分类，不能因前置空分类而错链。只做代码与 CI 验证，不部署、不修改域名。

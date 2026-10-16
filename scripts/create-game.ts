@@ -60,6 +60,10 @@ fs.writeFileSync(path.join(target, '.gameforge/answers.json'), JSON.stringify(an
 // Install the exact template lockfile in the independent project.
 runPnpm(target, ['install', '--frozen-lockfile']);
 runScript(target, 'scripts/apply-template.ts', ['--answers', '.gameforge/answers.json']);
+// Bootstrap helpers have completed their job; the independent site is not a
+// second factory. Shared compiler helpers remain available to normal builds.
+for (const rel of ['scripts/apply-template.ts', 'scripts/lib/apply-template-i18n.ts']) fs.unlinkSync(path.join(target, rel));
+fs.unlinkSync(path.join(target, '.gameforge/answers.json'));
 // Retain mature generic UI translations without retaining any game identity.
 for (const file of fs.readdirSync(path.join(target, 'src/locales')).filter(file => file.endsWith('.json'))) {
   const seed = JSON.parse(fs.readFileSync(path.join(target, 'src/locales', file), 'utf8'));
@@ -80,6 +84,19 @@ if (contentInput) for (const from of walkFiles(contentInput, { exts: ['.mdx'] })
 }
 for (const file of fs.readdirSync(path.join(target, 'src/locales'))) if (file.endsWith('.json')) fs.unlinkSync(path.join(target, 'src/locales', file));
 fs.writeFileSync(path.join(target, 'src/locales/en.json'), JSON.stringify(ui, null, 2));
+// Remove the unused docs collection and its route generator dependency.
+const collectionFile = path.join(target, 'src/content.config.ts');
+let collection = fs.readFileSync(collectionFile, 'utf8').replace(/\r\n/g, '\n');
+if (!collection.includes('/**\n * Handbook collection')) throw new Error('Content collection isolation contract changed');
+collection = collection.slice(0, collection.indexOf('/**\n * Handbook collection')) + '\nexport const collections = { wiki };\n';
+fs.writeFileSync(collectionFile, collection);
+const llmsFile = path.join(target, 'src/pages/llms.txt.ts');
+let llms = fs.readFileSync(llmsFile, 'utf8').replace(/^import.*(?:config\/project|lib\/handbook).*;\r?\n/gm, '');
+const handbookStart = llms.indexOf('  // Handbook (project docs center');
+const returnStart = llms.indexOf("  return new Response(lines.join", handbookStart);
+if (handbookStart < 0 || returnStart < 0) throw new Error('llms content isolation contract changed');
+llms = llms.slice(0, handbookStart) + llms.slice(returnStart);
+fs.writeFileSync(llmsFile, llms);
 configureGame(target);
 runScript(target, 'scripts/plan-content.ts');
 configureGame(target);
@@ -88,23 +105,26 @@ validateEvidence(target);
 // The independent site's CI runs its own portable config/evidence tests;
 // marketing/demo fixture contracts are not production-site contracts.
 const pkg = JSON.parse(fs.readFileSync(path.join(target, 'package.json'), 'utf8'));
+pkg.version = '0.1.0'; pkg.description = game.description; pkg.keywords = [game.gameName, ...game.navigation.map(n => n.label)];
 pkg.name = game.domain.replace(/\./g, '-'); pkg.homepage = `https://${game.domain}`;
 delete pkg.repository; delete pkg.bugs;
-pkg.scripts.test = 'vitest run tests/gameforge-site.test.ts tests/hardening.test.ts';
+pkg.scripts.test = 'vitest run tests/gameforge-site.test.ts tests/hardening.test.ts tests/branding.test.ts';
 delete pkg.scripts['test:e2e']; delete pkg.scripts['test:games'];
+for (const command of ['create-game', 'apply-template', 'template-audit']) delete pkg.scripts[command];
 fs.writeFileSync(path.join(target, 'package.json'), JSON.stringify(pkg, null, 2) + '\n');
 const tsconfigFile = path.join(target, 'tsconfig.json');
 const tsconfig = JSON.parse(fs.readFileSync(tsconfigFile, 'utf8'));
-tsconfig.include = ['.astro/types.d.ts', 'src/**/*', 'scripts/**/*', 'tests/gameforge-site.test.ts', 'tests/hardening.test.ts', '*.config.ts'];
+tsconfig.include = ['.astro/types.d.ts', 'src/**/*', 'scripts/**/*', 'tests/gameforge-site.test.ts', 'tests/hardening.test.ts', 'tests/branding.test.ts', '*.config.ts'];
 fs.writeFileSync(tsconfigFile, JSON.stringify(tsconfig, null, 2) + '\n');
 // No upstream scheduled operations or automatic submissions in new sites.
 const workflows = path.join(target, '.github/workflows');
 fs.mkdirSync(workflows, { recursive: true });
 for (const file of fs.readdirSync(workflows)) fs.unlinkSync(path.join(workflows, file));
 fs.writeFileSync(path.join(workflows, 'ci.yml'), `name: Game site checks\non: [push, pull_request]\npermissions:\n  contents: read\njobs:\n  check:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09\n      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38\n        with:\n          node-version: '22'\n      - run: corepack enable\n      - run: pnpm install --frozen-lockfile\n      - run: pnpm verify-game\n`);
+fs.writeFileSync(path.join(target, 'README.md'), `# ${game.siteName}\n\n${game.description}\n\nEdit game.config.json for site identity; edit MDX for reviewed content. Run pnpm dev, pnpm verify-game and pnpm predeploy locally. No deployment is automatic.\n\nSoftware copyright and licenses remain in LICENSE and licenses/. Editorial and game-media rights remain separate.\n`);
 // Use generated neutral artwork; never carry the upstream game's hero.
 runScript(target, 'scripts/gen-assets.ts');
 for (const rel of ['public/favicon.ico', 'public/images/hero.svg']) fs.rmSync(path.join(target, rel), { force: true });
 runPnpm(target, ['verify-game']);
-fs.writeFileSync(path.join(target, 'LAUNCH_REPORT.md'), `# ${game.siteName}: local generation report\n\nIndependent directory: ${target}\n\nLocal configuration, evidence, TypeScript, lint, content, translation keys, tests, production build, Pagefind, links and SEO checks passed.\n\nAll keyword pages start as unpublished drafts. Fill verified material, reviewedBy/reviewedAt/gameVersion/sourceIds and review each page before setting draft: false.\n\n${game.testOnly ? 'TEST FIXTURE: robots disallows crawling; do not deploy.\n\n' : ''}No GitHub repository or Cloudflare deployment was created. No DNS/NS/DS/DNSSEC settings were changed. Build success does not prove domain availability.\n\nNext: follow docs/DEPLOYMENT.md. Create an independent remote only with authorization, then git init, git add ., git commit and git remote add origin YOUR_AUTHORIZED_REPOSITORY.\n`);
+fs.writeFileSync(path.join(target, 'LAUNCH_REPORT.md'), `# ${game.siteName}: local generation report\n\nIndependent directory: ${target}\n\nLocal configuration, evidence, TypeScript, lint, content, translation keys, tests, production build, Pagefind, links and SEO checks passed.\n\nAll keyword pages start as unpublished drafts. Fill verified material, reviewedBy/reviewedAt/gameVersion/sourceIds and review each page before setting draft: false.\n\n${game.testOnly ? 'TEST FIXTURE: robots disallows crawling; do not deploy.\n\n' : ''}No GitHub repository or Cloudflare deployment was created. No DNS/NS/DS/DNSSEC settings were changed. Build success does not prove domain availability.\n\nNext: obtain deployment authorization and use the configured static dist output only. Create an independent remote only with authorization, then git init, git add ., git commit and git remote add origin YOUR_AUTHORIZED_REPOSITORY.\n`);
 console.log(`Independent site verified: ${target}`);

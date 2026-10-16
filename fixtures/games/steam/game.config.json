@@ -3,7 +3,7 @@
   "siteName": "Fixture Iron Harbor Wiki",
   "shortName": "Steam Fixture",
   "domain": "iron-harbor.example",
-  "description": "Fixture Iron Harbor is an explicitly fictional integration test site for GameForge Wiki. No real gameplay claims are published.",
+  "description": "Fixture Iron Harbor is an explicitly fictional integration test site for an independent game wiki. No real gameplay claims are published.",
   "platform": "Steam",
   "genre": "Fictional test scenario",
   "developer": "Test fixture authors",
@@ -70,5 +70,8 @@
       }
     ]
   },
-  "testOnly": true
+  "testOnly": true,
+  "contactEmail": "steam@iron-harbor.example",
+  "discordUrl": "https://discord.com/invite/steam-fixture-only",
+  "youtubeUrl": "https://youtube.com/@steam-fixture-only"
 }
