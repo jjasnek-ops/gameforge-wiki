@@ -20,6 +20,8 @@ pnpm create-game --config /input/game.config.json --keywords /input/keywords.jso
 - [关键词与内容工作流](docs/CONTENT_WORKFLOW.md)
 - [SEO 上线检查](docs/SEO_CHECKLIST.md)
 - [Cloudflare Pages 部署](docs/DEPLOYMENT.md)
+- [来源与品牌隔离审计](docs/BRANDING_AUDIT.md)
+- [私有母版迁移方案（待单独授权）](docs/PRIVATE_TEMPLATE_MIGRATION.md)
 - [基线与实现说明](docs/GAMEFORGE_AUDIT.md)
 
 保留首页、分类、详情、Boss/Codes/Tier 组件、目录、图集、内链、面包屑、JSON-LD、Canonical、Sitemap、hreflang、搜索、广告位和同意管理。评论、广告、联盟推广、高级视频、分析和语言扩展默认关闭。
@@ -42,10 +44,11 @@ pnpm test:games     # 两个独立游戏站，测试后清理
 pnpm plan-content
 pnpm verify-game
 pnpm predeploy
+pnpm audit-branding # 可加 --peer-config /other/game.config.json
 ```
 
-母版根目录保留上游演示与宣传路由作为回归夹具。根目录构建不是正式游戏站。create-game 在独立输出中清除这些内容，生产 SEO 审计发现残留将失败。仓库 docs 和技能不通过游戏站路由发布。
+母版根目录保留上游演示与宣传路由作为回归夹具。根目录构建不是正式游戏站。create-game 在独立输出中清除这些内容，生产 SEO 审计发现残留将失败。母版 docs 和技能不复制到新站，演示图片重新生成；内部资料不进入 dist。软件与依赖授权完整保留在 LICENSE/licenses 并随 dist 分发，默认不显示母版推广页脚。
 
-独立站运行 tests/gameforge-site.test.ts 验证自身配置、证据与组件契约；宣传/示例契约属于母版回归套件，仍完整保留并运行。没有删除或跳过母版关键测试。
+独立站运行 gameforge-site、hardening、branding 三组可移植测试，验证自身配置、证据、安全、品牌及许可契约；宣传/示例契约属于母版回归套件，仍完整保留并运行。没有删除或跳过母版关键测试。
 
 基于 [PNGTRID/AnvilWiki](https://github.com/PNGTRID/AnvilWiki) 改造，感谢 PNGTRID 与贡献者。保留 [MIT License](LICENSE)、原始版权、依赖和字体许可证。开发与 PR 仅面向 [jjasnek-ops/gameforge-wiki](https://github.com/jjasnek-ops/gameforge-wiki)。

@@ -8,6 +8,7 @@
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { loadGame } from './lib/gameforge';
 import {
   indexNowKeyFileName,
   loadLocalEnv,
@@ -37,7 +38,7 @@ console.log(`[IndexNow] Wrote dist/${filename} (source: ${found.source})`);
 // it as a tiny no-sitemap marker so the post-CI workflow can distinguish the
 // NEW deployment from the previous one before reading the production sitemap.
 const commitSha = process.env.CF_PAGES_COMMIT_SHA?.trim();
-if (commitSha) {
+if (commitSha && !loadGame()) {
   if (!/^[0-9a-f]{40}$/i.test(commitSha)) {
     throw new Error('CF_PAGES_COMMIT_SHA must be a 40-character Git SHA when set.');
   }

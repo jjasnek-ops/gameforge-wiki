@@ -5,13 +5,39 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { createHash } from 'node:crypto';
+import { createServer } from 'node:http';
+import { pathToFileURL } from 'node:url';
 import { stringify } from 'yaml';
 import { walkFiles } from './lib/walk';
 import { runScript, runPnpm } from './lib/run';
 import { articles, loadGame } from './lib/gameforge';
+import { auditBranding, NOTICE_FILES } from './lib/branding';
+import { BRAND_ASSETS } from './lib/branding-policy';
 
 const root = process.cwd();
 const require = createRequire(import.meta.url);
+async function queryRealSearch(site: string, brand: string) {
+  const dist = path.resolve(site, 'dist');
+  const server = createServer((req, res) => {
+    const file = path.resolve(dist, '.' + new URL(req.url!, 'http://localhost').pathname);
+    if (!file.startsWith(dist + path.sep)) { res.writeHead(403).end(); return; }
+    try { res.end(fs.readFileSync(file)); } catch { res.writeHead(404).end(); }
+  });
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  const address = server.address();
+  assert(address && typeof address !== 'string');
+  let search: any;
+  try {
+    const api = await import(pathToFileURL(path.join(dist, 'pagefind/pagefind.js')).href);
+    search = api.createInstance({ basePath: `http://127.0.0.1:${address.port}/pagefind/` });
+    const result = await search.search('fictional');
+    assert(result.results.length >= 2, 'Actual generated WASM search must return the published fixture articles');
+    for (const hit of result.results) assert((await hit.data()).meta.title.includes(brand), 'Search results must use this game identity');
+  } finally {
+    if (search) await search.destroy();
+    await new Promise<void>(resolve => server.close(() => resolve()));
+  }
+}
 function expectGateFailure(site: string, script: string, message: string) {
   const result = spawnSync(process.execPath, [require.resolve('tsx/cli'), path.join(site, script)], { cwd: site, encoding: 'utf8' });
   assert.notEqual(result.status, 0);
@@ -25,16 +51,29 @@ function motherHash() {
 const before = motherHash();
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'gameforge-sites-'));
 const reports: unknown[] = [];
+const artwork: Array<Record<string, string>> = [];
+const previousCommit = process.env.CF_PAGES_COMMIT_SHA;
+process.env.CF_PAGES_COMMIT_SHA = '1234567890abcdef1234567890abcdef12345678';
 try {
   for (const type of ['roblox', 'steam']) {
     const fixture = path.join(root, 'fixtures/games', type), site = path.join(scratch, type);
     runScript(root, 'scripts/create-game.ts', ['--config', path.join(fixture, 'game.config.json'), '--keywords', path.join(fixture, 'keywords.json'), '--facts', path.join(fixture, 'facts.json'), '--out', site]);
-    for (const excluded of ['tools', 'fixtures', '.zcode', '.dev.vars', '.env.local', 'docs/superpowers', 'scripts/test-games.ts']) assert(!fs.existsSync(path.join(site, excluded)), `Unsafe/unrelated copied path: ${excluded}`);
+    for (const excluded of ['tools', 'fixtures', '.zcode', '.dev.vars', '.env.local', 'docs', '.agent', 'AGENTS.md', 'src/assets', 'src/lib/handbook.ts', 'scripts/test-games.ts', 'scripts/create-game.ts', 'scripts/apply-template.ts', 'scripts/template-audit.ts']) assert(!fs.existsSync(path.join(site, excluded)), `Unsafe/unrelated copied path: ${excluded}`);
     assert(fs.existsSync(path.join(site, '.githooks/pre-commit')));
     const wrangler = fs.readFileSync(path.join(site, 'wrangler.toml'), 'utf8');
     assert(wrangler.includes('pages_build_output_dir = "dist"'));
     assert(!/CLOUDFLARE_API_TOKEN|CF_API_TOKEN/.test(wrangler));
     const game = loadGame(site)!;
+    const peer = loadGame(path.join(root, 'fixtures/games', type === 'steam' ? 'roblox' : 'steam'))!;
+    const branding = () => {
+      const result = auditBranding(site, loadGame(site)!, [peer]);
+      assert.deepEqual(result.errors, [], 'Actual output must have only its own identity and intact licenses');
+      return result;
+    };
+    branding();
+    assert.equal(fs.readFileSync(path.join(site, 'LICENSE'), 'utf8'), fs.readFileSync(path.join(root, 'LICENSE'), 'utf8'));
+    assert(!fs.existsSync(path.join(site, 'dist/.well-known/anvilwiki-deploy.txt')));
+    artwork.push(Object.fromEntries(BRAND_ASSETS.map(rel => [rel, createHash('sha256').update(fs.readFileSync(path.join(site, 'dist', rel))).digest('hex')])));
     const files = articles(site);
     assert(files.length >= 2);
     assert(files.every(a => a.data.draft === true));
@@ -53,6 +92,28 @@ try {
     game.navigation = [emptyCategory, ...game.navigation.filter(n => n !== emptyCategory)];
     fs.writeFileSync(path.join(site, 'game.config.json'), JSON.stringify(game));
     runPnpm(site, ['verify-game']);
+    branding();
+    await queryRealSearch(site, game.gameName);
+    runScript(site, 'scripts/audit-branding.ts', ['--peer-config', path.join(root, 'fixtures/games', type === 'steam' ? 'roblox' : 'steam', 'game.config.json')]);
+    for (const page of ['about', 'contact', 'copyright']) {
+      const html = fs.readFileSync(path.join(site, 'dist', page, 'index.html'), 'utf8');
+      assert(html.includes(game.siteName));
+      assert(!/submit a pull request|updated daily|volunteer-run/i.test(html));
+    }
+    assert(fs.readFileSync(path.join(site, 'dist/contact/index.html'), 'utf8').includes(`mailto:${game.contactEmail}`));
+    // The gate must reject real accidental public files, not just test strings.
+    const injected = path.join(site, 'dist/_astro/branding-leak.js');
+    fs.writeFileSync(injected, `/* AnvilWiki */ const foreignContact = ${JSON.stringify(peer.contactEmail)};`);
+    try { expectGateFailure(site, 'scripts/audit-branding.ts', 'Internal/demo identity'); }
+    finally { fs.unlinkSync(injected); }
+    const research = path.join(site, 'dist/internal-research.csv');
+    fs.writeFileSync(research, 'internal competitor research');
+    try { expectGateFailure(site, 'scripts/audit-branding.ts', 'not an approved deployment resource'); }
+    finally { fs.unlinkSync(research); }
+    const notice = path.join(site, 'dist/licenses/site-software.txt'), noticeRaw = fs.readFileSync(notice);
+    fs.writeFileSync(notice, 'Copyright replaced');
+    try { expectGateFailure(site, 'scripts/audit-branding.ts', 'altered legal notice'); }
+    finally { fs.writeFileSync(notice, noticeRaw); }
     // Mutate real built output: omission must fail even when every remaining
     // sitemap URL is otherwise valid. Restore before continuing verification.
     const sitemapFile = path.join(site, 'dist/sitemap-0.xml');
@@ -112,14 +173,16 @@ try {
       assert(detail.includes('hreflang="ja"'));
       assert(fs.existsSync(path.join(site, 'dist/ja/tags/動作確認/index.html')), 'Unicode tag route must be generated');
       assert(translatedMap.includes(encodeURIComponent('動作確認')), 'Sitemap must contain the encoded Unicode tag URL');
+      branding();
     }
     if (type === 'steam') {
       const configFile = path.join(site, 'game.config.json');
       const originalConfig = fs.readFileSync(configFile, 'utf8');
       const enabled = JSON.parse(originalConfig);
-      enabled.featureFlags = { ...enabled.featureFlags, analytics: true, adsense: true, comments: true };
+      enabled.featureFlags = { ...enabled.featureFlags, analytics: true, adsense: true, comments: true, affiliates: true };
+      enabled.branding = { showTemplateCredit: true };
       enabled.analytics = { ga4: 'G-FIXTURE123', cloudflareBeaconToken: '0123456789abcdef0123456789abcdef' };
-      enabled.advertising = { adsenseClient: 'ca-pub-1234567890', adsenseSlots: { sticky: '12345', sidebar: '12346', incontent: '12347' } };
+      enabled.advertising = { adsenseClient: 'ca-pub-1234567890', adsenseSlots: { sticky: '12345', sidebar: '12346', incontent: '12347' }, suggestions: [{ url: `${enabled.officialUrl}/support`, title: `${enabled.gameName} support`, cta: 'Learn more' }] };
       enabled.comments = { repo: 'fixture/test-only', repoId: 'fixture-repo', category: 'Fixture', categoryId: 'fixture-category' };
       fs.writeFileSync(configFile, JSON.stringify(enabled));
       try {
@@ -133,18 +196,26 @@ try {
         const detail = fs.readFileSync(path.join(site, 'dist', route, 'index.html'), 'utf8');
         assert(detail.includes('fixture-repo'), 'Comments must use configured public IDs');
         assert(detail.includes('data-ad-slot="12347"'), 'Configured ad slots must render');
+        assert(detail.includes(`${enabled.gameName} support`), 'Affiliate identity must come from the game config');
+        assert(html.includes('data-template-credit="true"'), 'Template credit requires explicit opt-in');
+        branding();
       } finally { fs.writeFileSync(configFile, originalConfig); }
       runPnpm(site, ['build']);
       runScript(site, 'scripts/check-seo.ts');
       const restored = fs.readFileSync(path.join(site, 'dist/index.html'), 'utf8');
       assert(!restored.includes('G-FIXTURE123') && !restored.includes('ca-pub-1234567890'));
+      assert(!restored.includes('data-template-credit="true"'));
+      branding();
     }
     assert.equal(motherHash(), before, 'Generation must not mutate mother config/content/assets');
-    reports.push({ fixture: type, independentDirectory: true, allGates: 'passed', draftAndPublishedRendering: true, noMotherMutation: true, seo: JSON.parse(fs.readFileSync(path.join(site, '.gameforge/seo-report.json'), 'utf8')) });
+    reports.push({ fixture: type, independentDirectory: true, allGates: 'passed', draftAndPublishedRendering: true, noMotherMutation: true, branding: branding(), distributedNotices: NOTICE_FILES, seo: JSON.parse(fs.readFileSync(path.join(site, '.gameforge/seo-report.json'), 'utf8')) });
   }
+  for (const rel of BRAND_ASSETS) assert.notEqual(artwork[0][rel], artwork[1][rel], `Two games must not reuse brand artwork: ${rel}`);
   fs.mkdirSync(path.join(root, '.gameforge'), { recursive: true });
   fs.writeFileSync(path.join(root, '.gameforge/generation-tests.json'), JSON.stringify(reports, null, 2) + '\n');
 } finally {
+  if (previousCommit === undefined) delete process.env.CF_PAGES_COMMIT_SHA;
+  else process.env.CF_PAGES_COMMIT_SHA = previousCommit;
   // Only remove the mkdtemp-owned directory, never a computed user output.
   if (path.dirname(scratch) !== os.tmpdir() || !path.basename(scratch).startsWith('gameforge-sites-')) throw new Error('Unexpected scratch target');
   fs.rmSync(scratch, { recursive: true, force: true });

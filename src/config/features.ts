@@ -10,3 +10,5 @@ export const homepageInfo: {
   facts: Array<{ label: string; value: string; sourceUrl: string }>;
   sourcesLabel: string;
 } = { intro: '', facts: [], sourcesLabel: 'Sources' };
+
+export const templateCredit = { enabled: false, label: '', url: '' };

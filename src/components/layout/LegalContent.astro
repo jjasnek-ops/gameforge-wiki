@@ -3,6 +3,10 @@
  * LegalContent — the shared body for each legal page.
  * Renders different content based on the `page` prop. English only (per PRD).
  */
+import { NAVIGATION_CONFIG } from '~/config/navigation';
+import { features, gameforgeEnabled } from '~/config/features';
+import { getUi } from '~/i18n/ui';
+import { defaultLocale } from '~/i18n/routing';
 import { site } from '~/config/site';
 
 interface Props {
@@ -11,10 +15,38 @@ interface Props {
 const { page } = Astro.props;
 const game = site.game.name;
 const year = new Date().getFullYear();
+const labels = getUi(defaultLocale).nav as Record<string, string>;
 ---
 
+{gameforgeEnabled && page === 'about' && <>
+  <p>{site.description}</p>
+  <p>{site.name} is an independent fan reference for {game} on {site.game.platform}. {site.legalNotice}</p>
+  <h2>Topics</h2>
+  <ul>{NAVIGATION_CONFIG.map(item => <li>{labels[item.key] ?? item.key}</li>)}</ul>
+  <h2>Corrections and contact</h2>
+  <p>For corrections or questions about this site, use the channels on the <a href="/contact/">contact page</a>.</p>
+</>}
+{gameforgeEnabled && page === 'contact' && <>
+  <p>Contact {site.name} through the channels below.</p>
+  <ul>
+    {site.contactEmail && <li><a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></li>}
+    {site.social.discord && <li><a href={site.social.discord} rel="noopener noreferrer">Community chat</a></li>}
+    {site.social.youtube && <li><a href={site.social.youtube} rel="noopener noreferrer">Video channel</a></li>}
+    {site.social.twitter && <li><a href={site.social.twitter} rel="noopener noreferrer">Social updates</a></li>}
+    {site.social.reddit && <li><a href={site.social.reddit} rel="noopener noreferrer">Community discussions</a></li>}
+  </ul>
+  {!site.contactEmail && !site.social.discord && !site.social.youtube && !site.social.twitter && !site.social.reddit && <p>No public contact channel is currently available.</p>}
+  <h2>Official game information</h2><p><a href={site.social.official} rel="noopener noreferrer">Game developer's official website</a>. This is separate from the wiki operator.</p>
+</>}
+{gameforgeEnabled && page === 'copyright' && <>
+  <h2>Editorial material</h2><p>Original editorial material is credited to {site.name} and the respective contributors. Third-party media and quotations retain their owners' rights.</p>
+  <h2>Game rights</h2><p>{game} and related trademarks and assets belong to their respective rights holders. This independent fan site claims no ownership of those rights.</p>
+  <h2>Software notices</h2><p>The software's original copyright and permission notices are preserved in the <a href="/licenses/site-software.txt">software license</a>. Additional dependency notices accompany the distributed software.</p>
+  <h2>Rights requests</h2><p>Use the <a href="/contact/">contact page</a> to report a rights concern with a precise description and the affected URL.</p>
+</>}
+
 {
-  page === 'about' && (
+  page === 'about' && !gameforgeEnabled && (
     <>
       <p>
         {site.name} is a fan-made community wiki dedicated to {game}, a {site.game.genre} on{' '}
@@ -69,31 +101,31 @@ const year = new Date().getFullYear();
         privacy policies:
       </p>
       <ul>
-        <li>
+        {(!gameforgeEnabled || features.adsense || features.adsterra) && <li>
           <strong>Advertising partners</strong> (e.g. Google AdSense, Adsterra) — may use cookies to
           serve relevant ads. You can opt out of personalized advertising via your browser settings.
-        </li>
-        <li>
+        </li>}
+        {(!gameforgeEnabled || features.analytics) && <li>
           <strong>Analytics</strong> (e.g. Google Analytics, Cloudflare Web Analytics) — GA may
           collect anonymized usage data such as page views and approximate location (cookie-based,
           loaded only after you accept the consent banner); Cloudflare Web Analytics is cookieless
           and collects aggregate page-view data.
-        </li>
+        </li>}
         <li>
           <strong>Cloudflare</strong> — our hosting provider, which may process basic request data
           for security and performance (and serve Web Analytics when enabled, see above).
         </li>
-        <li>
+        {(!gameforgeEnabled || features.comments) && <li>
           <strong>Comments</strong> (giscus, opt-in) — when the comment section is enabled,
           giscus.app loads an embedded GitHub view; viewing it exposes your IP address and browser
           info to that service, and signing in to comment is handled by GitHub under its own
           privacy policy.
-        </li>
-        <li>
+        </li>}
+        {(!gameforgeEnabled || features.advancedVideo) && <li>
           <strong>Embedded videos</strong> (YouTube) — pages with videos load thumbnail images
           from i.ytimg.com and, after you press play, the YouTube player from youtube-nocookie.com.
           Until you interact, no YouTube cookies are set.
-        </li>
+        </li>}
       </ul>
       <h2>Cookies</h2>
       <p>
@@ -117,6 +149,7 @@ const year = new Date().getFullYear();
     <>
       <p>By accessing {site.name}, you agree to the following terms of service.</p>
       <h2>Use of Content</h2>
+      {gameforgeEnabled && <p>These editorial terms do not replace the separate software licenses and third-party rights listed on the <a href="/copyright/">copyright page</a>.</p>}
       <p>
         All guides, articles, and reference material on this site are provided for personal,
         non-commercial use. You may not copy, republish, or redistribute our content without
@@ -154,7 +187,7 @@ const year = new Date().getFullYear();
 }
 
 {
-  page === 'copyright' && (
+  page === 'copyright' && !gameforgeEnabled && (
     <>
       <h2>Copyright Notice</h2>
       <p>
@@ -184,7 +217,7 @@ const year = new Date().getFullYear();
 }
 
 {
-  page === 'contact' && (
+  page === 'contact' && !gameforgeEnabled && (
     <>
       {/* h2, not h1 — LegalPage already renders the page H1 (single-H1 rule). */}
       <h2>Contact {site.name}</h2>

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { identityValues } from './branding';
 import { articles, loadGame, type GameConfig, loadFacts } from './gameforge';
 import { rewriteSiteTs, rewriteLocaleJson, buildLocaleLabels, buildUiImports, buildUiMessagesEntries, UI_IMPORT_BLOCK_RE, UI_MESSAGES_BLOCK_RE, tsEscape, parseSiteTsIdentity, type SkinInput } from './apply-rewrites';
 
@@ -35,9 +36,23 @@ export function configureGame(root = process.cwd()) {
   const prefix = site.slice(0, blockStart);
   site = prefix + site.slice(blockStart).replace(/name: '[^\n]*',/, () => `name: '${tsEscape(g.siteName)}',`)
     .replace(/contactEmail: '[^\n]*',/, () => `contactEmail: '${tsEscape(g.contactEmail ?? '')}',`)
-    .replace(/  social: \{[\s\S]*?\n  \},/, () => `  social: {\n${[['official', g.officialUrl], ['discord', g.discordUrl], ['youtube', g.youtubeUrl]].filter(([, value]) => value).map(([field, value]) => `    ${field}: '${tsEscape(value!)}',`).join('\n')}\n  },`)
+    .replace(/  social: \{[\s\S]*?\n  \},/, () => `  social: {\n${[['official', g.officialUrl], ['discord', g.discordUrl], ['youtube', g.youtubeUrl], ['twitter', g.twitterUrl], ['reddit', g.redditUrl]].filter(([, value]) => value).map(([field, value]) => `    ${field}: '${tsEscape(value!)}',`).join('\n')}\n  },`)
     .replace(/  sameAs: \[[\s\S]*?\],\n/, '');
+  // No publisher/contact metadata survives from a previous game.
+  const objectStart = site.indexOf('export const site: SiteConfig');
+  site = site.slice(0, objectStart) + site.slice(objectStart).replace(/  defaultAuthor: '[^\n]*',\n/g, '').replace(/  ogImageWidth:/, () => `  defaultAuthor: '${tsEscape(g.siteName)}',\n  ogImageWidth:`);
   write('src/config/site.ts', site);
+  write('src/config/affiliates.ts', read('src/config/affiliates.ts').replace(/export const affiliates: AffiliateConfig = \{[\s\S]*?\n\};/, () => `export const affiliates: AffiliateConfig = ${JSON.stringify({ suggestions: g.advertising.suggestions }, null, 2)};`));
+  const values = identityValues(g);
+  const identityFile = '.gameforge/identity-values.json';
+  const retiredValuesFile = '.gameforge/retired-brand-values.json';
+  const previous: string[] = fs.existsSync(path.join(root, identityFile)) ? JSON.parse(read(identityFile)) : [];
+  const priorRetired: string[] = fs.existsSync(path.join(root, retiredValuesFile)) ? JSON.parse(read(retiredValuesFile)) : [];
+  write(retiredValuesFile, JSON.stringify([...new Set([...priorRetired, ...previous])].filter(v => v.length >= 8 && !values.includes(v))) + '\n');
+  write(identityFile, JSON.stringify(values) + '\n');
+  write('src/config/project.ts', `// Independent site; no template marketing routes.\nexport const landingLinkEnabled = false;\nexport const landingLink = { href: '/', label: '', ariaLabel: '' } as const;\nexport const zhLandingLink = { label: '', href: '/' } as const;\nexport const demoRootGateway = { target: '/', linkLabel: '', title: ${JSON.stringify(g.siteName)}, description: ${JSON.stringify(g.description)} } as const;\n`);
+  if (fs.existsSync(path.join(root, 'public/_headers'))) write('public/_headers', read('public/_headers').replace(/# Deployment synchronization[\s\S]*?(?=# Ad unit pages)/, ''));
+
   write('src/config/navigation.ts', read('src/config/navigation.ts').replace(
     /export const NAVIGATION_CONFIG: NavigationItem\[\] = \[[\s\S]*?\];/,
     () => `export const NAVIGATION_CONFIG: NavigationItem[] = [\n${g.navigation.map(n => `  { key: '${n.key}', path: '/${n.key}', icon: '${n.icon}', isContentType: true },`).join('\n')}\n];`,
@@ -100,7 +115,7 @@ export function configureGame(root = process.cwd()) {
     write(file, JSON.stringify(ui, null, 2) + '\n');
     fs.mkdirSync(path.join(root, 'src/content/wiki', lang), { recursive: true });
   }
-  write('src/config/features.ts', `// Generated from game.config.json. Do not edit.\nexport const gameforgeEnabled = true;\nexport const features = ${JSON.stringify(g.featureFlags, null, 2)};\nexport const homepageInfo: { intro: string; heroImage?: string; heroAlt?: string; facts: Array<{label: string; value: string; sourceUrl: string}>; sourcesLabel: string } = ${JSON.stringify({ intro: g.homepage.intro, heroImage: g.homepage.heroImage, heroAlt: g.homepage.heroAlt, sourcesLabel: 'Sources', facts: g.homepage.facts.map(f => ({ label: f.label, value: f.value, sourceUrl: facts.find(s => s.id === f.sourceId)?.url ?? '' })) }, null, 2)};\nexport const indexedLanguages: string[] = ${JSON.stringify([g.defaultLanguage, ...g.translatedLanguages])};\n`);
+  write('src/config/features.ts', `// Generated from game.config.json. Do not edit.\nexport const gameforgeEnabled = true;\nexport const features = ${JSON.stringify(g.featureFlags, null, 2)};\nexport const homepageInfo: { intro: string; heroImage?: string; heroAlt?: string; facts: Array<{label: string; value: string; sourceUrl: string}>; sourcesLabel: string } = ${JSON.stringify({ intro: g.homepage.intro, heroImage: g.homepage.heroImage, heroAlt: g.homepage.heroAlt, sourcesLabel: 'Sources', facts: g.homepage.facts.map(f => ({ label: f.label, value: f.value, sourceUrl: facts.find(s => s.id === f.sourceId)?.url ?? '' })) }, null, 2)};\nexport const indexedLanguages: string[] = ${JSON.stringify([g.defaultLanguage, ...g.translatedLanguages])};\nexport const templateCredit = ${JSON.stringify({ enabled: g.branding.showTemplateCredit, label: 'Built with GameForge Wiki', url: 'https://github.com/jjasnek-ops/gameforge-wiki' })};\n`);
   write('public/manifest.json', JSON.stringify({ ...JSON.parse(read('public/manifest.json')), name: g.siteName, short_name: g.shortName, description: g.description, theme_color: g.themeColor }, null, 2) + '\n');
   const vars = integrationVars(g);
   write('wrangler.toml', `# Generated from game.config.json. Public IDs only; no secrets.\nname = ${JSON.stringify(g.domain.replace(/\./g, '-'))}\ncompatibility_date = "2026-10-01"\npages_build_output_dir = "dist"\n\n[vars]\n${Object.entries(vars).map(([k, v]) => `${k} = ${JSON.stringify(v)}`).join('\n')}\n`);
@@ -110,6 +125,7 @@ export function configureGame(root = process.cwd()) {
 export function integrationVars(g: GameConfig): Record<string, string> {
   const f = g.featureFlags;
   const vars: Record<string, string> = {
+    PUBLIC_SPONSOR_URL: f.affiliates ? g.advertising.sponsorUrl ?? '' : '', PUBLIC_SPONSOR_IMAGE_URL: f.affiliates ? g.advertising.sponsorImageUrl ?? '' : '',
     SITE_URL: `https://${g.domain}`, PUBLIC_GA_ID: f.analytics ? g.analytics.ga4 ?? '' : '',
     PUBLIC_CF_BEACON_TOKEN: f.analytics ? g.analytics.cloudflareBeaconToken ?? '' : '', PUBLIC_GSC_VERIFICATION: g.analytics.gscVerification ?? '',
     PUBLIC_ADSENSE_CLIENT: f.adsense ? g.advertising.adsenseClient ?? '' : '',

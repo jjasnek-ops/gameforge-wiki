@@ -25,11 +25,12 @@ export const gameSchema = z.object({
     try { return new URL(`https://${v}`).host === v && !v.includes(':') && v.includes('.'); } catch { return false; }
   }, 'Use a bare hostname without protocol, port, path or trailing slash'),
   description: text.min(40).max(165), platform: text, genre: text, developer: text,
-  releaseDate: date.optional(), officialUrl: url, discordUrl: url.optional(), youtubeUrl: url.optional(),
+  releaseDate: date.optional(), officialUrl: url, discordUrl: url.optional(), youtubeUrl: url.optional(), twitterUrl: url.optional(), redditUrl: url.optional(),
   contactEmail: z.email().optional(), themeColor: text.regex(/^#[0-9a-fA-F]{6}$/),
   defaultLanguage: locale.default('en'), supportedLanguages: z.array(locale).min(1),
   translatedLanguages: z.array(locale).default([]),
   navigation: z.array(z.object({ key, label: text, icon: text.regex(/^lucide:[a-z0-9-]+$/).default('lucide:book-open') }).strict()).min(1).max(8),
+  branding: z.object({ showTemplateCredit: z.boolean().default(false) }).strict().prefault({}),
   featureFlags: z.object({
     comments: z.boolean().default(false), adsense: z.boolean().default(false), adsterra: z.boolean().default(false),
     affiliates: z.boolean().default(false), advancedVideo: z.boolean().default(false),
@@ -37,6 +38,8 @@ export const gameSchema = z.object({
   }).strict().prefault({}),
   analytics: z.object({ ga4: z.string().regex(/^G-[A-Z0-9]+$/).optional(), cloudflareBeaconToken: z.string().regex(/^(?:[a-f0-9]{32}|[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12})$/i, 'Use only the public Web Analytics beacon ID, never an API token').optional(), gscVerification: text.optional() }).strict().prefault({}),
   advertising: z.object({
+    sponsorUrl: url.optional(), sponsorImageUrl: url.optional(),
+    suggestions: z.array(z.object({ url, title: text, description: text.optional(), cta: text.optional(), categories: z.array(key).optional() }).strict()).max(2).default([]),
     adsenseClient: z.string().regex(/^ca-pub-\d+$/).optional(),
     adsenseSlots: z.object({ sticky: text.optional(), sidebar: text.optional(), incontent: text.optional() }).strict().prefault({}),
     adsterraSlots: z.partialRecord(z.enum(['SIDEBAR_300X250', 'INCONTENT_728X90', 'NATIVE_BANNER', 'SIDEBAR_160X300', 'SIDEBAR_160X600', 'STICKY_320X50']), text).default({}),

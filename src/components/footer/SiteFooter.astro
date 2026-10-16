@@ -3,6 +3,7 @@
  * Site footer — social links, legal links, copyright.
  * All text comes from locale JSON (footer.* namespace).
  */
+import { templateCredit } from '~/config/features';
 import { Icon } from 'astro-icon/components';
 import { site } from '~/config/site';
 import { type Locale } from '~/i18n/routing';
@@ -36,7 +37,7 @@ const legalLinks: Array<keyof typeof footer> = ['about', 'faq', 'privacyPolicy',
       {/* Brand */}
       <div>
         <div class="flex items-center gap-2 font-bold">
-          <Icon name="lucide:hammer" class="h-6 w-6 text-nav" />
+          <img src="/favicon.svg" alt={site.name} width="24" height="24" class="h-6 w-6" />
           <span>{site.name}</span>
         </div>
         <p class="mt-2 text-sm text-muted-foreground">{site.tagline}</p>
@@ -105,6 +106,7 @@ const legalLinks: Array<keyof typeof footer> = ['about', 'faq', 'privacyPolicy',
       {footer.copyrightText && (
         <p class="text-xs text-muted-foreground">{footer.copyrightText}</p>
       )}
+      {templateCredit.enabled && <p class="text-xs text-muted-foreground"><a data-template-credit="true" href={templateCredit.url} rel="noopener noreferrer">{templateCredit.label}</a></p>}
       {site.legalNotice && <p class="text-xs text-muted-foreground">{site.legalNotice}</p>}
     </div>
   </div>
